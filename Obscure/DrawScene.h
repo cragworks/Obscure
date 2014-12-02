@@ -44,6 +44,7 @@
     Sound *sound;
     Sound *soundSfx;
     NSMutableArray *lines;
+    //test
 }
 
 @end
