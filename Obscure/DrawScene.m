@@ -14,7 +14,8 @@
     CGPoint topRight;
     CGPoint bottomRight;
     CGPoint bottomLeft;
-
+    
+    int health; //3 2 1 0
     //the SKShapeNode which will overlay the rectangle
     SKShapeNode *fourSidedFigure;
     Sound* soundPlayer;
@@ -54,18 +55,7 @@ int seconds = 0;
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(finishedTakingAllScreenshots)
-                                                     name:@"finishedTakingAllScreenshots"
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(receiveIfCameraSideIsBackAndUpdateIcon:)
-                                                     name:@"receiveIfCameraSideIsBackAndUpdateIcon"
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(receiveRectangleObjectCoordinates:)
-                                                     name:@"sendRectangleObjectCGPoints"
-                                                   object:nil];
+        [self initNSNotifications];
         
         [self setVariables];
     }
@@ -73,10 +63,10 @@ int seconds = 0;
 }
 
 -(void)setVariables{
-    topLeft = CGPointMake(100,300);
-    topRight = CGPointMake(200,300);
-    bottomRight = CGPointMake(200,200);
-    bottomLeft = CGPointMake(100,200);
+    topLeft = CGPointMake(300,200);
+    topRight = CGPointMake(400,200);
+    bottomRight = CGPointMake(400,100);
+    bottomLeft = CGPointMake(300,100);
     
     sound = [[Sound alloc] init];
     soundSfx = [[Sound alloc] init];
@@ -614,5 +604,21 @@ int seconds = 0;
         
     }
     
+}
+
+-(void)initNSNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(finishedTakingAllScreenshots)
+                                                 name:@"finishedTakingAllScreenshots"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveIfCameraSideIsBackAndUpdateIcon:)
+                                                 name:@"receiveIfCameraSideIsBackAndUpdateIcon"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveRectangleObjectCoordinates:)
+                                                 name:@"sendRectangleObjectCGPoints"
+                                               object:nil];
 }
 @end
