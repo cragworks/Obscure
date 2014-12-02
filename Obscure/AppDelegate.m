@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "DrawScene.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ViewController *test = [[ViewController alloc]     initWithNibName:@"ViewController" bundle:nil];
+    self.window.rootViewController = test;
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    int screenWidth = screenRect.size.width;
+    int screenHeight = screenRect.size.height;
+    SKView * skView = [[SKView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    skView.showsFPS = NO;
+    skView.showsNodeCount = NO;
+    SKScene *clothesScene = [DrawScene sceneWithSize:skView.bounds.size];
+    clothesScene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    [test setView:skView];
+    skView.allowsTransparency = NO; //change to YES later
+    clothesScene.backgroundColor = [UIColor clearColor];
+    [skView presentScene:clothesScene];
+    
     return YES;
 }
 

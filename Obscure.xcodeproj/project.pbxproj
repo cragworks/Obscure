@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434556EC1A2E750D0064FDD9 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EB1A2E750D0064FDD9 /* Sound.m */; };
+		434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EE1A2E754C0064FDD9 /* DrawScene.m */; };
+		434556F11A2E75C40064FDD9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434556F01A2E75C40064FDD9 /* SpriteKit.framework */; };
 		438951A31A21C1D7006A86BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A21A21C1D7006A86BE /* main.m */; };
 		438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A51A21C1D7006A86BE /* AppDelegate.m */; };
 		438951A91A21C1D7006A86BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A81A21C1D7006A86BE /* ViewController.m */; };
@@ -27,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		434556EB1A2E750D0064FDD9 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		434556ED1A2E754C0064FDD9 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
+		434556EE1A2E754C0064FDD9 /* DrawScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawScene.m; sourceTree = "<group>"; };
+		434556F01A2E75C40064FDD9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		4389519D1A21C1D7006A86BE /* Obscure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obscure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438951A11A21C1D7006A86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438951A21A21C1D7006A86BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434556F11A2E75C40064FDD9 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,7 @@
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
+				434556F01A2E75C40064FDD9 /* SpriteKit.framework */,
 				4389519F1A21C1D7006A86BE /* Obscure */,
 				438951B91A21C1D8006A86BE /* ObscureTests */,
 				4389519E1A21C1D7006A86BE /* Products */,
@@ -85,6 +95,10 @@
 				438951A51A21C1D7006A86BE /* AppDelegate.m */,
 				438951A71A21C1D7006A86BE /* ViewController.h */,
 				438951A81A21C1D7006A86BE /* ViewController.m */,
+				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
+				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
+				434556EA1A2E750D0064FDD9 /* Sound.h */,
+				434556EB1A2E750D0064FDD9 /* Sound.m */,
 				438951AA1A21C1D7006A86BE /* Main.storyboard */,
 				438951AD1A21C1D7006A86BE /* Images.xcassets */,
 				438951AF1A21C1D7006A86BE /* LaunchScreen.xib */,
@@ -219,9 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
 				438951A91A21C1D7006A86BE /* ViewController.m in Sources */,
 				438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */,
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
+				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +428,7 @@
 				438951C21A21C1D8006A86BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		438951C31A21C1D8006A86BE /* Build configuration list for PBXNativeTarget "ObscureTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +437,7 @@
 				438951C51A21C1D8006A86BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
