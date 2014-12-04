@@ -79,8 +79,7 @@ int seconds = 0;
         [sound playSoundForever:@"duck_hunt_2"];
     
     //make screenshot buttons appear
-    //[self setVariableButtons];
-    
+    [self setVariableButtons];
 }
 
 //touched the screen
