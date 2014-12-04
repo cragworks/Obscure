@@ -33,7 +33,7 @@
     
     [test setView:skView];
     skView.allowsTransparency = NO; //change to YES later
-    clothesScene.backgroundColor = [UIColor clearColor];
+//    clothesScene.backgroundColor = [UIColor clearColor];
     [skView presentScene:clothesScene];
     
     return YES;
