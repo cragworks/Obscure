@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31E3556D1A3018AB00197ED6 /* cat1.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E355681A3018AB00197ED6 /* cat1.png */; };
+		31E3556E1A3018AB00197ED6 /* cat2.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E355691A3018AB00197ED6 /* cat2.png */; };
+		31E3556F1A3018AB00197ED6 /* cat3.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E3556A1A3018AB00197ED6 /* cat3.png */; };
+		31E355701A3018AB00197ED6 /* teethmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E3556B1A3018AB00197ED6 /* teethmarks.png */; };
+		31E355711A3018AB00197ED6 /* teethmarkscat.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E3556C1A3018AB00197ED6 /* teethmarkscat.png */; };
 		434556EC1A2E750D0064FDD9 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EB1A2E750D0064FDD9 /* Sound.m */; };
 		434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EE1A2E754C0064FDD9 /* DrawScene.m */; };
 		434556F11A2E75C40064FDD9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434556F01A2E75C40064FDD9 /* SpriteKit.framework */; };
@@ -41,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31E355681A3018AB00197ED6 /* cat1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat1.png; sourceTree = "<group>"; };
+		31E355691A3018AB00197ED6 /* cat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat2.png; sourceTree = "<group>"; };
+		31E3556A1A3018AB00197ED6 /* cat3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat3.png; sourceTree = "<group>"; };
+		31E3556B1A3018AB00197ED6 /* teethmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teethmarks.png; sourceTree = "<group>"; };
+		31E3556C1A3018AB00197ED6 /* teethmarkscat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teethmarkscat.png; sourceTree = "<group>"; };
 		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		434556EB1A2E750D0064FDD9 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		434556ED1A2E754C0064FDD9 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
@@ -112,6 +122,11 @@
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
+				31E355681A3018AB00197ED6 /* cat1.png */,
+				31E355691A3018AB00197ED6 /* cat2.png */,
+				31E3556A1A3018AB00197ED6 /* cat3.png */,
+				31E3556B1A3018AB00197ED6 /* teethmarks.png */,
+				31E3556C1A3018AB00197ED6 /* teethmarkscat.png */,
 				434556F01A2E75C40064FDD9 /* SpriteKit.framework */,
 				4389519F1A21C1D7006A86BE /* Obscure */,
 				438951B91A21C1D8006A86BE /* ObscureTests */,
@@ -259,12 +274,17 @@
 				4345571B1A2E805C0064FDD9 /* duck.png in Resources */,
 				434557131A2E805C0064FDD9 /* button_clear_2@2x.png in Resources */,
 				4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */,
+				31E3556E1A3018AB00197ED6 /* cat2.png in Resources */,
 				4345571C1A2E805C0064FDD9 /* duck2.png in Resources */,
+				31E3556F1A3018AB00197ED6 /* cat3.png in Resources */,
 				434557191A2E805C0064FDD9 /* duck_hunt_bg.png in Resources */,
 				434557161A2E805C0064FDD9 /* button_switch_camera_pressed_2@2x.png in Resources */,
 				434557151A2E805C0064FDD9 /* button_switch_camera_2@2x.png in Resources */,
 				434557141A2E805C0064FDD9 /* button_clear_pressed_2@2x.png in Resources */,
+				31E355711A3018AB00197ED6 /* teethmarkscat.png in Resources */,
 				438951B11A21C1D7006A86BE /* LaunchScreen.xib in Resources */,
+				31E355701A3018AB00197ED6 /* teethmarks.png in Resources */,
+				31E3556D1A3018AB00197ED6 /* cat1.png in Resources */,
 				438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */,
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
