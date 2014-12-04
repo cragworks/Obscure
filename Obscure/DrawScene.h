@@ -25,6 +25,8 @@
 
 @interface DrawScene : SKScene
 {
+    SKSpriteNode *monster;
+    
     CGFloat screenWidth;
     CGFloat screenHeight;
     

@@ -36,7 +36,8 @@ int seconds = 0;
         //update the detected rectangle's 4 points
         [self requestRectangleObjectCoordinates];
         //draw the background
-        [self drawBg];
+        //[self drawBg];
+        [self drawCombatUI];
         
         //print the rectangle coordinates
         NSLog(@"Detected Rectangle's 4 pts (x,y):");
@@ -54,9 +55,11 @@ int seconds = 0;
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
+        [self setBackgroundColor:[UIColor whiteColor]];
         [self initNSNotifications];
         [self coreMotionSetVariables];
         [self setVariables];
+        
     }
     return self;
 }
@@ -75,7 +78,8 @@ int seconds = 0;
     else
         [sound playSoundForever:@"duck_hunt_2"];
     
-    [self setVariableButtons];
+    //make screenshot buttons appear
+    //[self setVariableButtons];
     
 }
 
@@ -150,6 +154,61 @@ int seconds = 0;
     [self addChild:fourSidedFigure];
 }
 
+-(void)drawCombatUI
+{
+    //grid overlay
+    SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
+    [overlay setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [overlay setSize:CGSizeMake(screenWidth, screenHeight)];
+    [overlay setZPosition:-2];
+    
+    //ui decal
+    SKSpriteNode *decal = [SKSpriteNode spriteNodeWithImageNamed:@"ui-Decal.png"];
+    [decal setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [decal setSize:CGSizeMake(screenWidth, screenHeight)];
+    [decal setZPosition:-1];
+    
+    //pause button
+    SKSpriteNode *pause = [SKSpriteNode spriteNodeWithImageNamed:@"pause-button.png"];
+    float pause_height = pause.size.height*0.6;
+    float pause_width = pause.size.width*0.6;
+    [pause setPosition:CGPointMake(screenWidth-pause_width, screenHeight-pause_height)];
+    [pause setSize:CGSizeMake(pause_width, pause_height)];
+    [pause setZPosition:-1];
+    
+    //target cross hair
+    SKSpriteNode *crosshair = [SKSpriteNode spriteNodeWithImageNamed:@"targetcrosshair.png"];
+        // to be changed to position of monster. this is just to test
+    [crosshair setPosition:CGPointMake(screenWidth/3, screenHeight/3)];
+    [crosshair setSize:CGSizeMake(crosshair.size.width*0.5, crosshair.size.height*0.5)];
+    [crosshair setZPosition:-1];
+    
+    //katana
+    SKSpriteNode *katana = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana.png"];
+    [katana setPosition:CGPointMake(screenWidth-175, screenHeight-337)];
+    [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
+    [katana setZPosition:-1];
+
+    //[overlay setSize: CGPointMake(100, 100)];
+    [self addChild:overlay];
+    [self addChild:decal];
+    [self addChild:pause];
+    [self addChild:crosshair];
+    [self addChild:katana];
+}
+
+-(void)beingAttackedAnimation
+{
+    //warning symbol
+    SKSpriteNode *warning = [SKSpriteNode spriteNodeWithImageNamed:@"Warning-Symbol.png"];
+    [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
+    [warning setZPosition:-1];
+    
+    [self addChild:warning];
+
+}
+
 //Make a duck, give it a spritesheet, give it animation, give it sound
 -(void)makeDuckFlyUpRight
 {
@@ -197,6 +256,37 @@ int seconds = 0;
     [alien3D setScale:0.25];
     [self addChild:alien3D];
 }
+
+-(void)didMoveToView:(SKView *)view {
+    monster = [SKSpriteNode spriteNodeWithImageNamed:@"cat1"];
+    [monster setName:@"cat1"];
+    [monster setSize:CGSizeMake(75, 75)];
+    [monster setPosition:CGPointMake(arc4random() % 400, 0)];
+    [self addChild:monster];
+    
+    SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
+    SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.25];
+    SKAction* jumpDown1 = [SKAction moveBy:CGVectorMake(-35, -20) duration:0.5];
+    SKAction* jumpUp2 = [SKAction moveBy:CGVectorMake(35, 10) duration:0.25];
+    SKAction* jumpDown2 = [SKAction moveBy:CGVectorMake(55, -55) duration:0.5];
+    SKAction* jumpUp3 = [SKAction moveBy:CGVectorMake(-65, 20) duration:0.25];
+    SKAction* jumpDown3 = [SKAction moveBy:CGVectorMake(-30, -35) duration:0.5];
+    SKAction* jumpUp4 = [SKAction moveBy:CGVectorMake(-45, 15) duration:0.25];
+    SKAction* jumpDown4 = [SKAction moveBy:CGVectorMake(-20, -50) duration:0.5];
+    SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.25];
+    SKAction* jumpDown5 = [SKAction moveBy:CGVectorMake(10, -35) duration:0.5];
+    SKAction* resizeOut = [SKAction resizeByWidth:150 height:150 duration:7];
+    NSArray* array = [[NSArray alloc] initWithObjects:start, jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
+    SKAction* together = [SKAction sequence:array];
+    [monster runAction:together];
+    [monster runAction:resizeOut];
+    SKTexture * monster1 = [SKTexture textureWithImageNamed:@"cat1"];
+    SKTexture * monster2 = [SKTexture textureWithImageNamed:@"cat2"];
+    NSArray * runTexture = @[monster1, monster2];
+    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:5 resize:NO restore:NO];
+    [monster runAction:runAnimation];
+}
+
 
 
 
@@ -311,6 +401,7 @@ int seconds = 0;
     float rotationScale = 75;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = -(rotation.x*rotationScale);
+    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y - xDelta)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
