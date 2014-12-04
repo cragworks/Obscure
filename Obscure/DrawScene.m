@@ -158,8 +158,8 @@ int seconds = 0;
     CGPoint center = CGPointMake((topLeft.x+topRight.x)/2, (topLeft.y + bottomLeft.y)/2);
     SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
     [overlay setPosition:center];
-    [overlay setSize:CGSizeMake(800, 500)];
-    [overlay setZPosition:-1];
+    [overlay setSize:CGSizeMake(800, 450)];
+    [overlay setZPosition:-2];
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
     
