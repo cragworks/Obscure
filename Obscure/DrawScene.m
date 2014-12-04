@@ -36,7 +36,8 @@ int seconds = 0;
         //update the detected rectangle's 4 points
         [self requestRectangleObjectCoordinates];
         //draw the background
-        [self drawBg];
+        //[self drawBg];
+        [self drawCombatUI];
         
         //print the rectangle coordinates
         NSLog(@"Detected Rectangle's 4 pts (x,y):");
@@ -157,7 +158,8 @@ int seconds = 0;
     CGPoint center = CGPointMake((topLeft.x+topRight.x)/2, (topLeft.y + bottomLeft.y)/2);
     SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
     [overlay setPosition:center];
-    [overlay setSize:CGSizeMake(1000, 500)];
+    [overlay setSize:CGSizeMake(800, 500)];
+    [overlay setZPosition:-1];
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
     
