@@ -206,45 +206,30 @@ int seconds = 0;
     monster = [SKSpriteNode spriteNodeWithImageNamed:@"cat1"];
     [monster setName:@"cat1"];
     [monster setSize:CGSizeMake(75, 75)];
-    [monster setPosition:CGPointMake((arc4random()) + 1.0f, (arc4random()) + 1.0f)];
+    [monster setPosition:CGPointMake(arc4random() % 400, 0)];
     [self addChild:monster];
     
-    SKAction* start = [SKAction moveTo:CGPointMake(monster.position.x - 150, monster.position.y + 70) duration:1];
-    SKAction* jumpUp1 = [SKAction moveTo:CGPointMake(monster.position.x - 50, monster.position.y + 115) duration:0.25];
-    SKAction* jumpDown1 = [SKAction moveTo:CGPointMake(monster.position.x - 15, monster.position.y + 95) duration:0.5];
-    SKAction* jumpUp2 = [SKAction moveTo:CGPointMake(monster.position.x + 20, monster.position.y + 105) duration:0.25];
-    SKAction* jumpDown2 = [SKAction moveTo:CGPointMake(monster.position.x + 75, monster.position.y + 50) duration:0.5];
-    SKAction* jumpUp3 = [SKAction moveTo:CGPointMake(monster.position.x + 10, monster.position.y + 70) duration:0.25];
-    SKAction* jumpDown3 = [SKAction moveTo:CGPointMake(monster.position.x - 20, monster.position.y + 35) duration:0.5];
-    SKAction* jumpUp4 = [SKAction moveTo:CGPointMake(monster.position.x - 65, monster.position.y + 50) duration:0.25];
-    SKAction* jumpDown4 = [SKAction moveTo:CGPointMake(monster.position.x - 85, monster.position.y) duration:0.5];
-    SKAction* jumpUp5 = [SKAction moveTo:CGPointMake(monster.position.x - 10, monster.position.y + 15) duration:0.25];
-    SKAction* jumpDown5 = [SKAction moveTo:CGPointMake(monster.position.x, (topLeft.y + bottomLeft.y)/2 - 20) duration:0.5];
-    SKAction* resizeOut = [SKAction resizeByWidth:125 height:125 duration:7];
+    SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
+    SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.25];
+    SKAction* jumpDown1 = [SKAction moveBy:CGVectorMake(-35, -20) duration:0.5];
+    SKAction* jumpUp2 = [SKAction moveBy:CGVectorMake(35, 10) duration:0.25];
+    SKAction* jumpDown2 = [SKAction moveBy:CGVectorMake(55, -55) duration:0.5];
+    SKAction* jumpUp3 = [SKAction moveBy:CGVectorMake(-65, 20) duration:0.25];
+    SKAction* jumpDown3 = [SKAction moveBy:CGVectorMake(-30, -35) duration:0.5];
+    SKAction* jumpUp4 = [SKAction moveBy:CGVectorMake(-45, 15) duration:0.25];
+    SKAction* jumpDown4 = [SKAction moveBy:CGVectorMake(-20, -50) duration:0.5];
+    SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.25];
+    SKAction* jumpDown5 = [SKAction moveBy:CGVectorMake(10, -35) duration:0.5];
+    SKAction* resizeOut = [SKAction resizeByWidth:150 height:150 duration:7];
     NSArray* array = [[NSArray alloc] initWithObjects:start, jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
     [monster runAction:resizeOut];
-}
-
--(void)sittingAround
-{
-    
-}
-
--(void)seesYou
-{
-    SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"cat1"];
-    SKTexture * monsterEvil1 = [atlas textureNamed:@"cat2"];
-    NSArray * runTexture = @[monsterEvil1];
-    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:1 resize:NO restore:NO];
-    [monster runAction:[SKAction repeatActionForever:runAnimation]];
-    SKAction* resizeOut = [SKAction resizeByWidth:300 height:300 duration:2];
-    SKAction* resizeIn = [SKAction resizeByWidth:200 height:200 duration:2];
-    NSArray* array = [[NSArray alloc] initWithObjects:resizeOut, resizeIn, nil];
-    SKAction* together = [SKAction sequence:array];
-    [monster runAction:[SKAction repeatActionForever:together]];
-    
+    SKTexture * monster1 = [SKTexture textureWithImageNamed:@"cat1"];
+    SKTexture * monster2 = [SKTexture textureWithImageNamed:@"cat2"];
+    NSArray * runTexture = @[monster1, monster2];
+    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:5 resize:NO restore:NO];
+    [monster runAction:runAnimation];
 }
 
 
@@ -362,6 +347,7 @@ int seconds = 0;
     float rotationScale = 75;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = -(rotation.x*rotationScale);
+    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y - xDelta)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
