@@ -206,6 +206,7 @@ int seconds = 0;
     [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
+    
     [self addChild:warning];
 
 }
