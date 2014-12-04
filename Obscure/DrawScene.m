@@ -19,6 +19,23 @@
     //the SKShapeNode which will overlay the rectangle
     SKShapeNode *fourSidedFigure;
     Sound* soundPlayer;
+    
+    int maxMonsterHP;
+    int currentMonsterHP;
+    float percentMonsterHP;
+    
+}
+
+- (CGFloat) updateMonsterHP{
+    percentMonsterHP = (float) currentMonsterHP/ (float) maxMonsterHP;
+    NSLog(@"%f", percentMonsterHP);
+    return (CGFloat) percentMonsterHP;
+}
+
+- (float) decreaseMonsterHP {
+    currentMonsterHP -= 10;
+    [self updateMonsterHP];
+    return currentMonsterHP;
 }
 
 //this function is the update loop
@@ -39,17 +56,25 @@ int seconds = 0;
         [self drawBg];
         
         //print the rectangle coordinates
+        /*
         NSLog(@"Detected Rectangle's 4 pts (x,y):");
         NSLog(@"TopLeft: (%i, %i)\n",(int)topLeft.x,(int)topLeft.y);
         NSLog(@"TopRight: (%i, %i)\n",(int)topRight.x,(int)topRight.y);
         NSLog(@"BottomRight: (%i, %i)\n",(int)bottomRight.x,(int)bottomLeft.y);
         NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
         NSLog(@"\n");
+         */
     }
 }
 
 -(id)initWithSize:(CGSize)size
 {
+    NSLog(@"hello");
+    maxMonsterHP = 100;
+    currentMonsterHP = maxMonsterHP;
+    [self updateMonsterHP];
+    
+    
     if (self = [super initWithSize:size]) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
@@ -161,6 +186,16 @@ int seconds = 0;
     SKSpriteNode *duck = [SKSpriteNode spriteNodeWithImageNamed:@"duck"];
     [duck setPosition:center];
     [self addChild:duck];
+    
+    //mine
+    MonsterHPBar * monsterHPBar = [MonsterHPBar new];
+    [self addChild:monsterHPBar];
+    [self decreaseMonsterHP];
+    NSLog(@"%f", [self updateMonsterHP]);
+    [monsterHPBar setHP:[self updateMonsterHP]];
+    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
+    
+    
     
     //spritesheet!
     //an atlas is a folder in the project
@@ -466,6 +501,8 @@ int seconds = 0;
 }
 -(void)setVariableButtons
 {
+    
+
     buttonClear = [SKSpriteNode spriteNodeWithImageNamed:@"button_clear_2"];
     [buttonClear setSize:CGSizeMake(100, 100)];
     [buttonClear setPosition:CGPointMake(buttonClear.size.width/2, buttonClear.size.height/2)];

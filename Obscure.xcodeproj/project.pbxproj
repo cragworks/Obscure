@@ -28,6 +28,8 @@
 		438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438951AD1A21C1D7006A86BE /* Images.xcassets */; };
 		438951B11A21C1D7006A86BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438951AF1A21C1D7006A86BE /* LaunchScreen.xib */; };
 		438951BD1A21C1D8006A86BE /* ObscureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951BC1A21C1D8006A86BE /* ObscureTests.m */; };
+		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
+		499D059D1A2E931E0071D5E4 /* monsterHP.png in Resources */ = {isa = PBXBuildFile; fileRef = 499D059C1A2E931E0071D5E4 /* monsterHP.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		438951B61A21C1D8006A86BE /* ObscureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObscureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		438951BB1A21C1D8006A86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438951BC1A21C1D8006A86BE /* ObscureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObscureTests.m; sourceTree = "<group>"; };
+		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
+		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
+		499D059C1A2E931E0071D5E4 /* monsterHP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = monsterHP.png; path = ../../Downloads/monsterHP.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,7 @@
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
+				499D059C1A2E931E0071D5E4 /* monsterHP.png */,
 				434556F01A2E75C40064FDD9 /* SpriteKit.framework */,
 				4389519F1A21C1D7006A86BE /* Obscure */,
 				438951B91A21C1D8006A86BE /* ObscureTests */,
@@ -138,6 +144,8 @@
 				438951A81A21C1D7006A86BE /* ViewController.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
+				499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */,
+				499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */,
 				434556EA1A2E750D0064FDD9 /* Sound.h */,
 				434556EB1A2E750D0064FDD9 /* Sound.m */,
 				438951AA1A21C1D7006A86BE /* Main.storyboard */,
@@ -265,6 +273,7 @@
 				434557151A2E805C0064FDD9 /* button_switch_camera_2@2x.png in Resources */,
 				434557141A2E805C0064FDD9 /* button_clear_pressed_2@2x.png in Resources */,
 				438951B11A21C1D7006A86BE /* LaunchScreen.xib in Resources */,
+				499D059D1A2E931E0071D5E4 /* monsterHP.png in Resources */,
 				438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */,
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
@@ -287,6 +296,7 @@
 			files = (
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
 				438951A91A21C1D7006A86BE /* ViewController.m in Sources */,
+				499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */,
 				438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */,
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
 				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
@@ -412,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Obscure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -422,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Obscure/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

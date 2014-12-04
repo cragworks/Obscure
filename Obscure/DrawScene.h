@@ -13,6 +13,7 @@
 #define btnMaxFadeAlpha 0.05
 
 #import "Sound.h"
+#import "MonsterHPBar.h"
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
