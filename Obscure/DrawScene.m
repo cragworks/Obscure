@@ -54,9 +54,8 @@ int seconds = 0;
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
-        
         [self initNSNotifications];
-        
+        [self coreMotionSetVariables];
         [self setVariables];
     }
     return self;
@@ -233,6 +232,91 @@ int seconds = 0;
 
 
 
+-(void)coreMotionSetVariables
+{
+    currentMaxAccelX = 0;
+    currentMaxAccelY = 0;
+    currentMaxAccelZ = 0;
+    
+    currentMaxRotX = 0;
+    currentMaxRotY = 0;
+    currentMaxRotZ = 0;
+    
+    self.motionManager = [[CMMotionManager alloc] init];
+    //self.motionManager.accelerometerUpdateInterval = .2;
+    self.motionManager.gyroUpdateInterval = .1;
+    
+    /*[self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+     withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+     [self outputAccelertionData:accelerometerData.acceleration];
+     if(error){
+     
+     NSLog(@"%@", error);
+     }
+     }];
+     */
+    
+    [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue]
+                                    withHandler:^(CMGyroData *gyroData, NSError *error) {
+                                        [self outputRotationData:gyroData.rotationRate];
+                                    }];
+    
+}
+
+-(void)outputAccelertionData:(CMAcceleration)acceleration
+{
+    
+    //self.accX.text = [NSString stringWithFormat:@" %.2fg",acceleration.x];
+    if(fabs(acceleration.x) > fabs(currentMaxAccelX))
+    {
+        currentMaxAccelX = acceleration.x;
+    }
+    //self.accY.text = [NSString stringWithFormat:@" %.2fg",acceleration.y];
+    if(fabs(acceleration.y) > fabs(currentMaxAccelY))
+    {
+        currentMaxAccelY = acceleration.y;
+    }
+    //self.accZ.text = [NSString stringWithFormat:@" %.2fg",acceleration.z];
+    if(fabs(acceleration.z) > fabs(currentMaxAccelZ))
+    {
+        currentMaxAccelZ = acceleration.z;
+    }
+    
+    //self.maxAccX.text = [NSString stringWithFormat:@" %.2f",currentMaxAccelX];
+    //self.maxAccY.text = [NSString stringWithFormat:@" %.2f",currentMaxAccelY];
+    //self.maxAccZ.text = [NSString stringWithFormat:@" %.2f",currentMaxAccelZ];
+    
+    
+}
+-(void)outputRotationData:(CMRotationRate)rotation
+{
+    
+    //    //self.rotX.text = [NSString stringWithFormat:@" %.2fr/s",rotation.x];
+    //    if(fabs(rotation.x)> fabs(currentMaxRotX))
+    //    {
+    //        currentMaxRotX = rotation.x;
+    //    }
+    //    //self.rotY.text = [NSString stringWithFormat:@" %.2fr/s",rotation.y];
+    //    if(fabs(rotation.y) > fabs(currentMaxRotY))
+    //    {
+    //        currentMaxRotY = rotation.y;
+    //    }
+    //    //self.rotZ.text = [NSString stringWithFormat:@" %.2fr/s",rotation.z];
+    //    if(fabs(rotation.z) > fabs(currentMaxRotZ))
+    //    {
+    //        currentMaxRotZ = rotation.z;
+    //    }
+    
+    //self.maxRotX.text = [NSString stringWithFormat:@" %.2f",currentMaxRotX];
+    //self.maxRotY.text = [NSString stringWithFormat:@" %.2f",currentMaxRotY];
+    //self.maxRotZ.text = [NSString stringWithFormat:@" %.2f",currentMaxRotZ];
+    
+    float rotationScale = 75;
+    const float xDelta = rotation.y*rotationScale;
+    const float yDelta = -(rotation.x*rotationScale);
+    
+    //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
+}
 
 //Request rectangle object coordinates
 -(void)requestRectangleObjectCoordinates
