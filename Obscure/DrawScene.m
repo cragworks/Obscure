@@ -152,6 +152,17 @@ int seconds = 0;
     [self addChild:fourSidedFigure];
 }
 
+-(void)drawCombatUI
+{
+    CGPoint center = CGPointMake((topLeft.x+topRight.x)/2, (topLeft.y + bottomLeft.y)/2);
+    SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
+    [overlay setPosition:center];
+    [overlay setSize:CGSizeMake(1000, 500)];
+    //[overlay setSize: CGPointMake(100, 100)];
+    [self addChild:overlay];
+    
+}
+
 //Make a duck, give it a spritesheet, give it animation, give it sound
 -(void)makeDuckFlyUpRight
 {
