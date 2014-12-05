@@ -400,7 +400,7 @@ int seconds = 0;
     float rotationScale = 75;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = -(rotation.x*rotationScale);
-    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y - xDelta)];
+    [monster setPosition:CGPointMake(monster.position.x + yDelta, 0)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
