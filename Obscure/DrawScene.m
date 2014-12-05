@@ -69,6 +69,8 @@ int seconds = 0;
         NSLog(@"\n");
          */
     }
+    if(seconds == 50)
+        [self stageCompleteAnimation];
 }
 
 -(id)initWithSize:(CGSize)size
@@ -225,7 +227,7 @@ int seconds = 0;
     [self addChild:katana];
 }
 
-//if player is being attacked by monster at low health
+//if player is being attacked by monster 
 -(void)beingAttackedAnimation
 {
     //warning symbol
@@ -284,6 +286,7 @@ int seconds = 0;
     
     SKAction* fadetowhite = [SKAction fadeInWithDuration:1];
     [fourSidedFigure runAction:fadetowhite];
+    [self addChild:fourSidedFigure];
 }
 
 //Make a duck, give it a spritesheet, give it animation, give it sound
