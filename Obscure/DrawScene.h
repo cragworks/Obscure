@@ -22,9 +22,12 @@
 #import <CoreImage/CoreImage.h>
 #import <QuartzCore/QuartzCore.h>
 #import <SceneKit/SceneKit.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface DrawScene : SKScene
 {
+    SKSpriteNode *monster;
+    
     CGFloat screenWidth;
     CGFloat screenHeight;
     
@@ -46,6 +49,16 @@
     Sound *soundSfx;
     NSMutableArray *lines;
     //test
+    
+    //coremotion stuff
+    double currentMaxAccelX;
+    double currentMaxAccelY;
+    double currentMaxAccelZ;
+    double currentMaxRotX;
+    double currentMaxRotY;
+    double currentMaxRotZ;
 }
+
+@property (strong, nonatomic) CMMotionManager *motionManager;
 
 @end
