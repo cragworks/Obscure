@@ -19,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     ViewController *test = [[ViewController alloc]     initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = test;
     
@@ -33,9 +35,10 @@
     
     [test setView:skView];
     skView.allowsTransparency = NO; //change to YES later
-//    clothesScene.backgroundColor = [UIColor clearColor];
+    //    clothesScene.backgroundColor = [UIColor clearColor];
     [skView presentScene:clothesScene];
     
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
