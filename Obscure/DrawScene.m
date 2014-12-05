@@ -69,8 +69,6 @@ int seconds = 0;
         NSLog(@"\n");
          */
     }
-    if(seconds == 50)
-        [self stageCompleteAnimation];
 }
 
 -(id)initWithSize:(CGSize)size
@@ -227,7 +225,7 @@ int seconds = 0;
     [self addChild:katana];
 }
 
-//if player is being attacked by monster 
+//if player is being attacked by monster
 -(void)beingAttackedAnimation
 {
     //warning symbol
@@ -235,9 +233,9 @@ int seconds = 0;
     [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
+
     
-    [self addChild:warning];
-    
+    /*
     //needed to make the SKShapeNode
     CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
     size_t numPoints = 5;
@@ -249,15 +247,22 @@ int seconds = 0;
     [fourSidedFigure setFillColor:[UIColor redColor]];
     //make rectangle transparent
     [fourSidedFigure setAlpha:0.1];
-    
+    */
     SKAction* flash = [SKAction fadeOutWithDuration:1];
+    
+    SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Warning-Symbol.jpg"];
+    [redflash setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [redflash setSize:CGSizeMake(screenWidth, screenHeight)];
+    
     [warning runAction:[SKAction repeatActionForever:flash]];
-    [fourSidedFigure runAction:[SKAction repeatActionForever:flash]];
+    [redflash runAction:[SKAction repeatActionForever:flash]];
+    //[fourSidedFigure runAction:[SKAction repeatActionForever:flash]];
     
     //make rectangle flash
     //[fourSidedFigure setAlpha:0.0];
     
-    [self addChild:fourSidedFigure];
+    [self addChild:warning];
+    [self addChild:redflash];
 }
 
 //if player loses level
@@ -279,7 +284,7 @@ int seconds = 0;
     
     //make SKShapeNode at the rectangle’s points and number of points (5)
     fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
-    //make the rect red
+    //make the rect white
     [fourSidedFigure setFillColor:[UIColor whiteColor]];
     //make rectangle transparent
     [fourSidedFigure setAlpha:0.0];

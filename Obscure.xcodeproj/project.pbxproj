@@ -37,6 +37,7 @@
 		49B4BD401A31614900C59D9B /* Warning-Symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD3A1A31614900C59D9B /* Warning-Symbol.png */; };
 		49B4BD411A31614900C59D9B /* weapon-katana.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD3B1A31614900C59D9B /* weapon-katana.png */; };
 		49B4BD431A31621800C59D9B /* monsterHP.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD421A31621800C59D9B /* monsterHP.png */; };
+		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		49B4BD3A1A31614900C59D9B /* Warning-Symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Warning-Symbol.png"; sourceTree = "<group>"; };
 		49B4BD3B1A31614900C59D9B /* weapon-katana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weapon-katana.png"; sourceTree = "<group>"; };
 		49B4BD421A31621800C59D9B /* monsterHP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monsterHP.png; sourceTree = "<group>"; };
+		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		ED8D25551A312432008212F4 /* combatUI */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */,
 				49B4BD361A31614900C59D9B /* combatUI-overlayfilter.png */,
 				49B4BD371A31614900C59D9B /* pause-button.png */,
 				49B4BD381A31614900C59D9B /* targetcrosshair.png */,
@@ -310,6 +313,7 @@
 				4345571C1A2E805C0064FDD9 /* duck2.png in Resources */,
 				434557191A2E805C0064FDD9 /* duck_hunt_bg.png in Resources */,
 				434557161A2E805C0064FDD9 /* button_switch_camera_pressed_2@2x.png in Resources */,
+				ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */,
 				434557151A2E805C0064FDD9 /* button_switch_camera_2@2x.png in Resources */,
 				434557141A2E805C0064FDD9 /* button_clear_pressed_2@2x.png in Resources */,
 				49B4BD3C1A31614900C59D9B /* combatUI-overlayfilter.png in Resources */,
