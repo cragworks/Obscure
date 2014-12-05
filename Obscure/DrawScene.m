@@ -79,8 +79,7 @@ int seconds = 0;
         [sound playSoundForever:@"duck_hunt_2"];
     
     //make screenshot buttons appear
-    //[self setVariableButtons];
-    
+    [self setVariableButtons];
 }
 
 //touched the screen
@@ -111,7 +110,6 @@ int seconds = 0;
     }
 }
 
-
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     
     NSArray *allTouches = [[event allTouches] allObjects];
@@ -121,7 +119,6 @@ int seconds = 0;
     
     [self touchesEndedButtons:loc :(NSSet *)touches :(UIEvent *)event];
 }
-
 
 //DRAW THE BACKGROUND OVER THE DETECTED RECTANGLE
 //THE RECTANGLE HAS 4 CGPoints
@@ -379,7 +376,6 @@ int seconds = 0;
                                     withHandler:^(CMGyroData *gyroData, NSError *error) {
                                         [self outputRotationData:gyroData.rotationRate];
                                     }];
-    
 }
 
 -(void)outputAccelertionData:(CMAcceleration)acceleration
