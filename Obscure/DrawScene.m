@@ -38,7 +38,7 @@ int seconds = 0;
         //draw the background
         //[self drawBg];
         [self drawCombatUI];
-        
+        [self beingAttackedAnimation];
         //print the rectangle coordinates
         NSLog(@"Detected Rectangle's 4 pts (x,y):");
         NSLog(@"TopLeft: (%i, %i)\n",(int)topLeft.x,(int)topLeft.y);
@@ -205,7 +205,36 @@ int seconds = 0;
     [warning setZPosition:-1];
     
     [self addChild:warning];
+    
+    //needed to make the SKShapeNode
+    CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
+    size_t numPoints = 5;
+    
+    
+    //make SKShapeNode at the rectangle’s points and number of points (5)
+    fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
+    //make the rect red
+    [fourSidedFigure setFillColor:[UIColor redColor]];
+    //make rectangle transparent
+    [fourSidedFigure setAlpha:0.1];
+    
+    SKAction* flash = [SKAction fadeOutWithDuration:1];
+    [warning runAction:[SKAction repeatActionForever:flash]];
+    [fourSidedFigure runAction:[SKAction repeatActionForever:flash]];
+    
+    //make rectangle flash
+    //[fourSidedFigure setAlpha:0.0];
+    
+    [self addChild:fourSidedFigure];
+}
 
+-(void)gameoverAnimation //*** WIP BY MICHELLE W. ***
+{
+    SKSpriteNode *staticgif;
+    staticgif = [SKSpriteNode spriteNodeWithImageNamed:@"tv-static-o.gif"];
+    [staticgif setSize:CGSizeMake(screenWidth, screenHeight)];
+    [staticgif setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [self addChild: staticgif];
 }
 
 //Make a duck, give it a spritesheet, give it animation, give it sound
