@@ -33,6 +33,9 @@
 }
 
 - (float) decreaseMonsterHP {
+    if (currentMonsterHP < 0) {
+        return 0;
+    }
     currentMonsterHP -= 10;
     [self updateMonsterHP];
     return currentMonsterHP;
@@ -273,11 +276,15 @@ int seconds = 0;
     
     //mine
     MonsterHPBar * monsterHPBar = [MonsterHPBar new];
+    [monsterHPBar setHP:[self updateMonsterHP]];
+    [monsterHPBar setScale:[self updateMonsterHP]];
+    NSLog(@"%f", [self updateMonsterHP]);
+    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
     [self addChild:monsterHPBar];
     [self decreaseMonsterHP];
-    NSLog(@"%f", [self updateMonsterHP]);
-    [monsterHPBar setHP:[self updateMonsterHP]];
-    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
+
+
+    
     
     
     
