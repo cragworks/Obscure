@@ -181,6 +181,7 @@ int seconds = 0;
     [self addChild:fourSidedFigure];
 }
 
+//displays UI
 -(void)drawCombatUI
 {
     //grid overlay
@@ -224,6 +225,7 @@ int seconds = 0;
     [self addChild:katana];
 }
 
+//if player is being attacked by monster at low health
 -(void)beingAttackedAnimation
 {
     //warning symbol
@@ -256,6 +258,7 @@ int seconds = 0;
     [self addChild:fourSidedFigure];
 }
 
+//if player loses level
 -(void)gameoverAnimation //*** WIP BY MICHELLE W. ***
 {
     SKSpriteNode *staticgif;
@@ -263,6 +266,24 @@ int seconds = 0;
     [staticgif setSize:CGSizeMake(screenWidth, screenHeight)];
     [staticgif setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [self addChild: staticgif];
+}
+
+//if player wins the level, play this animation
+-(void)stageCompleteAnimation
+{
+    //needed to make the SKShapeNode
+    CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
+    size_t numPoints = 5;
+    
+    //make SKShapeNode at the rectangle’s points and number of points (5)
+    fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
+    //make the rect red
+    [fourSidedFigure setFillColor:[UIColor whiteColor]];
+    //make rectangle transparent
+    [fourSidedFigure setAlpha:0.0];
+    
+    SKAction* fadetowhite = [SKAction fadeInWithDuration:1];
+    [fourSidedFigure runAction:fadetowhite];
 }
 
 //Make a duck, give it a spritesheet, give it animation, give it sound
