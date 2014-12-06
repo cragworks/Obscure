@@ -24,6 +24,7 @@
     {
         if (max == 1)
         {
+            image = [SKTexture textureWithImageNamed:@"health2"];
         }else if(max == 2)
         {
             image = [SKTexture textureWithImageNamed:@"health3"];

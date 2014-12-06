@@ -108,8 +108,7 @@ int seconds = 0;
     
     
     //setup Player HP
-    player = [HumanHPbar new];
-   
+    player = [[HumanHPbar alloc]init];
     [self addChild:player];
     
 }
@@ -223,8 +222,6 @@ int seconds = 0;
     [katana setZPosition:-1];
 
     
-    //setup Player HP
-    player = [[HumanHPbar alloc] init];
 
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
