@@ -314,14 +314,8 @@ int seconds = 0;
     
     
     [player humanwound];
-    
-    //mine
-    BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
-    if (!containMonsterHp) {
-        [self addChild:monsterHPBar];
-    }
 
-    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
+    //mine
     [monsterHPBar setHP:[self updateMonsterHP]];
     [monsterHPBar setScale:[self updateMonsterHP]];
  //   NSLog(@"%f", [self updateMonsterHP]);
@@ -377,6 +371,13 @@ int seconds = 0;
     [monster setSize:CGSizeMake(75, 75)];
     [monster setPosition:CGPointMake(arc4random() % 400, 0)];
     [self addChild:monster];
+    //mine
+    BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
+    if (!containMonsterHp) {
+        [self addChild:monsterHPBar];
+    }
+    NSLog(@"%f %f ", monster.position.x, monster.position.y);
+    [monsterHPBar setPosition:CGPointMake(monster.position.x, monster.position.y + 50)];
     
     SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
     SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.25];
@@ -394,6 +395,10 @@ int seconds = 0;
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
     [monster runAction:resizeOut];
+    
+    
+    [monsterHPBar runAction:together];
+
     SKTexture * monster1 = [SKTexture textureWithImageNamed:@"cat1"];
     SKTexture * monster2 = [SKTexture textureWithImageNamed:@"cat2"];
     NSArray * runTexture = @[monster1, monster2];

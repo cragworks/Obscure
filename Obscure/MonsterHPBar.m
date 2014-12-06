@@ -12,7 +12,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(100,20)];
+        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(75,20)];
         SKSpriteNode * sprite = [SKSpriteNode spriteNodeWithImageNamed:@"monsterHP.png"];
         [self addChild:sprite];
     }
