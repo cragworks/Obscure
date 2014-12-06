@@ -22,7 +22,7 @@
 
 - (CGFloat) updateMonsterHP{
     percentMonsterHP = (float) currentMonsterHP/ (float) maxMonsterHP;
-    NSLog(@"%f", percentMonsterHP);
+   // NSLog(@"%f", percentMonsterHP);
     return (CGFloat) percentMonsterHP;
 }
 
@@ -67,11 +67,9 @@ int seconds = 0;
 
 -(id)initWithSize:(CGSize)size
 {
-    NSLog(@"hello");
     maxMonsterHP = 100;
     currentMonsterHP = maxMonsterHP;
     [self updateMonsterHP];
-    
     
     if (self = [super initWithSize:size]) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -214,7 +212,9 @@ int seconds = 0;
     
     //setup Player HP
     player = [HumanHPbar new];
-
+    
+    //set up monster hp
+    monsterHPBar = [MonsterHPBar new];
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
     [self addChild:decal];
@@ -222,6 +222,7 @@ int seconds = 0;
     [self addChild:crosshair];
     [self addChild:katana];
     [self addChild:player];
+\
 }
 
 //if player is being attacked by monster
@@ -303,12 +304,15 @@ int seconds = 0;
     [self addChild:duck];
     
     //mine
-    MonsterHPBar * monsterHPBar = [MonsterHPBar new];
+    BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
+    if (!containMonsterHp) {
+        [self addChild:monsterHPBar];
+    }
+
+    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
     [monsterHPBar setHP:[self updateMonsterHP]];
     [monsterHPBar setScale:[self updateMonsterHP]];
-    NSLog(@"%f", [self updateMonsterHP]);
-    [monsterHPBar setPosition:CGPointMake(center.x, center.y - 50)];
-    [self addChild:monsterHPBar];
+ //   NSLog(@"%f", [self updateMonsterHP]);
     [self decreaseMonsterHP];
 
 

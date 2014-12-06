@@ -60,6 +60,7 @@
     double currentMaxRotZ;
     
     HumanHPbar * player;
+    MonsterHPBar * monsterHPBar;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;
