@@ -104,6 +104,7 @@ int seconds = 0;
     
     //setup Player HP
     player = [HumanHPbar new];
+   
     [self addChild:player];
     
 }
