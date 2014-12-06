@@ -13,6 +13,6 @@
     int max;
     SKSpriteNode * sprite;
 }
-- (void) heal:(CGFloat) hp;
-- (void) humanwound:(CGFloat) hp;
+- (void) heal;
+- (void) humanwound;
 @end

@@ -41,6 +41,7 @@
 		BC1F81791A327FD600D088CF /* health2.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1F81761A327FD600D088CF /* health2.png */; };
 		BC1F817A1A327FD600D088CF /* health3.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1F81771A327FD600D088CF /* health3.png */; };
 		BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F817C1A32800C00D088CF /* HumanHPbar.m */; };
+		BC1F817F1A32826C00D088CF /* health1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC1F817E1A32826C00D088CF /* health1.jpg */; };
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		BC1F81771A327FD600D088CF /* health3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health3.png; sourceTree = "<group>"; };
 		BC1F817B1A32800C00D088CF /* HumanHPbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanHPbar.h; sourceTree = "<group>"; };
 		BC1F817C1A32800C00D088CF /* HumanHPbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanHPbar.m; sourceTree = "<group>"; };
+		BC1F817E1A32826C00D088CF /* health1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = health1.jpg; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BC1F817E1A32826C00D088CF /* health1.jpg */,
 				BC1F81751A327FD600D088CF /* health0.png */,
 				BC1F81761A327FD600D088CF /* health2.png */,
 				BC1F81771A327FD600D088CF /* health3.png */,
@@ -332,6 +335,7 @@
 				ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */,
 				434557151A2E805C0064FDD9 /* button_switch_camera_2@2x.png in Resources */,
 				434557141A2E805C0064FDD9 /* button_clear_pressed_2@2x.png in Resources */,
+				BC1F817F1A32826C00D088CF /* health1.jpg in Resources */,
 				49B4BD3C1A31614900C59D9B /* combatUI-overlayfilter.png in Resources */,
 				499D05A21A315CFC0071D5E4 /* cat2.png in Resources */,
 				499D05A11A315CFC0071D5E4 /* cat1.png in Resources */,
