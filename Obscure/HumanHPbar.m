@@ -24,8 +24,6 @@
     {
         if (max == 1)
         {
-            SKTexture* health1 = [SKTexture textureWithImage:@"health1"];
-            [sprite setTexture:health1];
         }else if(max == 2)
         {
             sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health3"];
