@@ -63,6 +63,25 @@ int seconds = 0;
         NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
         NSLog(@"\n");
          */
+        
+        float maxX = 3000;
+        //if monster is  1000px x then move to -1000
+        if(monster.position.x > maxX)
+        {
+            [monster setPosition:CGPointMake(-maxX, monster.position.y)];
+        }
+        else if(monster.position.x < -maxX)
+        {
+            [monster setPosition:CGPointMake(maxX, monster.position.y)];
+        }
+        
+        //show degrees from 0 to 360
+        int degrees = 360 * (monster.position.x / maxX);
+        if(degrees < 0)
+        {
+            degrees += 360;
+        }
+        NSLog(@"DEGREES: %i \n",degrees);
     }
 }
 
