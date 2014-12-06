@@ -14,6 +14,7 @@
     SKSpriteNode * sprite;
     SKTexture* image;
 }
+@property SKSpriteNode* sprite;
 - (void) heal;
 - (void) humanwound;
 @end

@@ -11,8 +11,13 @@
 @implementation HumanHPbar
 - (id)init {
     if (self = [super init]) {
-         sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health3"];
-        [sprite setPosition:CGPointMake(70,280)];
+        
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health3"];
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        float screenWidth = screenRect.size.width;
+        float screenHeight = screenRect.size.height;
+        [sprite setPosition:CGPointMake(sprite.size.width, screenHeight-sprite.size.height)];
+        NSLog(@"%f,%f", screenWidth, screenHeight);
         max = 3;
         [self addChild:sprite];
     }

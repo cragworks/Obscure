@@ -109,6 +109,7 @@ int seconds = 0;
     
     //setup Player HP
     player = [[HumanHPbar alloc]init];
+    
     [self addChild:player];
     
     monster = [SKSpriteNode spriteNodeWithImageNamed:@"cat1"];
