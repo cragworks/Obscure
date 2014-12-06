@@ -9,5 +9,8 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface MonsterHPBar : SKCropNode
+
+- (id) initWithCustomSize:(CGSize)cgsize;
 - (void) setHP:(CGFloat) hp;
+
 @end

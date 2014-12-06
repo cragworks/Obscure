@@ -19,6 +19,15 @@
     return self;
 }
 
+- (id) initWithCustomSize:(CGSize)cgsize {
+    self = [super init];
+    if(self) {
+        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:cgsize];
+        SKSpriteNode * sprite = [SKSpriteNode spriteNodeWithImageNamed:@"monsterHP.png"];
+        [self addChild:sprite];
+    }
+    return self;
+}
 - (void) setHP:(CGFloat) hp {
     self.maskNode.xScale = hp;
 }
