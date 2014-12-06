@@ -102,6 +102,7 @@ int seconds = 0;
     //make screenshot buttons appear
     [self setVariableButtons];
     
+    monsterHPBar = [MonsterHPBar new];
     //setup Player HP
     player = [HumanHPbar new];
     [self addChild:player];
