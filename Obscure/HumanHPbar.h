@@ -12,6 +12,7 @@
 {
     int max;
     SKSpriteNode * sprite;
+    SKTexture* image;
 }
 - (void) heal;
 - (void) humanwound;
