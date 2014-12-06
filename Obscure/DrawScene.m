@@ -216,6 +216,9 @@ int seconds = 0;
     [katana setPosition:CGPointMake(screenWidth-175, screenHeight-337)];
     [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
     [katana setZPosition:-1];
+    
+    //setup Player HP
+    HumanHPbar * player = [HumanHPbar new];
 
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
@@ -223,6 +226,7 @@ int seconds = 0;
     [self addChild:pause];
     [self addChild:crosshair];
     [self addChild:katana];
+    [self addChild:player];
 }
 
 //if player is being attacked by monster

@@ -14,6 +14,7 @@
 
 #import "Sound.h"
 #import "MonsterHPBar.h"
+#import "HumanHPbar.h"
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
