@@ -58,6 +58,8 @@
     double currentMaxRotX;
     double currentMaxRotY;
     double currentMaxRotZ;
+    
+    HumanHPbar * player;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;

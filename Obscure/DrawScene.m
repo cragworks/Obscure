@@ -1,11 +1,5 @@
 #import "DrawScene.h"
 
-//4 functions you should look at:
-//drawBg - draw a background over the detected rectangle
-//makeDuck - makes a duck
-//update - called 1000 times a second to update detected rectangle coordinates and draw background
-//touchesBegan - touch screen to make a duck (makeDuck)
-
 //declare variables here!
 @implementation DrawScene
 {
@@ -115,6 +109,7 @@ int seconds = 0;
     NSArray *allTouches = [[event allTouches] allObjects];
     [self touchesBeganSettingButtons :allTouches];
     
+    [player humanwound];
     for (UITouch *touch in touches) {
         
         CGPoint location = [touch locationInNode:self];
@@ -218,7 +213,7 @@ int seconds = 0;
     [katana setZPosition:-1];
     
     //setup Player HP
-    HumanHPbar * player = [HumanHPbar new];
+    player = [HumanHPbar new];
 
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
@@ -254,7 +249,7 @@ int seconds = 0;
     */
     SKAction* flash = [SKAction fadeOutWithDuration:1];
     
-    SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Warning-Symbol.jpg"];
+    SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
     [redflash setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [redflash setSize:CGSizeMake(screenWidth, screenHeight)];
     
