@@ -18,6 +18,7 @@
     int currentMonsterHP;
     float percentMonsterHP;
     
+    
 }
 
 - (CGFloat) updateMonsterHP{
@@ -102,6 +103,11 @@ int seconds = 0;
     
     //make screenshot buttons appear
     [self setVariableButtons];
+    
+    //setup Player HP
+    player = [HumanHPbar new];
+    [self addChild:player];
+    
 }
 
 //touched the screen
@@ -109,7 +115,7 @@ int seconds = 0;
     NSArray *allTouches = [[event allTouches] allObjects];
     [self touchesBeganSettingButtons :allTouches];
     
-    [player humanwound];
+    
     for (UITouch *touch in touches) {
         
         CGPoint location = [touch locationInNode:self];
@@ -212,8 +218,7 @@ int seconds = 0;
     [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
     [katana setZPosition:-1];
     
-    //setup Player HP
-    player = [HumanHPbar new];
+    
 
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
@@ -221,7 +226,7 @@ int seconds = 0;
     [self addChild:pause];
     [self addChild:crosshair];
     [self addChild:katana];
-    [self addChild:player];
+    
 }
 
 //if player is being attacked by monster
@@ -301,6 +306,9 @@ int seconds = 0;
     SKSpriteNode *duck = [SKSpriteNode spriteNodeWithImageNamed:@"duck"];
     [duck setPosition:center];
     [self addChild:duck];
+    
+    
+    [player humanwound];
     
     //mine
     MonsterHPBar * monsterHPBar = [MonsterHPBar new];

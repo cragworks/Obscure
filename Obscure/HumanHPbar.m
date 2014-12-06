@@ -24,14 +24,15 @@
     {
         if (max == 1)
         {
-            sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health2"];
+            image = [SKTexture textureWithImageNamed:@"health2"];
         }else if(max == 2)
         {
-            sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health3"];
+            image = [SKTexture textureWithImageNamed:@"health3"];
         }else if(max ==0)
         {
-             sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health1"];
+             image = [SKTexture textureWithImageNamed:@"health1"];
         }
+        [sprite setTexture:image];
         max+=1;
     }
 }
@@ -41,14 +42,15 @@
     {
         if (max == 3)
         {
-            sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health2"];
+            image = [SKTexture textureWithImageNamed:@"health2"];
         }else if(max == 2)
         {
-            sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health1"];
+            image = [SKTexture textureWithImageNamed:@"health1"];
         }else if(max ==1)
         {
-            sprite = [SKSpriteNode spriteNodeWithImageNamed:@"health0"];
+            image = [SKTexture textureWithImageNamed:@"health0"];
         }
+        [sprite setTexture:image];
         max-=1;
     }
 }
