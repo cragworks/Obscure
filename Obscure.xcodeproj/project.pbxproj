@@ -42,6 +42,7 @@
 		BC1F817A1A327FD600D088CF /* health3.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1F81771A327FD600D088CF /* health3.png */; };
 		BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F817C1A32800C00D088CF /* HumanHPbar.m */; };
 		BCDBA9131A32A199003F58AC /* health1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9121A32A199003F58AC /* health1.png */; };
+		ED320C791A32A916000A39F2 /* reticule.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED320C781A32A916000A39F2 /* reticule.jpg */; };
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		BC1F817B1A32800C00D088CF /* HumanHPbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanHPbar.h; sourceTree = "<group>"; };
 		BC1F817C1A32800C00D088CF /* HumanHPbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanHPbar.m; sourceTree = "<group>"; };
 		BCDBA9121A32A199003F58AC /* health1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health1.png; sourceTree = "<group>"; };
+		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				ED320C781A32A916000A39F2 /* reticule.jpg */,
 				BCDBA9121A32A199003F58AC /* health1.png */,
 				BC1F81751A327FD600D088CF /* health0.png */,
 				BC1F81761A327FD600D088CF /* health2.png */,
@@ -345,6 +348,7 @@
 				49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */,
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */,
+				ED320C791A32A916000A39F2 /* reticule.jpg in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
 				49B4BD411A31614900C59D9B /* weapon-katana.png in Resources */,
 				BC1F817A1A327FD600D088CF /* health3.png in Resources */,

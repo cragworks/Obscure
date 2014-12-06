@@ -126,6 +126,22 @@ int seconds = 0;
         //make the SKSpritenode duck spawn when touch the screen
         [self makeDuckFlyUpRight];
     }
+    
+    
+    // Counterattack Reticule
+    if ([allTouches count] > 1)
+        return;
+    else{
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInNode:self];
+        NSLog(@"X: %f Y: %f", location.x, location.y);
+        if ([[self nodeAtPoint:location].name isEqualToString:reticule.name])
+        {
+            // If user touches the reticule, monster stops attacking
+            
+            
+        }
+    }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -242,6 +258,12 @@ int seconds = 0;
     [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
+    
+    //reticule symbol
+    SKSpriteNode *reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.jpg"];
+    [reticule setPosition:CGPointMake(screenWidth/2, screenHeight-25)];
+    [reticule setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
+    [reticule setZPosition:-1];
 
     
     /*
@@ -271,6 +293,7 @@ int seconds = 0;
     //[fourSidedFigure setAlpha:0.0];
     
     [self addChild:warning];
+    [self addChild:reticule];
     [self addChild:redflash];
 }
 

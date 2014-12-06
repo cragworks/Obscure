@@ -44,6 +44,8 @@
     SKSpriteNode *buttonTakeScreenshot;
     SKSpriteNode *buttonTakeScreenshotPressed;
     
+    SKSpriteNode *reticule;
+    
     Boolean stillTakingScreenshot;
     
     Sound *sound;
