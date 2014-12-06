@@ -213,7 +213,7 @@ int seconds = 0;
     [katana setZPosition:-1];
     
     //setup Player HP
-    player = [HumanHPbar new];
+    player = [[HumanHPbar alloc] init];
 
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
@@ -251,7 +251,7 @@ int seconds = 0;
     
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
     [redflash setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
-    [redflash setSize:CGSizeMake(screenWidth, screenHeight)];
+    [redflash setSize:CGSizeMake(screenWidth*2, screenHeight*2)];
     
     [warning runAction:[SKAction repeatActionForever:flash]];
     [redflash runAction:[SKAction repeatActionForever:flash]];
@@ -383,6 +383,8 @@ int seconds = 0;
     NSArray * runTexture = @[monster1, monster2];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:5 resize:NO restore:NO];
     [monster runAction:runAnimation];
+    
+    
 }
 
 
