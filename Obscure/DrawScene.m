@@ -103,7 +103,7 @@ int seconds = 0;
     [self setVariableButtons];
     
     //set up monster hp
-    monsterHPBar = [MonsterHPBar new];
+    monsterHPBar = [[MonsterHPBar alloc] initWithCustomSize:CGSizeMake(75, 20)];
     
     
     
