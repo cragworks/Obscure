@@ -12,13 +12,22 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(100,20)];
+        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(75,20)];
         SKSpriteNode * sprite = [SKSpriteNode spriteNodeWithImageNamed:@"monsterHP.png"];
         [self addChild:sprite];
     }
     return self;
 }
 
+- (id) initWithCustomSize:(CGSize)cgsize {
+    self = [super init];
+    if(self) {
+        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:cgsize];
+        SKSpriteNode * sprite = [SKSpriteNode spriteNodeWithImageNamed:@"monsterHP.png"];
+        [self addChild:sprite];
+    }
+    return self;
+}
 - (void) setHP:(CGFloat) hp {
     self.maskNode.xScale = hp;
 }
