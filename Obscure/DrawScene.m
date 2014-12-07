@@ -91,6 +91,8 @@ int seconds = 0;
         float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
         [radarCircle setPosition:CGPointMake(endX, endY)];
         NSLog(@"DEGREES: %i \n",degrees);
+        
+        [self winlosestatus];
     }
 }
 
@@ -381,11 +383,19 @@ int seconds = 0;
 //if player loses level
 -(void)gameoverAnimation //*** WIP BY MICHELLE W. ***
 {
-    SKSpriteNode *staticgif;
-    staticgif = [SKSpriteNode spriteNodeWithImageNamed:@"tv-static-o.gif"];
-    [staticgif setSize:CGSizeMake(screenWidth, screenHeight)];
-    [staticgif setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
-    [self addChild: staticgif];
+    SKSpriteNode *static1 = [SKSpriteNode spriteNodeWithImageNamed:@"15perc1.png"];
+    [static1 setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [static1 setSize:CGSizeMake(screenWidth, screenHeight)];
+    [self addChild:static1];
+    
+    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"staticdamage"];
+    SKTexture * static2 = [atlas textureNamed:@"15perc2.png"];
+    SKTexture * static3 = [atlas textureNamed:@"15perc3.png"];
+    SKTexture * static4 = [atlas textureNamed:@"15perc4.png"];
+    
+    NSArray * runTexture = @[static2,static3,static4, static3,static2];
+    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
+    [static1 runAction:[SKAction repeatActionForever:runAnimation]];
 }
 
 //if player wins the level, play this animation
@@ -475,6 +485,13 @@ int seconds = 0;
     
 }
 
+-(void)winlosestatus
+{
+    if(health == 0)
+        [self gameoverAnimation];
+    else if(currentMonsterHP == 0)
+        [self stageCompleteAnimation];
+}
 
 
 
