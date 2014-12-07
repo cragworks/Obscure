@@ -143,8 +143,17 @@ int seconds = 0;
     monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
     [monster setName:@"catmain1"];
     [monster setSize:CGSizeMake(50, 50)];
-    [monster setPosition:CGPointMake(arc4random() % 500, 250)];
+    int random = arc4random() % 500;
+    [monster setPosition:CGPointMake(random, 250)];
     [self addChild:monster];
+    
+    //reticule symbol
+    reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.png"];
+    [reticule setName:@"reticule"];
+    [reticule setPosition:CGPointMake(random, 250)];
+    [reticule setSize:CGSizeMake(25,25)];
+    [self addChild:reticule];
+    
     //mine
     BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
     if (!containMonsterHp) {
@@ -169,6 +178,9 @@ int seconds = 0;
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
     [monster runAction:resizeOut];
+    // Counterattack reticule target spawns with the monster and moves along with it
+    [reticule runAction:together];
+    
     
     
     [monsterHPBar runAction:together];
@@ -193,11 +205,13 @@ int seconds = 0;
 //touched the screen
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSArray *allTouches = [[event allTouches] allObjects];
+    UITouch *touch = [allTouches objectAtIndex:0];
+    CGPoint location = [touch locationInNode:self];
+    
     [self touchesBeganSettingButtons :allTouches];
     
     
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
         
         //make the SKSpritenode duck spawn when touch the screen
         [self makeDuckFlyUpRight];
@@ -208,13 +222,13 @@ int seconds = 0;
     if ([allTouches count] > 1)
         return;
     else{
-        UITouch *touch = [touches anyObject];
-        CGPoint location = [touch locationInNode:self];
         NSLog(@"X: %f Y: %f", location.x, location.y);
+        
+        // If user taps the reticule, monster stops attacking
         if ([[self nodeAtPoint:location].name isEqualToString:reticule.name])
         {
-            // If user touches the reticule, monster stops attacking
-            
+            NSLog(@"Testing....");
+            // INSERT MONSTER STOPPED ATTACKING HERE!!
             
         }
     }
@@ -332,12 +346,6 @@ int seconds = 0;
     [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
-    
-    //reticule symbol
-    SKSpriteNode *reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.jpg"];
-    [reticule setPosition:CGPointMake(screenWidth/2, screenHeight-25)];
-    [reticule setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
-    [reticule setZPosition:-1];
 
     
     /*
@@ -367,8 +375,7 @@ int seconds = 0;
     //[fourSidedFigure setAlpha:0.0];
     
     [self addChild:warning];
-    [self addChild:reticule];
-    [self addChild:redflash];
+//    [self addChild:redflash];
 }
 
 //if player loses level
