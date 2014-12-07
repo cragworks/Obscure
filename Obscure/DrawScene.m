@@ -63,35 +63,41 @@ int seconds = 0;
         NSLog(@"\n");
          */
         
-        float maxX = 1500;
-        //if monster is  3000px x then move to -3000 and vice versa
-        if(monster.position.x > maxX)
-        {
-            [monster setPosition:CGPointMake(-maxX, monster.position.y)];
-        }
-        else if(monster.position.x < -maxX)
-        {
-            [monster setPosition:CGPointMake(maxX, monster.position.y)];
-        }
-        
-        //show degrees from 0 to 360
-        int degrees = 360 * (monster.position.x / 3000);
-        if(degrees < 0)
-        {
-            degrees += 360;
-        }
-        
-        //move the circle to that degrees spot
-        //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
-        CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/8.5);
-        degrees *= -1;
-        float radius = 25;
-        float startAngle = 90;
-        float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
-        float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
-        [radarCircle setPosition:CGPointMake(endX, endY)];
-        NSLog(@"DEGREES: %i \n",degrees);
     }
+    
+    [self updateRadar];
+}
+
+-(void)updateRadar
+{
+    float maxX = 1500;
+    //if monster is  3000px x then move to -3000 and vice versa
+    if(monster.position.x > maxX)
+    {
+        [monster setPosition:CGPointMake(-maxX, monster.position.y)];
+    }
+    else if(monster.position.x < -maxX)
+    {
+        [monster setPosition:CGPointMake(maxX, monster.position.y)];
+    }
+    
+    //show degrees from 0 to 360
+    int degrees = 360 * (monster.position.x / 3000);
+    if(degrees < 0)
+    {
+        degrees += 360;
+    }
+    
+    //move the circle to that degrees spot
+    //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
+    CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/8.5);
+    degrees *= -1;
+    float radius = 25;
+    float startAngle = 125;
+    float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
+    float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
+    [radarCircle setPosition:CGPointMake(endX, endY)];
+    NSLog(@"DEGREES: %i \n",degrees);
 }
 
 -(id)initWithSize:(CGSize)size
@@ -104,7 +110,7 @@ int seconds = 0;
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
-        [self setBackgroundColor:[UIColor whiteColor]];
+        //[self setBackgroundColor:[UIColor whiteColor]];
         [self initNSNotifications];
         [self coreMotionSetVariables];
         [self setVariables];
@@ -188,6 +194,12 @@ int seconds = 0;
     [radarCircle setStrokeColor:[UIColor blackColor]];
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
+    
+    radarLine = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
+    [radarLine setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
+    [radarLine setStrokeColor:[UIColor blackColor]];
+    [radarLine setGlowWidth:2];
+    [self addChild:radarLine];
 }
 
 //touched the screen
@@ -579,9 +591,9 @@ int seconds = 0;
     //self.maxRotY.text = [NSString stringWithFormat:@" %.2f",currentMaxRotY];
     //self.maxRotZ.text = [NSString stringWithFormat:@" %.2f",currentMaxRotZ];
     
-    float rotationScale = 75;
+    float rotationScale = 50;
     const float xDelta = rotation.y*rotationScale;
-    const float yDelta = -(rotation.x*rotationScale);
+    const float yDelta = (rotation.x*rotationScale);
     [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
