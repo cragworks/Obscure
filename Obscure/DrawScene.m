@@ -134,7 +134,7 @@ int seconds = 0;
     monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
     [monster setName:@"catmain1"];
     [monster setSize:CGSizeMake(50, 50)];
-    [monster setPosition:CGPointMake(arc4random() % 600, 200)];
+    [monster setPosition:CGPointMake(arc4random() % 500, 250)];
     [self addChild:monster];
     //mine
     BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
@@ -568,7 +568,7 @@ int seconds = 0;
     float rotationScale = 75;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = -(rotation.x*rotationScale);
-    [monster setPosition:CGPointMake(monster.position.x + yDelta, 0)];
+    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y - xDelta)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
