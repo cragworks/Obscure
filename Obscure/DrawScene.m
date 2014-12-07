@@ -131,10 +131,10 @@ int seconds = 0;
     
     [self addChild:player];
     
-    monster = [SKSpriteNode spriteNodeWithImageNamed:@"cat1"];
-    [monster setName:@"cat1"];
-    [monster setSize:CGSizeMake(75, 75)];
-    [monster setPosition:CGPointMake(arc4random() % 400, 0)];
+    monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
+    [monster setName:@"catmain1"];
+    [monster setSize:CGSizeMake(50, 50)];
+    [monster setPosition:CGPointMake(arc4random() % 600, 200)];
     [self addChild:monster];
     //mine
     BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
@@ -144,19 +144,19 @@ int seconds = 0;
     NSLog(@"%f %f ", monster.position.x, monster.position.y);
     [monsterHPBar setPosition:CGPointMake(monster.position.x, monster.position.y + 50)];
     
-    SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
-    SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.25];
-    SKAction* jumpDown1 = [SKAction moveBy:CGVectorMake(-35, -20) duration:0.5];
-    SKAction* jumpUp2 = [SKAction moveBy:CGVectorMake(35, 10) duration:0.25];
+//    SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
+    SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.5];
+    SKAction* jumpDown1 = [SKAction moveBy:CGVectorMake(35, -20) duration:0.5];
+    SKAction* jumpUp2 = [SKAction moveBy:CGVectorMake(35, 10) duration:0.5];
     SKAction* jumpDown2 = [SKAction moveBy:CGVectorMake(55, -55) duration:0.5];
-    SKAction* jumpUp3 = [SKAction moveBy:CGVectorMake(-65, 20) duration:0.25];
+    SKAction* jumpUp3 = [SKAction moveBy:CGVectorMake(-65, 20) duration:0.5];
     SKAction* jumpDown3 = [SKAction moveBy:CGVectorMake(-30, -35) duration:0.5];
-    SKAction* jumpUp4 = [SKAction moveBy:CGVectorMake(-45, 15) duration:0.25];
+    SKAction* jumpUp4 = [SKAction moveBy:CGVectorMake(-45, 15) duration:0.5];
     SKAction* jumpDown4 = [SKAction moveBy:CGVectorMake(-20, -50) duration:0.5];
-    SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.25];
+    SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.5];
     SKAction* jumpDown5 = [SKAction moveBy:CGVectorMake(10, -35) duration:0.5];
-    SKAction* resizeOut = [SKAction resizeByWidth:150 height:150 duration:7];
-    NSArray* array = [[NSArray alloc] initWithObjects:start, jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
+    SKAction* resizeOut = [SKAction resizeByWidth:175 height:175 duration:6];
+    NSArray* array = [[NSArray alloc] initWithObjects:jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
     [monster runAction:resizeOut];
@@ -164,10 +164,14 @@ int seconds = 0;
     
     [monsterHPBar runAction:together];
     
-    SKTexture * monster1 = [SKTexture textureWithImageNamed:@"cat1"];
-    SKTexture * monster2 = [SKTexture textureWithImageNamed:@"cat2"];
-    NSArray * runTexture = @[monster1, monster2];
-    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:5 resize:NO restore:NO];
+    SKTexture * front1 = [SKTexture textureWithImageNamed:@"catmain1"];
+    SKTexture * front2 = [SKTexture textureWithImageNamed:@"catmain2"];
+    SKTexture * right1 = [SKTexture textureWithImageNamed:@"catright1"];
+    SKTexture * right2 = [SKTexture textureWithImageNamed:@"catright2"];
+    SKTexture * left1 = [SKTexture textureWithImageNamed:@"catleft1"];
+    SKTexture * left2 = [SKTexture textureWithImageNamed:@"catleft2"];
+    NSArray * runTexture = @[right2, right1, right1, right1, right2, right1, right1, right1, left2, left1, left1, left1,  left2, left1, left1, left1, right2, right1, right1, right1, front2, front1];
+    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.25 resize:NO restore:NO];
     [monster runAction:runAnimation];
 }
 
