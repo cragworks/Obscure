@@ -51,8 +51,6 @@ int seconds = 0;
         [self requestRectangleObjectCoordinates];
         //draw the background
         //[self drawBg];
-        [self drawCombatUI];
-        [self beingAttackedAnimation];
         //print the rectangle coordinates
         /*
         NSLog(@"Detected Rectangle's 4 pts (x,y):");
@@ -136,10 +134,11 @@ int seconds = 0;
     //make screenshot buttons appear
     [self setVariableButtons];
     
+    //make combat UI appear
+    [self drawCombatUI];
+    
     //set up monster hp
     monsterHPBar = [[MonsterHPBar alloc] initWithCustomSize:CGSizeMake(75, 20)];
-    
-    
     
     //setup Player HP
     player = [[HumanHPbar alloc]init];
