@@ -10,7 +10,9 @@
     CGPoint bottomRight;
     CGPoint bottomLeft;
     
-    int health; //3 2 1 0
+    //note by michelle: what is this for? variable not used...
+    //int health; //3 2 1 0
+    
     //the SKShapeNode which will overlay the rectangle
     SKShapeNode *fourSidedFigure;
     Sound* soundPlayer;
@@ -60,9 +62,8 @@ int seconds = 0;
         NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
         NSLog(@"\n");
          */
-        
+        [self winlosestatus];
     }
-    
     [self updateRadar];
 }
 
@@ -126,13 +127,17 @@ int seconds = 0;
     sound = [[Sound alloc] init];
     soundSfx = [[Sound alloc] init];
     
+    
+    //make duck quack
+    /*
     if((int)(arc4random()%2)==1)
         [sound playSoundForever:@"duck_hunt"];
     else
         [sound playSoundForever:@"duck_hunt_2"];
+    */
     
     //make screenshot buttons appear
-    [self setVariableButtons];
+    //[self setVariableButtons];
     
     //make combat UI appear
     [self drawCombatUI];
@@ -142,7 +147,6 @@ int seconds = 0;
     
     //setup Player HP
     player = [[HumanHPbar alloc]init];
-    
     [self addChild:player];
     
     monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
@@ -222,12 +226,14 @@ int seconds = 0;
     [self touchesBeganSettingButtons :allTouches];
     
     [self attack];
+    
+    /*duck functions
     for (UITouch *touch in touches) {
         
         //make the SKSpritenode duck spawn when touch the screen
         [self makeDuckFlyUpRight];
     }
-    
+    */
     
     // Counterattack Reticule
     if ([allTouches count] > 1)
@@ -496,9 +502,9 @@ int seconds = 0;
 
 -(void)winlosestatus
 {
-    if(health == 0)
+    if(player <= 0)
         [self gameoverAnimation];
-    else if(currentMonsterHP == 0)
+    else if(percentMonsterHP <= 0)
         [self stageCompleteAnimation];
 }
 
@@ -511,26 +517,38 @@ int seconds = 0;
     NSArray * textureleap = @[catstop, catleap];
     SKAction* runleap = [SKAction animateWithTextures:textureleap timePerFrame: 0.25 resize:NO restore:NO];
     //[monster runAction:runleap];
+    //SKAction* backleap = [
+    NSArray* wait2 = @[ catstop, catstop];
+    SKAction* wait = [SKAction animateWithTextures:wait2 timePerFrame:2 resize:NO restore:NO];
     
     
     
     [monster setScale:1];
-    //SKAction* leap2 = [SKAction moveTo:CGPointMake(screenWidth/2, 100) duration:1];
-    SKAction* leap2 = [SKAction moveToY:100 duration:1];
+    SKAction* leap2 = [SKAction moveToY:150 duration:1];
     SKAction* Bigger = [SKAction scaleTo:2 duration:1];
     NSArray* jump = @[leap2, Bigger];
     
+    
+    SKAction* leapback = [SKAction moveToY:200 duration:1];
+    SKAction* Smaller = [SKAction scaleTo:1 duration:1];
+    NSArray* jumpback = @[leapback, Smaller];
+    
     SKTexture * claws = [atlas textureNamed:@"catattack1"];
     SKTexture * attack = [atlas textureNamed:@"catattack15"];
+    
+    
     
     NSArray* Sample = @[claws, attack];
     SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.5 resize:NO restore:NO];
     
     
     
-    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1,  nil];
+    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, runleap, jumpback,wait ,  nil];
+    
     SKAction* together = [SKAction sequence:array];
-    [monster runAction:together];
+    SKAction* togetherforever = [SKAction repeatActionForever:together];
+    [monster runAction:togetherforever];
+    [player humanwound];
 }
 
 -(void)flash
