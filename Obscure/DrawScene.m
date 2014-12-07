@@ -94,9 +94,32 @@ int seconds = 0;
         degrees += 360;
     }
     
+    //the radar line
+    CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/7.75);
+    SKShapeNode *line = [SKShapeNode node];
+    float lineRadius = screenWidth/18;
+    CGMutablePathRef pathToDraw = CGPathCreateMutable();
+    float lineEndX = centerOfRadar.x + lineRadius * cos( DEGREES_RADIANS(lineAngle) );
+    float lineEndY = centerOfRadar.y + lineRadius * sin( DEGREES_RADIANS(lineAngle) );
+    CGPathMoveToPoint(pathToDraw, NULL, centerOfRadar.x, centerOfRadar.y);
+    CGPathAddLineToPoint(pathToDraw, NULL, lineEndX, lineEndY);
+    line.path = pathToDraw;
+    [line setStrokeColor:[UIColor redColor]];
+    [line setGlowWidth:2];
+    lineAngle+=5;
+    [self addChild:line];
+    [arcLines addObject:line];
+    //remove old lines
+    if(arcLines.count > 2)
+    {
+        for(int i = 0; i < arcLines.count - 2; i++)
+        {
+            [arcLines[i] removeFromParent];
+        }
+    }
+    
     //move the circle to that degrees spot
     //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
-    CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/8.5);
     degrees *= -1;
     float radius = 25;
     float startAngle = 125;
@@ -104,6 +127,7 @@ int seconds = 0;
     float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
     [radarCircle setPosition:CGPointMake(endX, endY)];
     NSLog(@"DEGREES: %i \n",degrees);
+    
 }
 
 -(id)initWithSize:(CGSize)size
@@ -126,6 +150,9 @@ int seconds = 0;
 }
 
 -(void)setVariables{
+    arcLines = [[NSMutableArray alloc] init];
+    lineAngle = 125;
+    
     topLeft = CGPointMake(300,200);
     topRight = CGPointMake(400,200);
     bottomRight = CGPointMake(400,100);
@@ -188,11 +215,6 @@ int seconds = 0;
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
     
-    radarLine = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
-    [radarLine setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
-    [radarLine setStrokeColor:[UIColor blackColor]];
-    [radarLine setGlowWidth:2];
-    [self addChild:radarLine];
 }
 
 -(void)didMoveToView:(SKView *)view {
