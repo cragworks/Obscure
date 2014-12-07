@@ -18,8 +18,6 @@
     int maxMonsterHP;
     int currentMonsterHP;
     float percentMonsterHP;
-    
-    
 }
 
 - (CGFloat) updateMonsterHP{
@@ -87,7 +85,7 @@ int seconds = 0;
         //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
         CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/8.5);
         degrees *= -1;
-        float radius = 30;
+        float radius = 25;
         float startAngle = 90;
         float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
         float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
@@ -584,7 +582,7 @@ int seconds = 0;
     float rotationScale = 75;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = -(rotation.x*rotationScale);
-    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y - xDelta)];
+    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
