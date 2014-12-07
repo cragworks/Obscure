@@ -183,13 +183,14 @@ int seconds = 0;
     SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.5];
     SKAction* jumpDown5 = [SKAction moveBy:CGVectorMake(10, -35) duration:0.5];
     SKAction* resizeOut = [SKAction resizeByWidth:175 height:175 duration:6];
+    SKAction* resizeOut2 = [SKAction resizeByWidth:45 height:45 duration:6];
     NSArray* array = [[NSArray alloc] initWithObjects:jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
     [monster runAction:resizeOut];
     // Counterattack reticule target spawns with the monster and moves along with it
     [reticule runAction:together];
-    
+    [reticule runAction:resizeOut2];
     
     
     [monsterHPBar runAction:together];

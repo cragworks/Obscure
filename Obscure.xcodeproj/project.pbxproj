@@ -34,6 +34,7 @@
 		438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A51A21C1D7006A86BE /* AppDelegate.m */; };
 		438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438951AD1A21C1D7006A86BE /* Images.xcassets */; };
 		438951BD1A21C1D8006A86BE /* ObscureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951BC1A21C1D8006A86BE /* ObscureTests.m */; };
+		43BF362E1A340C1A00101414 /* CAT.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 43BF362D1A340C1A00101414 /* CAT.atlas */; };
 		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
 		49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD381A31614900C59D9B /* targetcrosshair.png */; };
@@ -101,6 +102,7 @@
 		438951B61A21C1D8006A86BE /* ObscureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObscureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		438951BB1A21C1D8006A86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438951BC1A21C1D8006A86BE /* ObscureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObscureTests.m; sourceTree = "<group>"; };
+		43BF362D1A340C1A00101414 /* CAT.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = CAT.atlas; sourceTree = "<group>"; };
 		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
 		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
 		49B4BD371A31614900C59D9B /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				43BF362D1A340C1A00101414 /* CAT.atlas */,
 				EDA6D9231A34069E00A17E9C /* 15perc1.png */,
 				EDA6D9211A34067B00A17E9C /* staticdamage.atlas */,
 				ED320C7C1A33F89D000A39F2 /* reticule.png */,
@@ -368,6 +371,7 @@
 				438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */,
 				311687931A33D962006E078E /* catleft2.png in Resources */,
 				49B4BD3F1A31614900C59D9B /* ui-Decal.png in Resources */,
+				43BF362E1A340C1A00101414 /* CAT.atlas in Resources */,
 				311687961A33D962006E078E /* catright1.png in Resources */,
 				49B4BD431A31621800C59D9B /* monsterHP.png in Resources */,
 				49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */,
