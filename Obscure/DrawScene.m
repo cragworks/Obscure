@@ -207,7 +207,7 @@ int seconds = 0;
     NSArray *allTouches = [[event allTouches] allObjects];
     [self touchesBeganSettingButtons :allTouches];
     
-    
+    [self attack];
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
@@ -481,6 +481,49 @@ int seconds = 0;
 }
 
 
+
+-(void)attack
+{
+    SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"CAT"];
+    SKTexture * catstop = [atlas textureNamed:@"catmain1"];
+    SKTexture * catleap = [atlas textureNamed:@"catmain2"];
+    NSArray * textureleap = @[catstop, catleap];
+    SKAction* runleap = [SKAction animateWithTextures:textureleap timePerFrame: 0.25 resize:NO restore:NO];
+    //[monster runAction:runleap];
+    
+    
+    
+    [monster setScale:1];
+    //SKAction* leap2 = [SKAction moveTo:CGPointMake(screenWidth/2, 100) duration:1];
+    SKAction* leap2 = [SKAction moveToY:100 duration:1];
+    SKAction* Bigger = [SKAction scaleTo:2 duration:1];
+    NSArray* jump = @[leap2, Bigger];
+    
+    SKTexture * claws = [atlas textureNamed:@"catattack1"];
+    SKTexture * attack = [atlas textureNamed:@"catattack15"];
+    
+    NSArray* Sample = @[claws, attack];
+    SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.5 resize:NO restore:NO];
+    
+    
+    
+    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1,  nil];
+    SKAction* together = [SKAction sequence:array];
+    [monster runAction:together];
+}
+
+-(void)flash
+{
+    SKAction* flash = [SKAction fadeOutWithDuration:1];
+    
+    SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
+    [redflash setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [redflash setSize:CGSizeMake(screenWidth*2, screenHeight*2)];
+    
+    
+    [redflash runAction:[SKAction repeatActionForever:flash]];
+    [self addChild:redflash];
+}
 
 
 
