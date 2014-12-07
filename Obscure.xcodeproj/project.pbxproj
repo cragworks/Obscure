@@ -48,6 +48,8 @@
 		ED320C791A32A916000A39F2 /* reticule.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED320C781A32A916000A39F2 /* reticule.jpg */; };
 		ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */ = {isa = PBXBuildFile; fileRef = ED320C7C1A33F89D000A39F2 /* reticule.png */; };
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
+		EDA6D9221A34067B00A17E9C /* staticdamage.atlas in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9211A34067B00A17E9C /* staticdamage.atlas */; };
+		EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9231A34069E00A17E9C /* 15perc1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED320C7C1A33F89D000A39F2 /* reticule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reticule.png; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
+		EDA6D9211A34067B00A17E9C /* staticdamage.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = staticdamage.atlas; sourceTree = "<group>"; };
+		EDA6D9231A34069E00A17E9C /* 15perc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15perc1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EDA6D9231A34069E00A17E9C /* 15perc1.png */,
+				EDA6D9211A34067B00A17E9C /* staticdamage.atlas */,
 				ED320C7C1A33F89D000A39F2 /* reticule.png */,
 				3116878C1A33D961006E078E /* catleft1.png */,
 				3116878D1A33D961006E078E /* catleft2.png */,
@@ -341,6 +347,7 @@
 				434557131A2E805C0064FDD9 /* button_clear_2@2x.png in Resources */,
 				BC1F81791A327FD600D088CF /* health2.png in Resources */,
 				BC1F81781A327FD600D088CF /* health0.png in Resources */,
+				EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */,
 				4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */,
 				49B4BD401A31614900C59D9B /* Warning-Symbol.png in Resources */,
 				4345571C1A2E805C0064FDD9 /* duck2.png in Resources */,
@@ -366,6 +373,7 @@
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
 				ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */,
 				311687921A33D962006E078E /* catleft1.png in Resources */,
+				EDA6D9221A34067B00A17E9C /* staticdamage.atlas in Resources */,
 				49B4BD411A31614900C59D9B /* weapon-katana.png in Resources */,
 				BC1F817A1A327FD600D088CF /* health3.png in Resources */,
 			);
