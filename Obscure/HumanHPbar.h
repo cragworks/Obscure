@@ -10,11 +10,12 @@
 
 @interface HumanHPbar : SKScene
 {
-    int max;
+    int hp;
     SKSpriteNode * sprite;
     SKTexture* image;
 }
 @property SKSpriteNode* sprite;
 - (void) heal;
 - (void) humanwound;
+-(int) getHP;
 @end

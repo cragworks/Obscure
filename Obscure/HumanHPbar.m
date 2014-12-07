@@ -18,45 +18,50 @@
         float screenHeight = screenRect.size.height;
         [sprite setPosition:CGPointMake(sprite.size.width, screenHeight-sprite.size.height)];
         NSLog(@"%f,%f", screenWidth, screenHeight);
-        max = 3;
+        hp = 3;
         [self addChild:sprite];
     }
     return self;
 }
 - (void) heal
 {
-    if (max < 3)
+    if (hp < 3)
     {
-        if (max == 1)
+        if (hp == 1)
         {
             image = [SKTexture textureWithImageNamed:@"health2"];
-        }else if(max == 2)
+        }else if(hp == 2)
         {
             image = [SKTexture textureWithImageNamed:@"health3"];
-        }else if(max ==0)
+        }else if(hp ==0)
         {
              image = [SKTexture textureWithImageNamed:@"health1"];
         }
         [sprite setTexture:image];
-        max+=1;
+        hp+=1;
     }
 }
 - (void) humanwound
 {
-    if (max >= 1)
+    if (hp >= 1)
     {
-        if (max == 3)
+        if (hp == 3)
         {
             image = [SKTexture textureWithImageNamed:@"health2"];
-        }else if(max == 2)
+        }else if(hp == 2)
         {
             image = [SKTexture textureWithImageNamed:@"health1"];
-        }else if(max ==1)
+        }else if(hp ==1)
         {
             image = [SKTexture textureWithImageNamed:@"health0"];
         }
         [sprite setTexture:image];
-        max-=1;
+        hp-=1;
     }
+}
+
+- (int) getHP
+{
+    return hp;
 }
 @end
