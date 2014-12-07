@@ -65,6 +65,7 @@
     MonsterHPBar * monsterHPBar;
     
     SKShapeNode* radarCircle;
+    SKShapeNode* radarLine;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;

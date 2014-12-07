@@ -27,13 +27,14 @@
 		4345571B1A2E805C0064FDD9 /* duck.png in Resources */ = {isa = PBXBuildFile; fileRef = 434557101A2E805C0064FDD9 /* duck.png */; };
 		4345571C1A2E805C0064FDD9 /* duck2.png in Resources */ = {isa = PBXBuildFile; fileRef = 434557111A2E805C0064FDD9 /* duck2.png */; };
 		4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */ = {isa = PBXBuildFile; fileRef = 434557121A2E805C0064FDD9 /* ghosty.dae */; };
+		437752D41A33EB2F00FC04A7 /* BlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437752D11A33EB2F00FC04A7 /* BlackViewController.m */; };
+		437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437752D31A33EB2F00FC04A7 /* ViewController.m */; };
+		437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter.png in Resources */ = {isa = PBXBuildFile; fileRef = 437752EE1A33FDE800FC04A7 /* combatUI-overlayfilter.png */; };
 		438951A31A21C1D7006A86BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A21A21C1D7006A86BE /* main.m */; };
 		438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A51A21C1D7006A86BE /* AppDelegate.m */; };
-		438951A91A21C1D7006A86BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951A81A21C1D7006A86BE /* ViewController.m */; };
 		438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438951AD1A21C1D7006A86BE /* Images.xcassets */; };
 		438951BD1A21C1D8006A86BE /* ObscureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951BC1A21C1D8006A86BE /* ObscureTests.m */; };
 		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
-		49B4BD3C1A31614900C59D9B /* combatUI-overlayfilter.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD361A31614900C59D9B /* combatUI-overlayfilter.png */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
 		49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD381A31614900C59D9B /* targetcrosshair.png */; };
 		49B4BD3F1A31614900C59D9B /* ui-Decal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD391A31614900C59D9B /* ui-Decal.png */; };
@@ -85,13 +86,16 @@
 		434557101A2E805C0064FDD9 /* duck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duck.png; sourceTree = "<group>"; };
 		434557111A2E805C0064FDD9 /* duck2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duck2.png; sourceTree = "<group>"; };
 		434557121A2E805C0064FDD9 /* ghosty.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = ghosty.dae; sourceTree = "<group>"; };
+		437752D01A33EB2F00FC04A7 /* BlackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackViewController.h; sourceTree = "<group>"; };
+		437752D11A33EB2F00FC04A7 /* BlackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackViewController.m; sourceTree = "<group>"; };
+		437752D21A33EB2F00FC04A7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		437752D31A33EB2F00FC04A7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		437752EE1A33FDE800FC04A7 /* combatUI-overlayfilter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combatUI-overlayfilter.png"; sourceTree = "<group>"; };
 		4389519D1A21C1D7006A86BE /* Obscure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Obscure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		438951A11A21C1D7006A86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438951A21A21C1D7006A86BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		438951A41A21C1D7006A86BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		438951A51A21C1D7006A86BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		438951A71A21C1D7006A86BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		438951A81A21C1D7006A86BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		438951AD1A21C1D7006A86BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		438951B01A21C1D7006A86BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		438951B61A21C1D8006A86BE /* ObscureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObscureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +103,6 @@
 		438951BC1A21C1D8006A86BE /* ObscureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObscureTests.m; sourceTree = "<group>"; };
 		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
 		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
-		49B4BD361A31614900C59D9B /* combatUI-overlayfilter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combatUI-overlayfilter.png"; sourceTree = "<group>"; };
 		49B4BD371A31614900C59D9B /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
 		49B4BD381A31614900C59D9B /* targetcrosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targetcrosshair.png; sourceTree = "<group>"; };
 		49B4BD391A31614900C59D9B /* ui-Decal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-Decal.png"; sourceTree = "<group>"; };
@@ -193,11 +196,13 @@
 		4389519F1A21C1D7006A86BE /* Obscure */ = {
 			isa = PBXGroup;
 			children = (
+				437752D01A33EB2F00FC04A7 /* BlackViewController.h */,
+				437752D11A33EB2F00FC04A7 /* BlackViewController.m */,
+				437752D21A33EB2F00FC04A7 /* ViewController.h */,
+				437752D31A33EB2F00FC04A7 /* ViewController.m */,
 				4345571E1A2E805F0064FDD9 /* images */,
 				438951A41A21C1D7006A86BE /* AppDelegate.h */,
 				438951A51A21C1D7006A86BE /* AppDelegate.m */,
-				438951A71A21C1D7006A86BE /* ViewController.h */,
-				438951A81A21C1D7006A86BE /* ViewController.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
 				499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */,
@@ -242,8 +247,8 @@
 		ED8D25551A312432008212F4 /* combatUI */ = {
 			isa = PBXGroup;
 			children = (
+				437752EE1A33FDE800FC04A7 /* combatUI-overlayfilter.png */,
 				ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */,
-				49B4BD361A31614900C59D9B /* combatUI-overlayfilter.png */,
 				49B4BD371A31614900C59D9B /* pause-button.png */,
 				49B4BD381A31614900C59D9B /* targetcrosshair.png */,
 				49B4BD391A31614900C59D9B /* ui-Decal.png */,
@@ -359,7 +364,6 @@
 				ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */,
 				434557151A2E805C0064FDD9 /* button_switch_camera_2@2x.png in Resources */,
 				434557141A2E805C0064FDD9 /* button_clear_pressed_2@2x.png in Resources */,
-				49B4BD3C1A31614900C59D9B /* combatUI-overlayfilter.png in Resources */,
 				438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */,
 				311687931A33D962006E078E /* catleft2.png in Resources */,
 				49B4BD3F1A31614900C59D9B /* ui-Decal.png in Resources */,
@@ -369,6 +373,7 @@
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				311687951A33D962006E078E /* catmain2.png in Resources */,
 				49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */,
+				437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter.png in Resources */,
 				ED320C791A32A916000A39F2 /* reticule.jpg in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
 				ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */,
@@ -394,8 +399,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
-				438951A91A21C1D7006A86BE /* ViewController.m in Sources */,
 				499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */,
+				437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */,
+				437752D41A33EB2F00FC04A7 /* BlackViewController.m in Sources */,
 				438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */,
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
 				BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */,
