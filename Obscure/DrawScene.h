@@ -64,7 +64,7 @@
     HumanHPbar * player;
     MonsterHPBar * monsterHPBar;
     
-    SKShapeNode radarCircle;
+    SKShapeNode* radarCircle;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;

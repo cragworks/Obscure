@@ -1,4 +1,5 @@
 #import "DrawScene.h"
+#define DEGREES_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 //declare variables here!
 @implementation DrawScene
@@ -64,8 +65,8 @@ int seconds = 0;
         NSLog(@"\n");
          */
         
-        float maxX = 3000;
-        //if monster is  1000px x then move to -1000
+        float maxX = 1500;
+        //if monster is  3000px x then move to -3000 and vice versa
         if(monster.position.x > maxX)
         {
             [monster setPosition:CGPointMake(-maxX, monster.position.y)];
@@ -76,11 +77,21 @@ int seconds = 0;
         }
         
         //show degrees from 0 to 360
-        int degrees = 360 * (monster.position.x / maxX);
+        int degrees = 360 * (monster.position.x / 3000);
         if(degrees < 0)
         {
             degrees += 360;
         }
+        
+        //move the circle to that degrees spot
+        //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
+        CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/8.5);
+        degrees *= -1;
+        float radius = 30;
+        float startAngle = 90;
+        float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
+        float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
+        [radarCircle setPosition:CGPointMake(endX, endY)];
         NSLog(@"DEGREES: %i \n",degrees);
     }
 }
@@ -169,6 +180,12 @@ int seconds = 0;
     NSArray * runTexture = @[monster1, monster2];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:5 resize:NO restore:NO];
     [monster runAction:runAnimation];
+    
+    radarCircle = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
+    [radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
+    [radarCircle setStrokeColor:[UIColor blackColor]];
+    [radarCircle setGlowWidth:2];
+    [self addChild:radarCircle];
 }
 
 //touched the screen
@@ -178,7 +195,6 @@ int seconds = 0;
     
     
     for (UITouch *touch in touches) {
-        
         CGPoint location = [touch locationInNode:self];
         
         //make the SKSpritenode duck spawn when touch the screen
