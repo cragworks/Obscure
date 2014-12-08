@@ -50,6 +50,13 @@ int seconds = 0;
 {
     seconds++;
     
+    if(seconds%500==0)
+    {
+        if(monsterReachedYou)
+        {
+            [self attack];
+        }
+    }
     if(seconds%30==0)
     {
         //update the detected rectangle's 4 points
@@ -68,6 +75,7 @@ int seconds = 0;
         [self winlosestatus];
     }
     [self updateRadar];
+    
 }
 
 -(void)updateRadar
