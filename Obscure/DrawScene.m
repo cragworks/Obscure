@@ -514,6 +514,7 @@ int seconds = 0;
         [fourSidedFigure runAction:fadetowhite];
         [self addChild:fourSidedFigure];
         
+        [soundPlayer playSoundForever:@"win"];
         //FIREWORKS
         //[self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
         
