@@ -448,6 +448,23 @@ int seconds = 0;
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
     [static1 runAction:[SKAction repeatActionForever:runAnimation]];
     [sound playSoundForever:@"gameover2"];
+    
+    //alert to if want to restart
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"GAME OVER"
+                          message:nil
+                          delegate:self
+                          cancelButtonTitle:@"CONTINUE?"
+                          otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 0) {
+        // do something here...
+        [self setVariables];
+    }
 }
 
 //if player wins the level, play this animation
@@ -467,6 +484,20 @@ int seconds = 0;
     SKAction* fadetowhite = [SKAction fadeInWithDuration:1];
     [fourSidedFigure runAction:fadetowhite];
     [self addChild:fourSidedFigure];
+    
+    //FIREWORKS
+    [self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
+}
+
+- (SKEmitterNode *) newExplosion: (float)posX : (float) posy
+{
+    SKEmitterNode *emitter =  [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"firework" ofType:@"sks"]];
+    emitter.position = CGPointMake(posX,posy);
+    emitter.name = @"firework";
+    emitter.targetNode = self.scene;
+    emitter.numParticlesToEmit = 1000;
+    emitter.zPosition=2.0;
+    return emitter;
 }
 
 -(void)attack
@@ -496,16 +527,18 @@ int seconds = 0;
     SKTexture * attack = [atlas textureNamed:@"catattack15"];
     
     NSArray* Sample = @[claws, attack];
-    SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.5 resize:NO restore:NO];
+    SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.25 resize:NO restore:NO];
     
-    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, runleap, jumpback,wait ,  nil];
-    
+    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, nil];
     SKAction* together = [SKAction sequence:array];
-    [monster runAction:together completion:^{ [player humanwound];
-                                                [self flash];
+    NSArray* returnAfterAttacking = [[NSArray alloc] initWithObjects:runleap, jumpback, wait,  nil];
+    SKAction* together2 = [SKAction sequence:returnAfterAttacking];
+    [monster runAction:together completion:^{
+        [player humanwound];
+        [self flash];
         [sound playSound:@"gameover"];
-                                            }];
-    
+        [monster runAction:together2];
+    }];
 }
 
 -(void)flash
@@ -560,7 +593,6 @@ int seconds = 0;
     [monster runAction:runAnimation completion:^{monsterReachedYou = YES;
                                                 }];
 }
-
 
 //--------------------------------- Reference/Other Functions --------------------------------- //
 
