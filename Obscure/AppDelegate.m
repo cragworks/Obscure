@@ -40,14 +40,15 @@
         int screenWidth = screenRect.size.width;
         int screenHeight = screenRect.size.height;
         SKView * skView = [[SKView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
-        skView.showsFPS = NO;
-        skView.showsNodeCount = NO;
+        skView.showsFPS = YES;
+        skView.showsNodeCount = YES;
         SKScene *clothesScene = [DrawScene sceneWithSize:skView.bounds.size];
         clothesScene.scaleMode = SKSceneScaleModeAspectFill;
         
         [test setView:skView];
         skView.allowsTransparency = NO; //change to YES later
-        clothesScene.backgroundColor = [UIColor clearColor];
+        clothesScene.backgroundColor = [UIColor whiteColor];
+        
         [skView presentScene:clothesScene];
     }
     

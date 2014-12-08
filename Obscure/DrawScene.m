@@ -87,7 +87,7 @@ int seconds = 0;
     int degrees = 360 * (monster.position.x / 3000);
     if(degrees < 0)
     {
-        degrees += 360;
+        degrees = 0;
     }
     
     //the radar line
@@ -100,15 +100,18 @@ int seconds = 0;
     CGPathMoveToPoint(pathToDraw, NULL, centerOfRadar.x, centerOfRadar.y);
     CGPathAddLineToPoint(pathToDraw, NULL, lineEndX, lineEndY);
     line.path = pathToDraw;
-    [line setStrokeColor:[UIColor redColor]];
-    [line setGlowWidth:2];
-    lineAngle+=5;
+    [line setStrokeColor:[UIColor colorWithRed:255/255.0 green:51/255.0 blue:153/255.0 alpha:1]];
+    [line setGlowWidth:1.5];
+    [line setLineWidth:2];
+    lineAngle+=10;
+    if(lineAngle > 360)
+        lineAngle = 0;
     [self addChild:line];
     [arcLines addObject:line];
     //remove old lines
-    if(arcLines.count > 2)
+    if(arcLines.count > 1)
     {
-        for(int i = 0; i < arcLines.count - 2; i++)
+        for(int i = 0; i < arcLines.count - 1; i++)
         {
             [arcLines[i] removeFromParent];
         }
@@ -121,8 +124,19 @@ int seconds = 0;
     float startAngle = 125;
     float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
     float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
-    [radarCircle setPosition:CGPointMake(endX, endY)];
-    NSLog(@"DEGREES: %i \n",degrees);
+    //[radarCircle setPosition:CGPointMake(endX, endY)];
+    //NSLog(@"DEGREES: %i \n",degrees);
+    
+    //play blip sound if radar line = monster's location's blip
+    int monsterBlipDegrees = startAngle + degrees;
+    int lineDegrees = lineAngle;
+    NSLog(@"monster degrees: %i \n",monsterBlipDegrees);
+    NSLog(@"line degrees: %i \n",lineDegrees);
+    if(abs(monsterBlipDegrees - lineDegrees) < 20)
+    {
+        [sound playSound:@"radarBlip"];
+        [radarCircle setPosition:CGPointMake(endX, endY)];
+    }
     
 }
 
@@ -212,6 +226,7 @@ int seconds = 0;
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
     
+    [self monsterMovement];
 }
 
 -(void)didMoveToView:(SKView *)view {
@@ -240,7 +255,7 @@ int seconds = 0;
     for (UITouch *touch in touches) {
         
         //make the SKSpritenode duck spawn when touch the screen
-        [self makeDuckFlyUpRight];
+        //[self makeDuckFlyUpRight];
     }
     */
     
@@ -478,9 +493,10 @@ int seconds = 0;
     NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, runleap, jumpback,wait ,  nil];
     
     SKAction* together = [SKAction sequence:array];
-    SKAction* togetherforever = [SKAction repeatActionForever:together];
-    [monster runAction:togetherforever];
-    [player humanwound];
+    [monster runAction:together completion:^{ [player humanwound];
+                                                [self flash];
+                                            }];
+    
 }
 
 -(void)flash
@@ -532,7 +548,8 @@ int seconds = 0;
     SKTexture * left2 = [SKTexture textureWithImageNamed:@"catleft2"];
     NSArray * runTexture = @[right2, right1, right1, right1, right2, right1, right1, right1, left2, left1, left1, left1,  left2, left1, left1, left1, right2, right1, right1, right1, front2, front1];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.25 resize:NO restore:NO];
-    [monster runAction:runAnimation];
+    [monster runAction:runAnimation completion:^{monsterReachedYou = YES;
+                                                }];
 }
 
 

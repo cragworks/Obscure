@@ -64,8 +64,8 @@ NSDictionary *outputSettings;
     [parentView addSubview:cameraView];
     
     SKView * skView = [[SKView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
-    skView.showsFPS = NO;
-    skView.showsNodeCount = NO;
+    skView.showsFPS = YES;
+    skView.showsNodeCount = YES;
     SKScene *clothesScene = [DrawScene sceneWithSize:skView.bounds.size];
     clothesScene.scaleMode = SKSceneScaleModeAspectFill;
     
