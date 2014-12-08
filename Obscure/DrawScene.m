@@ -211,14 +211,12 @@ int seconds = 0;
     //mine
     BOOL containMonsterHp = [self.children containsObject:monsterHPBar];
     if (!containMonsterHp) {
-        [self addChild:monsterHPBar];
+        //[self addChild:monsterHPBar];
     }
     //NSLog(@"%f %f ", monster.position.x, monster.position.y);
     [monsterHPBar setPosition:CGPointMake(monster.position.x, monster.position.y + 50)];
     
     //[monsterHPBar runAction:together];
-    
-
     
     radarCircle = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
     [radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
