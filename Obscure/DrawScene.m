@@ -470,7 +470,11 @@ int seconds = 0;
         [static1 runAction:[SKAction repeatActionForever:runAnimation]];
         [self addChild:static1];
         [soundPlayer playSoundForever:@"owMusic"];
-        [sound playSound:@"OW"];
+        
+        if((int)(arc4random()%2)==1)
+            [sound playSoundForever:@"okaykid"];
+        else
+            [sound playSound:@"OW"];
         //alert to if want to restart
         UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"GAME OVER"

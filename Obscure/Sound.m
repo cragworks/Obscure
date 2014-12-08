@@ -16,7 +16,7 @@
     bg = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     [bg setEnableRate:YES];
     [bg setRate:1];
-    [bg setVolume:0.7];
+    [bg setVolume:0.85];
     [bg play];
 }
 -(void) playSound:(NSString*)fileName :(float)volume
@@ -36,7 +36,7 @@
     bg = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     [bg setEnableRate:YES];
     [bg setRate:1];
-    [bg setVolume:0.7];
+    [bg setVolume:1];
     [bg play];
     [bg setNumberOfLoops:99];
 }
