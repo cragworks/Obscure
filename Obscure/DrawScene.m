@@ -172,6 +172,7 @@ int seconds = 0;
     [self removeAllChildren];
     
     soundPlayer = [[Sound alloc] init];
+    [soundPlayer playSoundForever:@"introtrackloop"];
     maxMonsterHP = 100;
     currentMonsterHP = maxMonsterHP;
     [self updateMonsterHP];
@@ -321,6 +322,7 @@ int seconds = 0;
         CGPoint loc = [touch locationInNode:self];
         
         [self touchesMovedButtons:loc];
+        //[self addChild: [self newExplosion:loc.x :loc.y]];
     }
 }
 
@@ -467,7 +469,7 @@ int seconds = 0;
         SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
         [static1 runAction:[SKAction repeatActionForever:runAnimation]];
         [self addChild:static1];
-        [soundPlayer playSoundForever:@"gameover2"];
+        [soundPlayer playSoundForever:@"owMusic"];
         [sound playSound:@"OW"];
         //alert to if want to restart
         UIAlertView *alert = [[UIAlertView alloc]
