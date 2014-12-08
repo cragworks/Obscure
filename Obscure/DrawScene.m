@@ -154,10 +154,6 @@ int seconds = 0;
 
 -(id)initWithSize:(CGSize)size
 {
-    maxMonsterHP = 100;
-    currentMonsterHP = maxMonsterHP;
-    [self updateMonsterHP];
-    
     if (self = [super initWithSize:size]) {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
@@ -171,7 +167,16 @@ int seconds = 0;
     return self;
 }
 
--(void)setVariables{
+-(void)setVariables
+{
+    [self removeAllChildren];
+    
+    soundPlayer = [[Sound alloc] init];
+    [soundPlayer playSoundForever:@"introtrackloop"];
+    maxMonsterHP = 100;
+    currentMonsterHP = maxMonsterHP;
+    [self updateMonsterHP];
+    
     arcLines = [[NSMutableArray alloc] init];
     lineAngle = 125;
     
@@ -317,6 +322,7 @@ int seconds = 0;
         CGPoint loc = [touch locationInNode:self];
         
         [self touchesMovedButtons:loc];
+        //[self addChild: [self newExplosion:loc.x :loc.y]];
     }
 }
 
@@ -452,25 +458,32 @@ int seconds = 0;
 //if player loses level
 -(void)losegameAnimation
 {
-    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"staticdamage"];
-    SKTexture * static2 = [atlas textureNamed:@"15perc2.png"];
-    SKTexture * static3 = [atlas textureNamed:@"15perc3.png"];
-    SKTexture * static4 = [atlas textureNamed:@"15perc4.png"];
+    if(![self.children containsObject: static1])
+    {
+        SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"staticdamage"];
+        SKTexture * static2 = [atlas textureNamed:@"15perc2.png"];
+        SKTexture * static3 = [atlas textureNamed:@"15perc3.png"];
+        SKTexture * static4 = [atlas textureNamed:@"15perc4.png"];
     
-    NSArray * runTexture = @[static2,static3,static4, static3,static2];
-    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
-    [static1 runAction:[SKAction repeatActionForever:runAnimation]];
-    [self addChild:static1];
-    [sound playSoundForever:@"gameover2"];
-    
-    //alert to if want to restart
-    UIAlertView *alert = [[UIAlertView alloc]
+        NSArray * runTexture = @[static2,static3,static4, static3,static2];
+        SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
+        [static1 runAction:[SKAction repeatActionForever:runAnimation]];
+        [self addChild:static1];
+        [soundPlayer playSoundForever:@"owMusic"];
+        
+        if((int)(arc4random()%2)==1)
+            [sound playSound:@"okaykid"];
+        else
+            [sound playSound:@"OW"];
+        //alert to if want to restart
+        UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"GAME OVER"
                           message:nil
                           delegate:self
                           cancelButtonTitle:@"CONTINUE"
                           otherButtonTitles: nil];
-    [alert show];
+        [alert show];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -484,32 +497,35 @@ int seconds = 0;
 //if player wins the level, play this animation
 -(void)wingameAnimation
 {
-    //needed to make the SKShapeNode
-    CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
-    size_t numPoints = 5;
-    
-    //make SKShapeNode at the rectangle’s points and number of points (5)
-    fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
-    //make the rect white
-    [fourSidedFigure setFillColor:[UIColor whiteColor]];
-    //make rectangle transparent
-    [fourSidedFigure setAlpha:0.0];
-    
-    SKAction* fadetowhite = [SKAction fadeInWithDuration:1];
-    [fourSidedFigure runAction:fadetowhite];
-    [self addChild:fourSidedFigure];
-    
-    //FIREWORKS
-    //[self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
-    
-    //alert to if want to restart
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"YOU WIN"
-                          message:nil
-                          delegate:self
-                          cancelButtonTitle:@"RESTART"
-                          otherButtonTitles: nil];
-    [alert show];
+    if(![self.children containsObject: fourSidedFigure])
+    {
+        //needed to make the SKShapeNode
+        CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
+        size_t numPoints = 5;
+        
+        //make SKShapeNode at the rectangle’s points and number of points (5)
+        fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
+        //make the rect white
+        [fourSidedFigure setFillColor:[UIColor whiteColor]];
+        //make rectangle transparent
+        [fourSidedFigure setAlpha:0.0];
+        
+        SKAction* fadetowhite = [SKAction fadeInWithDuration:1];
+        [fourSidedFigure runAction:fadetowhite];
+        [self addChild:fourSidedFigure];
+        
+        //FIREWORKS
+        //[self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
+        
+        //alert to if want to restart
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"YOU WIN"
+                              message:nil
+                              delegate:self
+                              cancelButtonTitle:@"RESTART"
+                              otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 - (SKEmitterNode *) newExplosion: (float)posX : (float) posy
@@ -561,7 +577,7 @@ int seconds = 0;
     [monster runAction:together completion:^{
         [player humanwound];
         [self flash];
-        [sound playSound:@"gameover"];
+        [sound playSound:@"OW"];
         [monster runAction:together2];
     }];
 }

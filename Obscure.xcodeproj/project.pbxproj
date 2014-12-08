@@ -40,6 +40,11 @@
 		43B7E8B41A3538F100048298 /* firework.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B21A3538F100048298 /* firework.sks */; };
 		43B7E8B51A3538F100048298 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B31A3538F100048298 /* spark.png */; };
 		43B7E8B71A3545FD00048298 /* ouch.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B61A3545FD00048298 /* ouch.aiff */; };
+		43B7E8B91A35476E00048298 /* OW.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B81A35476E00048298 /* OW.aiff */; };
+		43B7E8BB1A3553B300048298 /* OBSCURE-TITLE2.png in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8BA1A3553B300048298 /* OBSCURE-TITLE2.png */; };
+		43B7E8BE1A3554B400048298 /* introtrackloop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8BC1A3554B400048298 /* introtrackloop.aiff */; };
+		43B7E8BF1A3554B400048298 /* owMusic.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8BD1A3554B400048298 /* owMusic.aiff */; };
+		43B7E8C11A35572700048298 /* okaykid.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8C01A35572700048298 /* okaykid.aiff */; };
 		43BF362E1A340C1A00101414 /* CAT.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 43BF362D1A340C1A00101414 /* CAT.atlas */; };
 		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
@@ -116,6 +121,11 @@
 		43B7E8B21A3538F100048298 /* firework.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = firework.sks; sourceTree = "<group>"; };
 		43B7E8B31A3538F100048298 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		43B7E8B61A3545FD00048298 /* ouch.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ouch.aiff; sourceTree = "<group>"; };
+		43B7E8B81A35476E00048298 /* OW.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = OW.aiff; sourceTree = "<group>"; };
+		43B7E8BA1A3553B300048298 /* OBSCURE-TITLE2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OBSCURE-TITLE2.png"; sourceTree = "<group>"; };
+		43B7E8BC1A3554B400048298 /* introtrackloop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = introtrackloop.aiff; sourceTree = "<group>"; };
+		43B7E8BD1A3554B400048298 /* owMusic.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = owMusic.aiff; sourceTree = "<group>"; };
+		43B7E8C01A35572700048298 /* okaykid.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = okaykid.aiff; sourceTree = "<group>"; };
 		43BF362D1A340C1A00101414 /* CAT.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = CAT.atlas; sourceTree = "<group>"; };
 		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
 		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				43B7E8BA1A3553B300048298 /* OBSCURE-TITLE2.png */,
 				43BF362D1A340C1A00101414 /* CAT.atlas */,
 				EDA6D9231A34069E00A17E9C /* 15perc1.png */,
 				EDA6D9211A34067B00A17E9C /* staticdamage.atlas */,
@@ -270,6 +281,10 @@
 		43B7E8AA1A35203500048298 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				43B7E8C01A35572700048298 /* okaykid.aiff */,
+				43B7E8BC1A3554B400048298 /* introtrackloop.aiff */,
+				43B7E8BD1A3554B400048298 /* owMusic.aiff */,
+				43B7E8B81A35476E00048298 /* OW.aiff */,
 				43B7E8B61A3545FD00048298 /* ouch.aiff */,
 				43B7E8AF1A352CD300048298 /* gameover2.aiff */,
 				43B7E8AD1A352BE900048298 /* gameover.aiff */,
@@ -391,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B7E8C11A35572700048298 /* okaykid.aiff in Resources */,
 				4345571A1A2E805C0064FDD9 /* duck.atlas in Resources */,
 				EDA6D9291A35550900A17E9C /* slash.sks in Resources */,
 				4345571B1A2E805C0064FDD9 /* duck.png in Resources */,
@@ -420,11 +436,15 @@
 				49B4BD431A31621800C59D9B /* monsterHP.png in Resources */,
 				EDA6D92A1A35550900A17E9C /* spark.png in Resources */,
 				49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */,
+				43B7E8BF1A3554B400048298 /* owMusic.aiff in Resources */,
+				43B7E8B91A35476E00048298 /* OW.aiff in Resources */,
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				311687951A33D962006E078E /* catmain2.png in Resources */,
+				43B7E8BB1A3553B300048298 /* OBSCURE-TITLE2.png in Resources */,
 				49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */,
 				43B7E8B41A3538F100048298 /* firework.sks in Resources */,
 				437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter.png in Resources */,
+				43B7E8BE1A3554B400048298 /* introtrackloop.aiff in Resources */,
 				ED320C791A32A916000A39F2 /* reticule.jpg in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
 				ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */,
