@@ -50,9 +50,6 @@ int seconds = 0;
 {
     seconds++;
     
-    if(seconds%100 == 0)
-        [self attack];
-    
     if(seconds%30==0)
     {
         //update the detected rectangle's 4 points
@@ -68,7 +65,6 @@ int seconds = 0;
         NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
         NSLog(@"\n");
          */
-        [self monsterMovement];
         [self winlosestatus];
     }
     [self updateRadar];
@@ -190,6 +186,7 @@ int seconds = 0;
     [monster setPosition:CGPointMake(random, 250)];
     [self addChild:monster];
     
+    [self monsterMovement];
     //reticule symbol
     reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.png"];
     [reticule setName:@"reticule"];
@@ -230,7 +227,6 @@ int seconds = 0;
         [self stageCompleteAnimation];
 }
 
-
 //--------------------------------- Touch Functions --------------------------------- //
 //touched the screen
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -260,6 +256,12 @@ int seconds = 0;
             NSLog(@"Testing....");
             // INSERT MONSTER STOPPED ATTACKING HERE!!
             
+        }
+        
+        if([[self nodeAtPoint:location].name isEqualToString:monster.name])
+        {
+            //decrease monster's hp
+            [self decreaseMonsterHP];
         }
     }
 }
@@ -355,7 +357,7 @@ int seconds = 0;
     
     //katana
     SKSpriteNode *katana = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana.png"];
-    [katana setPosition:CGPointMake(screenWidth-175, screenHeight-337)];
+    [katana setPosition:CGPointMake(screenWidth*0.875 - katana.size.width, screenHeight*0.3 - katana.size.height)];
     [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
     [katana setZPosition:-1];
 
@@ -365,7 +367,6 @@ int seconds = 0;
     [self addChild:pause];
     [self addChild:katana];
 }
-
 
 //--------------------------------- Animation Functions --------------------------------- //
 //if player is being attacked by monster
@@ -471,12 +472,8 @@ int seconds = 0;
     SKTexture * claws = [atlas textureNamed:@"catattack1"];
     SKTexture * attack = [atlas textureNamed:@"catattack15"];
     
-    
-    
     NSArray* Sample = @[claws, attack];
     SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.5 resize:NO restore:NO];
-    
-    
     
     NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, runleap, jumpback,wait ,  nil];
     
@@ -519,10 +516,14 @@ int seconds = 0;
     NSArray* array = [[NSArray alloc] initWithObjects:jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
-    [monster runAction:resizeOut];
+    //[monster runAction:resizeOut];
+    
+    /* ------- reticule target ------- /
     // Counterattack reticule target spawns with the monster and moves along with it
     [reticule runAction:together];
     [reticule runAction:resizeOut2];
+    */
+    
     SKTexture * front1 = [SKTexture textureWithImageNamed:@"catmain1"];
     SKTexture * front2 = [SKTexture textureWithImageNamed:@"catmain2"];
     SKTexture * right1 = [SKTexture textureWithImageNamed:@"catright1"];
