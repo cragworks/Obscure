@@ -50,9 +50,11 @@ int seconds = 0;
 {
     seconds++;
     
-    if(seconds%100 == 0)
-        [self attack];
-    
+    if(seconds%500==0)
+    {
+        if(monsterReachedYou)
+            [self attack];
+    }
     if(seconds%30==0)
     {
         //update the detected rectangle's 4 points
@@ -68,7 +70,7 @@ int seconds = 0;
         NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
         NSLog(@"\n");
          */
-        [self monsterMovement];
+        
         [self winlosestatus];
     }
     [self updateRadar];
@@ -229,6 +231,7 @@ int seconds = 0;
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
     
+    [self monsterMovement];
 }
 
 -(void)didMoveToView:(SKView *)view {
@@ -495,9 +498,10 @@ int seconds = 0;
     NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, runleap, jumpback,wait ,  nil];
     
     SKAction* together = [SKAction sequence:array];
-    SKAction* togetherforever = [SKAction repeatActionForever:together];
-    [monster runAction:togetherforever];
-    [player humanwound];
+    [monster runAction:together completion:^{ [player humanwound];
+                                                [self flash];
+                                            }];
+    
 }
 
 -(void)flash
@@ -545,7 +549,8 @@ int seconds = 0;
     SKTexture * left2 = [SKTexture textureWithImageNamed:@"catleft2"];
     NSArray * runTexture = @[right2, right1, right1, right1, right2, right1, right1, right1, left2, left1, left1, left1,  left2, left1, left1, left1, right2, right1, right1, right1, front2, front1];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.25 resize:NO restore:NO];
-    [monster runAction:runAnimation];
+    [monster runAction:runAnimation completion:^{monsterReachedYou = YES;
+                                                }];
 }
 
 

@@ -28,6 +28,7 @@
 @interface DrawScene : SKScene
 {
     SKSpriteNode *monster;
+    BOOL monsterReachedYou;
     
     CGFloat screenWidth;
     CGFloat screenHeight;
