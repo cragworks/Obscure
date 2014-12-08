@@ -472,7 +472,7 @@ int seconds = 0;
         [soundPlayer playSoundForever:@"owMusic"];
         
         if((int)(arc4random()%2)==1)
-            [sound playSoundForever:@"okaykid"];
+            [sound playSound:@"okaykid"];
         else
             [sound playSound:@"OW"];
         //alert to if want to restart
