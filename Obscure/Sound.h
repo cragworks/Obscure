@@ -18,4 +18,5 @@
 -(void)playSoundForever:(NSString*)fileName;
 -(void)stopSound;
 -(float)getDuration;
+-(BOOL)isPlaying;
 @end

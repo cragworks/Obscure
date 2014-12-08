@@ -35,6 +35,8 @@
 		438951AE1A21C1D7006A86BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438951AD1A21C1D7006A86BE /* Images.xcassets */; };
 		438951BD1A21C1D8006A86BE /* ObscureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 438951BC1A21C1D8006A86BE /* ObscureTests.m */; };
 		43B7E8AC1A35204600048298 /* radarBlip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AB1A35204600048298 /* radarBlip.aiff */; };
+		43B7E8AE1A352BE900048298 /* gameover.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AD1A352BE900048298 /* gameover.aiff */; };
+		43B7E8B01A352CD300048298 /* gameover2.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AF1A352CD300048298 /* gameover2.aiff */; };
 		43BF362E1A340C1A00101414 /* CAT.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 43BF362D1A340C1A00101414 /* CAT.atlas */; };
 		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
@@ -104,6 +106,8 @@
 		438951BB1A21C1D8006A86BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		438951BC1A21C1D8006A86BE /* ObscureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObscureTests.m; sourceTree = "<group>"; };
 		43B7E8AB1A35204600048298 /* radarBlip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = radarBlip.aiff; sourceTree = "<group>"; };
+		43B7E8AD1A352BE900048298 /* gameover.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gameover.aiff; sourceTree = "<group>"; };
+		43B7E8AF1A352CD300048298 /* gameover2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gameover2.aiff; sourceTree = "<group>"; };
 		43BF362D1A340C1A00101414 /* CAT.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = CAT.atlas; sourceTree = "<group>"; };
 		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
 		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 		43B7E8AA1A35203500048298 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				43B7E8AF1A352CD300048298 /* gameover2.aiff */,
+				43B7E8AD1A352BE900048298 /* gameover.aiff */,
 				43B7E8AB1A35204600048298 /* radarBlip.aiff */,
 			);
 			name = sound;
@@ -369,6 +375,7 @@
 				BC1F81781A327FD600D088CF /* health0.png in Resources */,
 				EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */,
 				4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */,
+				43B7E8AE1A352BE900048298 /* gameover.aiff in Resources */,
 				49B4BD401A31614900C59D9B /* Warning-Symbol.png in Resources */,
 				4345571C1A2E805C0064FDD9 /* duck2.png in Resources */,
 				BCDBA9131A32A199003F58AC /* health1.png in Resources */,
@@ -397,6 +404,7 @@
 				EDA6D9221A34067B00A17E9C /* staticdamage.atlas in Resources */,
 				49B4BD411A31614900C59D9B /* weapon-katana.png in Resources */,
 				BC1F817A1A327FD600D088CF /* health3.png in Resources */,
+				43B7E8B01A352CD300048298 /* gameover2.aiff in Resources */,
 				43B7E8AC1A35204600048298 /* radarBlip.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

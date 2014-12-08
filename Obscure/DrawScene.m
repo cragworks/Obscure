@@ -130,7 +130,7 @@ int seconds = 0;
     float startAngle = 125;
     float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
     float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
-    //[radarCircle setPosition:CGPointMake(endX, endY)];
+    [radarCircle setPosition:CGPointMake(endX, endY)];
     //NSLog(@"DEGREES: %i \n",degrees);
     
     //play blip sound if radar line = monster's location's blip
@@ -140,8 +140,9 @@ int seconds = 0;
     NSLog(@"line degrees: %i \n",lineDegrees);
     if(abs(monsterBlipDegrees - lineDegrees) < 20)
     {
-        [sound playSound:@"radarBlip"];
-        [radarCircle setPosition:CGPointMake(endX, endY)];
+        if(![sound isPlaying])
+            [sound playSound:@"radarBlip"];
+        //[radarCircle setPosition:CGPointMake(endX, endY)];
     }
     
 }
@@ -441,6 +442,7 @@ int seconds = 0;
     NSArray * runTexture = @[static2,static3,static4, static3,static2];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
     [static1 runAction:[SKAction repeatActionForever:runAnimation]];
+    [sound playSoundForever:@"gameover2"];
 }
 
 //if player wins the level, play this animation
@@ -500,6 +502,7 @@ int seconds = 0;
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together completion:^{ [player humanwound];
                                                 [self flash];
+        [sound playSound:@"gameover"];
                                             }];
     
 }

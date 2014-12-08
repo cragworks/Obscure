@@ -50,4 +50,9 @@
 {
     return (float)bg.duration;
 }
+
+-(BOOL) isPlaying
+{
+    return bg.isPlaying;
+}
 @end
