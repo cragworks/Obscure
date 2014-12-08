@@ -333,6 +333,15 @@ int seconds = 0;
         UITouch *touch = [allTouches objectAtIndex:0];
         CGPoint loc = [touch locationInNode:self];
         
+        if([[self nodeAtPoint:loc].name isEqualToString:monster.name])
+        {
+            //decrease monster's hp
+            [self decreaseMonsterHP];
+            [self addChild:[self newExplosion:loc.x :loc.y]];
+            [sound playSound:@"ouch"];
+            //[self flash];
+        }
+        
         [self touchesMovedButtons:loc];
         //[self addChild: [self newExplosion:loc.x :loc.y]];
         float i = pointA.x;
@@ -348,6 +357,7 @@ int seconds = 0;
             NSLog(@"LOOP1");
             SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana"];
             [node setPosition:CGPointMake(i, j)];
+            
             [self addChild:node];
             [points addObject:node];
         
@@ -430,14 +440,9 @@ int seconds = 0;
 //                [points removeObjectAtIndex:k];
 //            }
 //        }
-        if([[self nodeAtPoint:loc].name isEqualToString:monster.name])
-        {
-            //decrease monster's hp
-            [self decreaseMonsterHP];
-            [self addChild:[self newExplosion:loc.x :loc.y]];
-            [sound playSound:@"ouch"];
-            //[self flash];
-        }
+        //if([[self nodeAtPoint:loc].name isEqualToString:monster.name])
+        //if([points[points.count-1] intersectsNode:monster])
+        
 
         pointA = loc;
         
