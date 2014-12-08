@@ -25,7 +25,7 @@
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
 
-@interface DrawScene : SKScene
+@interface DrawScene : SKScene <UIAlertViewDelegate>
 {
     SKSpriteNode *monster;
     SKSpriteNode *static1;

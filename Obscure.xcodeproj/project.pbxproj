@@ -37,6 +37,9 @@
 		43B7E8AC1A35204600048298 /* radarBlip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AB1A35204600048298 /* radarBlip.aiff */; };
 		43B7E8AE1A352BE900048298 /* gameover.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AD1A352BE900048298 /* gameover.aiff */; };
 		43B7E8B01A352CD300048298 /* gameover2.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8AF1A352CD300048298 /* gameover2.aiff */; };
+		43B7E8B41A3538F100048298 /* firework.sks in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B21A3538F100048298 /* firework.sks */; };
+		43B7E8B51A3538F100048298 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B31A3538F100048298 /* spark.png */; };
+		43B7E8B71A3545FD00048298 /* ouch.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8B61A3545FD00048298 /* ouch.aiff */; };
 		43BF362E1A340C1A00101414 /* CAT.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 43BF362D1A340C1A00101414 /* CAT.atlas */; };
 		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
@@ -108,6 +111,9 @@
 		43B7E8AB1A35204600048298 /* radarBlip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = radarBlip.aiff; sourceTree = "<group>"; };
 		43B7E8AD1A352BE900048298 /* gameover.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gameover.aiff; sourceTree = "<group>"; };
 		43B7E8AF1A352CD300048298 /* gameover2.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = gameover2.aiff; sourceTree = "<group>"; };
+		43B7E8B21A3538F100048298 /* firework.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = firework.sks; sourceTree = "<group>"; };
+		43B7E8B31A3538F100048298 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		43B7E8B61A3545FD00048298 /* ouch.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ouch.aiff; sourceTree = "<group>"; };
 		43BF362D1A340C1A00101414 /* CAT.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = CAT.atlas; sourceTree = "<group>"; };
 		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
 		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				437752D11A33EB2F00FC04A7 /* BlackViewController.m */,
 				437752D21A33EB2F00FC04A7 /* ViewController.h */,
 				437752D31A33EB2F00FC04A7 /* ViewController.m */,
+				43B7E8B11A3538D300048298 /* particles */,
 				43B7E8AA1A35203500048298 /* sound */,
 				4345571E1A2E805F0064FDD9 /* images */,
 				438951A41A21C1D7006A86BE /* AppDelegate.h */,
@@ -257,11 +264,21 @@
 		43B7E8AA1A35203500048298 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				43B7E8B61A3545FD00048298 /* ouch.aiff */,
 				43B7E8AF1A352CD300048298 /* gameover2.aiff */,
 				43B7E8AD1A352BE900048298 /* gameover.aiff */,
 				43B7E8AB1A35204600048298 /* radarBlip.aiff */,
 			);
 			name = sound;
+			sourceTree = "<group>";
+		};
+		43B7E8B11A3538D300048298 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				43B7E8B21A3538F100048298 /* firework.sks */,
+				43B7E8B31A3538F100048298 /* spark.png */,
+			);
+			name = particles;
 			sourceTree = "<group>";
 		};
 		ED8D25551A312432008212F4 /* combatUI */ = {
@@ -372,7 +389,9 @@
 				4345571B1A2E805C0064FDD9 /* duck.png in Resources */,
 				434557131A2E805C0064FDD9 /* button_clear_2@2x.png in Resources */,
 				BC1F81791A327FD600D088CF /* health2.png in Resources */,
+				43B7E8B71A3545FD00048298 /* ouch.aiff in Resources */,
 				BC1F81781A327FD600D088CF /* health0.png in Resources */,
+				43B7E8B51A3538F100048298 /* spark.png in Resources */,
 				EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */,
 				4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */,
 				43B7E8AE1A352BE900048298 /* gameover.aiff in Resources */,
@@ -396,6 +415,7 @@
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				311687951A33D962006E078E /* catmain2.png in Resources */,
 				49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */,
+				43B7E8B41A3538F100048298 /* firework.sks in Resources */,
 				437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter.png in Resources */,
 				ED320C791A32A916000A39F2 /* reticule.jpg in Resources */,
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
@@ -551,6 +571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -565,6 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
