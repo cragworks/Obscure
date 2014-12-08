@@ -58,6 +58,8 @@
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
 		EDA6D9221A34067B00A17E9C /* staticdamage.atlas in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9211A34067B00A17E9C /* staticdamage.atlas */; };
 		EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9231A34069E00A17E9C /* 15perc1.png */; };
+		EDA6D9291A35550900A17E9C /* slash.sks in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9271A35550900A17E9C /* slash.sks */; };
+		EDA6D92A1A35550900A17E9C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9281A35550900A17E9C /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
 		EDA6D9211A34067B00A17E9C /* staticdamage.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = staticdamage.atlas; sourceTree = "<group>"; };
 		EDA6D9231A34069E00A17E9C /* 15perc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15perc1.png; sourceTree = "<group>"; };
+		EDA6D9271A35550900A17E9C /* slash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = slash.sks; sourceTree = "<group>"; };
+		EDA6D9281A35550900A17E9C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,8 @@
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
+				EDA6D9271A35550900A17E9C /* slash.sks */,
+				EDA6D9281A35550900A17E9C /* spark.png */,
 				434556F01A2E75C40064FDD9 /* SpriteKit.framework */,
 				4389519F1A21C1D7006A86BE /* Obscure */,
 				438951B91A21C1D8006A86BE /* ObscureTests */,
@@ -386,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4345571A1A2E805C0064FDD9 /* duck.atlas in Resources */,
+				EDA6D9291A35550900A17E9C /* slash.sks in Resources */,
 				4345571B1A2E805C0064FDD9 /* duck.png in Resources */,
 				434557131A2E805C0064FDD9 /* button_clear_2@2x.png in Resources */,
 				BC1F81791A327FD600D088CF /* health2.png in Resources */,
@@ -411,6 +418,7 @@
 				43BF362E1A340C1A00101414 /* CAT.atlas in Resources */,
 				311687961A33D962006E078E /* catright1.png in Resources */,
 				49B4BD431A31621800C59D9B /* monsterHP.png in Resources */,
+				EDA6D92A1A35550900A17E9C /* spark.png in Resources */,
 				49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */,
 				434557171A2E805C0064FDD9 /* button_take_screenshot_blue@2x.png in Resources */,
 				311687951A33D962006E078E /* catmain2.png in Resources */,
