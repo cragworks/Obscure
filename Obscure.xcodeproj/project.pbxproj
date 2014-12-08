@@ -146,8 +146,8 @@
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
 		EDA6D9211A34067B00A17E9C /* staticdamage.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = staticdamage.atlas; sourceTree = "<group>"; };
 		EDA6D9231A34069E00A17E9C /* 15perc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15perc1.png; sourceTree = "<group>"; };
-		EDA6D9271A35550900A17E9C /* slash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = slash.sks; sourceTree = "<group>"; };
-		EDA6D9281A35550900A17E9C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		EDA6D9271A35550900A17E9C /* slash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = slash.sks; path = ../slash.sks; sourceTree = "<group>"; };
+		EDA6D9281A35550900A17E9C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,8 +207,6 @@
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
-				EDA6D9271A35550900A17E9C /* slash.sks */,
-				EDA6D9281A35550900A17E9C /* spark.png */,
 				434556F01A2E75C40064FDD9 /* SpriteKit.framework */,
 				4389519F1A21C1D7006A86BE /* Obscure */,
 				438951B91A21C1D8006A86BE /* ObscureTests */,
@@ -296,6 +294,8 @@
 		43B7E8B11A3538D300048298 /* particles */ = {
 			isa = PBXGroup;
 			children = (
+				EDA6D9281A35550900A17E9C /* spark.png */,
+				EDA6D9271A35550900A17E9C /* slash.sks */,
 				43B7E8B21A3538F100048298 /* firework.sks */,
 				43B7E8B31A3538F100048298 /* spark.png */,
 			);

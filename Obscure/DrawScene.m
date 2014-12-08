@@ -49,6 +49,16 @@ int seconds = 0;
 -(void)update:(NSTimeInterval)currentTime
 {
     seconds++;
+    
+    if(points.count > 0)
+    {
+        for(int i = 0; i < points.count/2; i++)
+        {
+            [points[i] removeFromParent];
+            [points removeObjectAtIndex:i];
+        }
+    }
+    
     GAMEOVER = [self gameover];
     if(!GAMEOVER)
     {
@@ -170,6 +180,8 @@ int seconds = 0;
 -(void)setVariables
 {
     [self removeAllChildren];
+
+    points = [[NSMutableArray alloc] init];
     
     soundPlayer = [[Sound alloc] init];
     [soundPlayer playSoundForever:@"introtrackloop"];
@@ -323,6 +335,113 @@ int seconds = 0;
         
         [self touchesMovedButtons:loc];
         //[self addChild: [self newExplosion:loc.x :loc.y]];
+        float i = pointA.x;
+        float j = pointA.y;
+        float numNodes = 5000;
+        float deltaX = abs(pointA.x - loc.x) / numNodes + 1;
+        float deltaY = abs(pointA.y - loc.y) / numNodes +1;
+        int whichLoopRan = -1;
+        
+        while(i < loc.x || j < loc.y)
+        {
+            whichLoopRan = 1;
+            NSLog(@"LOOP1");
+            SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana"];
+            [node setPosition:CGPointMake(i, j)];
+            [self addChild:node];
+            [points addObject:node];
+        
+            if(pointA.x < loc.x)
+            {
+                i+=deltaX;
+            }
+            if(pointA.y < loc.y)
+            {
+                j+=deltaY;
+            }
+        }
+        while(whichLoopRan != 1 && (i < loc.x || j > loc.y))
+        {
+            whichLoopRan = 2;
+            NSLog(@"LOOP2");
+            //SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(20, 20)];
+            SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana"];
+            [node setPosition:CGPointMake(i, j)];
+            [self addChild:node];
+            [points addObject:node];
+            
+            if(pointA.x < loc.x)
+            {
+                i+=deltaX;
+            }
+            if(pointA.y > loc.y)
+            {
+                j-=deltaY;
+            }
+        }
+
+        while(whichLoopRan != 1 && whichLoopRan!=2 && (i > loc.x || j < loc.y))
+        {
+            whichLoopRan = 3;
+            NSLog(@"LOOP3");
+            SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana"];
+            [node setPosition:CGPointMake(i, j)];
+            [self addChild:node];
+            [points addObject:node];
+            
+            
+            
+            if(pointA.x > loc.x)
+            {
+                i-=deltaX;
+            }
+            if(pointA.y < loc.y)
+            {
+                j+=deltaY;
+            }
+        }
+
+        while(whichLoopRan!=1 && whichLoopRan!=2 && whichLoopRan!=3 && (i > loc.x || j > loc.y))
+        {
+            whichLoopRan = 4;
+            NSLog(@"LOOP4");
+            SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana"];
+            [node setPosition:CGPointMake(i, j)];
+            [self addChild:node];
+            [points addObject:node];
+            
+         
+            if(pointA.x > loc.x)
+            {
+                i-=deltaX;
+            }
+            if(pointA.y > loc.y)
+            {
+                j-=deltaY;
+            }
+        }
+
+//        
+//        if(points.count>numNodes)
+//        {
+//            for(int k = 0; k < points.count-numNodes/1.1; k++)
+//            {
+//                [points[k] removeFromParent];
+//                [points removeObjectAtIndex:k];
+//            }
+//        }
+        if([[self nodeAtPoint:loc].name isEqualToString:monster.name])
+        {
+            //decrease monster's hp
+            [self decreaseMonsterHP];
+            [self addChild:[self newExplosion:loc.x :loc.y]];
+            [sound playSound:@"ouch"];
+            //[self flash];
+        }
+
+        pointA = loc;
+        
+        
     }
 }
 
@@ -333,6 +452,11 @@ int seconds = 0;
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint loc = [touch locationInNode:self];
     
+    for(int i = 0; i < points.count; i++)
+    {
+        [points[i] removeFromParent];
+        [points removeObjectAtIndex:i];
+    }
     [self touchesEndedButtons:loc :(NSSet *)touches :(UIEvent *)event];
 }
 
@@ -538,6 +662,19 @@ int seconds = 0;
     emitter.zPosition=2.0;
     [emitter setParticleLifetime:0.1];
     [emitter setParticleLifetimeRange:0.1];
+    return emitter;
+}
+
+- (SKEmitterNode *) slash: (float)posX : (float) posy
+{
+    SKEmitterNode *emitter =  [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"slash" ofType:@"sks"]];
+    emitter.position = CGPointMake(posX,posy);
+    emitter.name = @"slash";
+    emitter.targetNode = self.scene;
+    emitter.numParticlesToEmit = 1000;
+    emitter.zPosition=2.0;
+    [emitter setParticleLifetime:0.001];
+    [emitter setParticleLifetimeRange:0.002];
     return emitter;
 }
 

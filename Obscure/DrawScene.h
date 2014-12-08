@@ -70,6 +70,11 @@
     SKShapeNode* radarCircle;
     NSMutableArray *arcLines;
     int lineAngle;
+    
+    CGPoint pointA;
+    NSMutableArray *points;
+    
+    
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;
