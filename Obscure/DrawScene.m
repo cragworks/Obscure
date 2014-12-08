@@ -533,7 +533,7 @@ int seconds = 0;
     NSArray* array = [[NSArray alloc] initWithObjects:jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
     SKAction* together = [SKAction sequence:array];
     [monster runAction:together];
-    //[monster runAction:resizeOut];
+    [monster runAction:resizeOut];
     
     /* ------- reticule target ------- /
     // Counterattack reticule target spawns with the monster and moves along with it
