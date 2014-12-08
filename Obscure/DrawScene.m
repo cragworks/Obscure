@@ -550,7 +550,7 @@ int seconds = 0;
     [monster runAction:together completion:^{
         [player humanwound];
         [self flash];
-        [sound playSound:@"gameover"];
+        [sound playSound:@"OW"];
         [monster runAction:together2];
     }];
 }
