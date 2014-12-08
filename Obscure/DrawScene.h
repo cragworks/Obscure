@@ -28,7 +28,9 @@
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
     SKSpriteNode *monster;
+    SKSpriteNode *static1;
     BOOL monsterReachedYou;
+    BOOL GAMEOVER;
     
     CGFloat screenWidth;
     CGFloat screenHeight;

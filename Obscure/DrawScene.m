@@ -49,33 +49,36 @@ int seconds = 0;
 -(void)update:(NSTimeInterval)currentTime
 {
     seconds++;
-    
-    if(seconds%500==0)
+    GAMEOVER = [self gameover];
+    if(!GAMEOVER)
     {
-        if(monsterReachedYou)
+        if(seconds%500==0)
         {
-            [self attack];
+            if(monsterReachedYou)
+            {
+                [self attack];
+            }
         }
+        if(seconds%30==0)
+        {
+            //update the detected rectangle's 4 points
+            [self requestRectangleObjectCoordinates];
+            //draw the background
+            //[self drawBg];
+            //print the rectangle coordinates
+            /*
+             NSLog(@"Detected Rectangle's 4 pts (x,y):");
+             NSLog(@"TopLeft: (%i, %i)\n",(int)topLeft.x,(int)topLeft.y);
+             NSLog(@"TopRight: (%i, %i)\n",(int)topRight.x,(int)topRight.y);
+             NSLog(@"BottomRight: (%i, %i)\n",(int)bottomRight.x,(int)bottomLeft.y);
+             NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
+             NSLog(@"\n");
+             */
+        }
+        [self updateRadar];
     }
-    if(seconds%30==0)
-    {
-        //update the detected rectangle's 4 points
-        [self requestRectangleObjectCoordinates];
-        //draw the background
-        //[self drawBg];
-        //print the rectangle coordinates
-        /*
-        NSLog(@"Detected Rectangle's 4 pts (x,y):");
-        NSLog(@"TopLeft: (%i, %i)\n",(int)topLeft.x,(int)topLeft.y);
-        NSLog(@"TopRight: (%i, %i)\n",(int)topRight.x,(int)topRight.y);
-        NSLog(@"BottomRight: (%i, %i)\n",(int)bottomRight.x,(int)bottomLeft.y);
-        NSLog(@"BottomLeft: (%i, %i)\n",(int)bottomLeft.x,(int)bottomLeft.y);
-        NSLog(@"\n");
-         */
-        [self winlosestatus];
-    }
-    [self updateRadar];
-    
+    else
+        [self gameoverAnimation];
 }
 
 -(void)updateRadar
@@ -233,6 +236,11 @@ int seconds = 0;
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
     
+    //static animation for losegameAnimation
+    static1 = [SKSpriteNode spriteNodeWithImageNamed:@"15perc1.png"];
+    [static1 setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [static1 setSize:CGSizeMake(screenWidth, screenHeight)];
+    
     [self monsterMovement];
 }
 
@@ -241,12 +249,19 @@ int seconds = 0;
 }
 
 //Determines whether game is won or lost
--(void)winlosestatus
+-(void)gameoverAnimation
 {
     if([player getHP] <= 0)
-        [self gameoverAnimation];
+        [self losegameAnimation];
     else if(percentMonsterHP <= 0)
-        [self stageCompleteAnimation];
+        [self wingameAnimation];
+}
+
+-(bool)gameover
+{
+    if( ([player getHP] <= 0) || (percentMonsterHP <=0) )
+        return YES;
+    return NO;
 }
 
 //--------------------------------- Touch Functions --------------------------------- //
@@ -435,13 +450,8 @@ int seconds = 0;
 }
 
 //if player loses level
--(void)gameoverAnimation //*** WIP BY MICHELLE W. ***
+-(void)losegameAnimation
 {
-    SKSpriteNode *static1 = [SKSpriteNode spriteNodeWithImageNamed:@"15perc1.png"];
-    [static1 setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
-    [static1 setSize:CGSizeMake(screenWidth, screenHeight)];
-    [self addChild:static1];
-    
     SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"staticdamage"];
     SKTexture * static2 = [atlas textureNamed:@"15perc2.png"];
     SKTexture * static3 = [atlas textureNamed:@"15perc3.png"];
@@ -450,6 +460,7 @@ int seconds = 0;
     NSArray * runTexture = @[static2,static3,static4, static3,static2];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.07 resize:NO restore:NO];
     [static1 runAction:[SKAction repeatActionForever:runAnimation]];
+    [self addChild:static1];
     [sound playSoundForever:@"gameover2"];
     
     //alert to if want to restart
@@ -471,7 +482,7 @@ int seconds = 0;
 }
 
 //if player wins the level, play this animation
--(void)stageCompleteAnimation
+-(void)wingameAnimation
 {
     //needed to make the SKShapeNode
     CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
