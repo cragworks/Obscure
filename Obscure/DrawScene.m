@@ -140,12 +140,12 @@ int seconds = 0;
     int lineDegrees = lineAngle;
     NSLog(@"monster degrees: %i \n",monsterBlipDegrees);
     NSLog(@"line degrees: %i \n",lineDegrees);
-    if(abs(monsterBlipDegrees - lineDegrees) < 20)
+    /*if(abs(monsterBlipDegrees - lineDegrees) < 20)
     {
         if(![sound isPlaying])
             [sound playSound:@"radarBlip"];
         //[radarCircle setPosition:CGPointMake(endX, endY)];
-    }
+    }*/
     
 }
 
@@ -284,6 +284,9 @@ int seconds = 0;
         {
             //decrease monster's hp
             [self decreaseMonsterHP];
+            [self addChild:[self newExplosion:location.x :location.y]];
+            [sound playSound:@"ouch"];
+            //[self flash];
         }
     }
 }
@@ -454,7 +457,7 @@ int seconds = 0;
                           initWithTitle:@"GAME OVER"
                           message:nil
                           delegate:self
-                          cancelButtonTitle:@"CONTINUE?"
+                          cancelButtonTitle:@"CONTINUE"
                           otherButtonTitles: nil];
     [alert show];
 }
@@ -486,7 +489,16 @@ int seconds = 0;
     [self addChild:fourSidedFigure];
     
     //FIREWORKS
-    [self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
+    //[self addChild:[self newExplosion:screenWidth/2 :screenHeight/2]];
+    
+    //alert to if want to restart
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"YOU WIN"
+                          message:nil
+                          delegate:self
+                          cancelButtonTitle:@"RESTART"
+                          otherButtonTitles: nil];
+    [alert show];
 }
 
 - (SKEmitterNode *) newExplosion: (float)posX : (float) posy
@@ -497,6 +509,8 @@ int seconds = 0;
     emitter.targetNode = self.scene;
     emitter.numParticlesToEmit = 1000;
     emitter.zPosition=2.0;
+    [emitter setParticleLifetime:0.1];
+    [emitter setParticleLifetimeRange:0.1];
     return emitter;
 }
 
@@ -543,15 +557,14 @@ int seconds = 0;
 
 -(void)flash
 {
-    SKAction* flash = [SKAction fadeOutWithDuration:1];
-    
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
+    SKAction* flash = [SKAction fadeOutWithDuration:0.5];
     [redflash setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [redflash setSize:CGSizeMake(screenWidth*2, screenHeight*2)];
-    
-    
-    [redflash runAction:[SKAction repeatActionForever:flash]];
     [self addChild:redflash];
+    [redflash runAction:flash completion:^{
+        [redflash removeFromParent];
+    }];
 }
 
 -(void)monsterMovement
