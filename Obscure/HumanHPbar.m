@@ -20,7 +20,7 @@
         float screenHeight = screenRect.size.height;
         [sprite setPosition:CGPointMake(sprite.size.width, screenHeight-sprite.size.height)];
         NSLog(@"%f,%f", screenWidth, screenHeight);
-        hp = TOTAL_HEALTH
+        hp = TOTAL_HEALTH;
 //        damage = 50;
         //[self addChild:sprite];
     }
