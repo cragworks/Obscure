@@ -24,10 +24,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
-
+#import "Monster.h"
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
-    SKSpriteNode *monster;
+    
+    NSArray *monsters;
+    Monster *monster;
+    Monster *monster2;
+    
     SKSpriteNode *static1;
     BOOL monsterReachedYou;
     BOOL GAMEOVER;

@@ -66,7 +66,7 @@ int seconds = 0;
         {
             if(monsterReachedYou)
             {
-                [self attack];
+                [monster attack];
             }
         }
         if(seconds%30==0)
@@ -95,17 +95,17 @@ int seconds = 0;
 {
     float maxX = 1500;
     //if monster is  3000px x then move to -3000 and vice versa
-    if(monster.position.x > maxX)
+    if(monster.sprite.position.x > maxX)
     {
-        [monster setPosition:CGPointMake(-maxX, monster.position.y)];
+        [monster.sprite setPosition:CGPointMake(-maxX, monster.sprite.position.y)];
     }
-    else if(monster.position.x < -maxX)
+    else if(monster.sprite.position.x < -maxX)
     {
-        [monster setPosition:CGPointMake(maxX, monster.position.y)];
+        [monster.sprite setPosition:CGPointMake(maxX, monster.sprite.position.y)];
     }
     
     //show degrees from 0 to 360
-    int degrees = 360 * (monster.position.x / 3000);
+    int degrees = 360 * (monster.sprite.position.x / 3000);
     if(degrees < 0)
     {
         degrees = 0;
@@ -222,14 +222,22 @@ int seconds = 0;
     player = [[HumanHPbar alloc]init];
     [self addChild:player];
     
-    monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
-    [monster setName:@"catmain1"];
-    [monster setSize:CGSizeMake(50, 50)];
-    int random = arc4random() % 500;
-    [monster setPosition:CGPointMake(random, 250)];
-    [self addChild:monster];
+    monsters = [[NSArray alloc] init];
     
-    [self monsterMovement];
+    monster = [[Monster alloc] init];
+    monster2 = [[Monster alloc] init];
+    
+    [self addChild:monster.sprite];
+    [self addChild:monster2.sprite];
+    
+//    monster = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
+//    [monster setName:@"catmain1"];
+//    [monster setSize:CGSizeMake(50, 50)];
+    int random = arc4random() % 500;
+//    [monster setPosition:CGPointMake(random, 250)];
+//    [self addChild:monster];
+    
+    [monster monsterMovement];
     //reticule symbol
     reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.png"];
     [reticule setName:@"reticule"];
@@ -243,7 +251,7 @@ int seconds = 0;
         //[self addChild:monsterHPBar];
     }
     //NSLog(@"%f %f ", monster.position.x, monster.position.y);
-    [monsterHPBar setPosition:CGPointMake(monster.position.x, monster.position.y + 50)];
+    [monsterHPBar setPosition:CGPointMake(monster.sprite.position.x, monster.sprite.position.y + 50)];
     
     //[monsterHPBar runAction:together];
     
@@ -258,7 +266,10 @@ int seconds = 0;
     [static1 setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [static1 setSize:CGSizeMake(screenWidth, screenHeight)];
     
-    [self monsterMovement];
+    [monster monsterMovement];
+    [monster attack];
+    [monster2 monsterMovement];
+    [monster2 attack];
 }
 
 -(void)didMoveToView:(SKView *)view {
@@ -312,7 +323,7 @@ int seconds = 0;
             
         }
         
-        if([[self nodeAtPoint:location].name isEqualToString:monster.name])
+        if([[self nodeAtPoint:location].name isEqualToString:monster.sprite.name])
         {
             //decrease monster's hp
             [self decreaseMonsterHP];
@@ -333,7 +344,7 @@ int seconds = 0;
         UITouch *touch = [allTouches objectAtIndex:0];
         CGPoint loc = [touch locationInNode:self];
         
-        if([[self nodeAtPoint:loc].name isEqualToString:monster.name])
+        if([[self nodeAtPoint:loc].name isEqualToString:monster.sprite.name])
         {
             //decrease monster's hp
             [self decreaseMonsterHP];
@@ -684,47 +695,47 @@ int seconds = 0;
     return emitter;
 }
 
--(void)attack
-{
-    [self beingAttackedAnimation];
-    SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"CAT"];
-    SKTexture * catstop = [atlas textureNamed:@"catmain1"];
-    SKTexture * catleap = [atlas textureNamed:@"catmain2"];
-    NSArray * textureleap = @[catstop, catleap];
-    SKAction* runleap = [SKAction animateWithTextures:textureleap timePerFrame: 0.25 resize:NO restore:NO];
-    //[monster runAction:runleap];
-    //SKAction* backleap = [
-    NSArray* wait2 = @[ catstop, catstop];
-    SKAction* wait = [SKAction animateWithTextures:wait2 timePerFrame:2 resize:NO restore:NO];
-    
-    [monster setScale:1];
-    SKAction* leap2 = [SKAction moveToY:150 duration:1];
-    SKAction* Bigger = [SKAction scaleTo:2 duration:1];
-    NSArray* jump = @[leap2, Bigger];
-    
-    
-    SKAction* leapback = [SKAction moveToY:200 duration:1];
-    SKAction* Smaller = [SKAction scaleTo:1 duration:1];
-    NSArray* jumpback = @[leapback, Smaller];
-    
-    SKTexture * claws = [atlas textureNamed:@"catattack1"];
-    SKTexture * attack = [atlas textureNamed:@"catattack15"];
-    
-    NSArray* Sample = @[claws, attack];
-    SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.25 resize:NO restore:NO];
-    
-    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, nil];
-    SKAction* together = [SKAction sequence:array];
-    NSArray* returnAfterAttacking = [[NSArray alloc] initWithObjects:runleap, jumpback, wait,  nil];
-    SKAction* together2 = [SKAction sequence:returnAfterAttacking];
-    [monster runAction:together completion:^{
-        [player humanwound];
-        [self flash];
-        [sound playSound:@"OW"];
-        [monster runAction:together2];
-    }];
-}
-
+//-(void)attack
+//{
+//    [self beingAttackedAnimation];
+//    SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"CAT"];
+//    SKTexture * catstop = [atlas textureNamed:@"catmain1"];
+//    SKTexture * catleap = [atlas textureNamed:@"catmain2"];
+//    NSArray * textureleap = @[catstop, catleap];
+//    SKAction* runleap = [SKAction animateWithTextures:textureleap timePerFrame: 0.25 resize:NO restore:NO];
+//    //[monster runAction:runleap];
+//    //SKAction* backleap = [
+//    NSArray* wait2 = @[ catstop, catstop];
+//    SKAction* wait = [SKAction animateWithTextures:wait2 timePerFrame:2 resize:NO restore:NO];
+//    
+//    [monster.sprite setScale:1];
+//    SKAction* leap2 = [SKAction moveToY:150 duration:1];
+//    SKAction* Bigger = [SKAction scaleTo:2 duration:1];
+//    NSArray* jump = @[leap2, Bigger];
+//    
+//    
+//    SKAction* leapback = [SKAction moveToY:200 duration:1];
+//    SKAction* Smaller = [SKAction scaleTo:1 duration:1];
+//    NSArray* jumpback = @[leapback, Smaller];
+//    
+//    SKTexture * claws = [atlas textureNamed:@"catattack1"];
+//    SKTexture * attack = [atlas textureNamed:@"catattack15"];
+//    
+//    NSArray* Sample = @[claws, attack];
+//    SKAction* Sample1 = [SKAction animateWithTextures:Sample timePerFrame:.25 resize:NO restore:NO];
+//    
+//    NSArray* array = [[NSArray alloc] initWithObjects:runleap, jump, runleap, Sample1, nil];
+//    SKAction* together = [SKAction sequence:array];
+//    NSArray* returnAfterAttacking = [[NSArray alloc] initWithObjects:runleap, jumpback, wait,  nil];
+//    SKAction* together2 = [SKAction sequence:returnAfterAttacking];
+//    [monster.sprite runAction:together completion:^{
+//        [player humanwound];
+//        [self flash];
+//        [sound playSound:@"OW"];
+//        [monster.sprite runAction:together2];
+//    }];
+//}
+//
 -(void)flash
 {
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
@@ -736,129 +747,6 @@ int seconds = 0;
         [redflash removeFromParent];
     }];
 }
-
--(void)monsterMovement
-{
-    NSLog(@"%f %f ", monster.position.x, monster.position.y);
-
-    //    SKAction* start = [SKAction moveBy:CGVectorMake(-150, 70) duration:1];
-    SKAction* jumpUp1 = [SKAction moveBy:CGVectorMake(100, 45) duration:0.5];
-    SKAction* jumpDown1 = [SKAction moveBy:CGVectorMake(35, -20) duration:0.5];
-    SKAction* jumpUp2 = [SKAction moveBy:CGVectorMake(35, 10) duration:0.5];
-    SKAction* jumpDown2 = [SKAction moveBy:CGVectorMake(55, -55) duration:0.5];
-    SKAction* jumpUp3 = [SKAction moveBy:CGVectorMake(-65, 20) duration:0.5];
-    SKAction* jumpDown3 = [SKAction moveBy:CGVectorMake(-30, -35) duration:0.5];
-    SKAction* jumpUp4 = [SKAction moveBy:CGVectorMake(-45, 15) duration:0.5];
-    SKAction* jumpDown4 = [SKAction moveBy:CGVectorMake(-20, -50) duration:0.5];
-    SKAction* jumpUp5 = [SKAction moveBy:CGVectorMake(75, 15) duration:0.5];
-    SKAction* jumpDown5 = [SKAction moveBy:CGVectorMake(10, -35) duration:0.5];
-    SKAction* resizeOut = [SKAction resizeByWidth:175 height:175 duration:6];
-    SKAction* resizeOut2 = [SKAction resizeByWidth:45 height:45 duration:6];
-    NSArray* array = [[NSArray alloc] initWithObjects:jumpUp1, jumpDown1, jumpUp2, jumpDown2, jumpUp3, jumpDown3, jumpUp4, jumpDown4, jumpUp5, jumpDown5, nil];
-    SKAction* together = [SKAction sequence:array];
-    [monster runAction:together];
-    [monster runAction:resizeOut];
-    
-    /* ------- reticule target ------- /
-    // Counterattack reticule target spawns with the monster and moves along with it
-    [reticule runAction:together];
-    [reticule runAction:resizeOut2];
-    */
-    
-    SKTexture * front1 = [SKTexture textureWithImageNamed:@"catmain1"];
-    SKTexture * front2 = [SKTexture textureWithImageNamed:@"catmain2"];
-    SKTexture * right1 = [SKTexture textureWithImageNamed:@"catright1"];
-    SKTexture * right2 = [SKTexture textureWithImageNamed:@"catright2"];
-    SKTexture * left1 = [SKTexture textureWithImageNamed:@"catleft1"];
-    SKTexture * left2 = [SKTexture textureWithImageNamed:@"catleft2"];
-    NSArray * runTexture = @[right2, right1, right1, right1, right2, right1, right1, right1, left2, left1, left1, left1,  left2, left1, left1, left1, right2, right1, right1, right1, front2, front1];
-    SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.25 resize:NO restore:NO];
-    [monster runAction:runAnimation completion:^{monsterReachedYou = YES;
-                                                }];
-}
-
-//--------------------------------- Reference/Other Functions --------------------------------- //
-
-/*Make a duck, give it a spritesheet, give it animation, give it sound
- -(void)makeDuckFlyUpRight
- {
- //make SKSpriteNode!
- CGPoint center = CGPointMake((topLeft.x+topRight.x)/2, (topLeft.y + bottomLeft.y)/2);
- SKSpriteNode *duck = [SKSpriteNode spriteNodeWithImageNamed:@"duck"];
- [duck setPosition:center];
- [self addChild:duck];
- 
- [player humanwound];
- 
- //mine
- [monsterHPBar setHP:[self updateMonsterHP]];
- [monsterHPBar setScale:[self updateMonsterHP]];
- //   NSLog(@"%f", [self updateMonsterHP]);
- [self decreaseMonsterHP];
- 
- //spritesheet!
- //an atlas is a folder in the project
- //here it is called duck.atlas
- //it contains images for the animation spritesheets
- //you use the images to make SKTexture
- //then you make an SKAction called animateWithTextures
- //and run it to apply the spritesheet
- SKTextureAtlas * atlas = [SKTextureAtlas atlasNamed:@"duck"];
- SKTexture * duckTex1 = [atlas textureNamed:@"flyUpRight1"];
- SKTexture * duckTex2 = [atlas textureNamed:@"flyUpRight2"];
- NSArray * runTexture = @[duckTex1,duckTex2];
- SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.075 resize:NO restore:NO];
- [duck runAction:[SKAction repeatActionForever:runAnimation]];
- 
- //animations! SKAction!
- //make duck gradually get larger by 500 and 500 in 2 sec
- SKAction* resizeOut = [SKAction resizeByWidth:500 height:500 duration:2];
- //move the duck right by 700px and right by 700px in 2 sec
- SKAction* flyOut = [SKAction moveByX:700 y:700 duration:2];
- //run the actions
- [duck runAction:resizeOut];
- [duck runAction:flyOut];
- 
- //sound!
- soundPlayer = [[Sound alloc] init];
- [soundPlayer playSound:@"quack"];
- } */
-
-/* 3D Maya Test
--(void)make3DGhost:(int)x :(int)y
-{
-    SK3DNode *alien3D = [[SK3DNode alloc] initWithViewportSize:CGSizeMake(self.frame.size.width,
-                                                                          self.frame.size.height)];
-    SCNScene *alienSCN = [SCNScene sceneNamed:@"ghosty.dae"];
-    alien3D.scnScene = alienSCN;
-    [alien3D setPosition:CGPointMake(x - 350, y)];
-    [alien3D setScale:0.25];
-    [self addChild:alien3D];
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -(void)coreMotionSetVariables
 {
@@ -941,7 +829,7 @@ int seconds = 0;
     float rotationScale = 50;
     const float xDelta = rotation.y*rotationScale;
     const float yDelta = (rotation.x*rotationScale);
-    [monster setPosition:CGPointMake(monster.position.x + yDelta, monster.position.y)];
+    [monster.sprite setPosition:CGPointMake(monster.sprite.position.x + yDelta, monster.sprite.position.y)];
     
     //[currentLine setPosition:CGPointMake(currentLine.position.x + rotation.y*rotationScale, currentLine.position.y - rotation.x*rotationScale)];
 }
