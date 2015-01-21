@@ -13,6 +13,7 @@
 		311687951A33D962006E078E /* catmain2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878F1A33D961006E078E /* catmain2.png */; };
 		311687961A33D962006E078E /* catright1.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687901A33D962006E078E /* catright1.png */; };
 		311687971A33D962006E078E /* catright2.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687911A33D962006E078E /* catright2.png */; };
+		318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 318BBD011A661D3A00D3E7C3 /* Monster.m */; };
 		434556EC1A2E750D0064FDD9 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EB1A2E750D0064FDD9 /* Sound.m */; };
 		434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EE1A2E754C0064FDD9 /* DrawScene.m */; };
 		434556F11A2E75C40064FDD9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434556F01A2E75C40064FDD9 /* SpriteKit.framework */; };
@@ -85,6 +86,8 @@
 		3116878F1A33D961006E078E /* catmain2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catmain2.png; sourceTree = "<group>"; };
 		311687901A33D962006E078E /* catright1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright1.png; sourceTree = "<group>"; };
 		311687911A33D962006E078E /* catright2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright2.png; sourceTree = "<group>"; };
+		318BBD001A661D2D00D3E7C3 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		318BBD011A661D3A00D3E7C3 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		434556EB1A2E750D0064FDD9 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		434556ED1A2E754C0064FDD9 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				438951A51A21C1D7006A86BE /* AppDelegate.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
+				318BBD001A661D2D00D3E7C3 /* Monster.h */,
+				318BBD011A661D3A00D3E7C3 /* Monster.m */,
 				499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */,
 				499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */,
 				434556EA1A2E750D0064FDD9 /* Sound.h */,
@@ -475,6 +480,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */,
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
 				499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */,
 				437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */,
