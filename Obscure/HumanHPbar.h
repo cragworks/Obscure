@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #define Total_HealthBar 8
 
-@interface HumanHPbar : NSObject
+@interface HumanHPbar : SKScene
 {
     int hp;
     int damage;

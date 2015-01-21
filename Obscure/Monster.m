@@ -3,7 +3,6 @@
 @synthesize sprite;
 - (id)init {
     if (self = [super init]) {
-        
         sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
         [sprite setName:@"catmain1"];
         [sprite setSize:CGSizeMake(50, 50)];

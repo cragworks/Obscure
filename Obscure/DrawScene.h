@@ -27,8 +27,11 @@
 #import "Monster.h"
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
+    
+    NSArray *monsters;
     Monster *monster;
-    //SKSpriteNode *monster;
+    Monster *monster2;
+    
     SKSpriteNode *static1;
     BOOL monsterReachedYou;
     BOOL GAMEOVER;
