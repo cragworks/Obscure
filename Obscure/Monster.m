@@ -11,6 +11,8 @@
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
+        monsterHpClass = [[MonsterHPBar alloc] init];
+        [monsterHpClass setHP:100];
     }
     return self;
 }
