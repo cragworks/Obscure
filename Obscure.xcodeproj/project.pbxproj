@@ -62,6 +62,7 @@
 		BC1F817A1A327FD600D088CF /* health3.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1F81771A327FD600D088CF /* health3.png */; };
 		BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F817C1A32800C00D088CF /* HumanHPbar.m */; };
 		BCDBA9131A32A199003F58AC /* health1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9121A32A199003F58AC /* health1.png */; };
+		ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */; };
 		ED320C791A32A916000A39F2 /* reticule.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED320C781A32A916000A39F2 /* reticule.jpg */; };
 		ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */ = {isa = PBXBuildFile; fileRef = ED320C7C1A33F89D000A39F2 /* reticule.png */; };
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
@@ -152,6 +153,8 @@
 		BC1F817B1A32800C00D088CF /* HumanHPbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanHPbar.h; sourceTree = "<group>"; };
 		BC1F817C1A32800C00D088CF /* HumanHPbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanHPbar.m; sourceTree = "<group>"; };
 		BCDBA9121A32A199003F58AC /* health1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health1.png; sourceTree = "<group>"; };
+		ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHologram.m; sourceTree = "<group>"; };
+		ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterHologram.h; sourceTree = "<group>"; };
 		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED320C7C1A33F89D000A39F2 /* reticule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reticule.png; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
 				318BBD001A661D2D00D3E7C3 /* Monster.h */,
 				318BBD011A661D3A00D3E7C3 /* Monster.m */,
+				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
+				ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */,
 				499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */,
 				499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */,
 				BC1F817B1A32800C00D088CF /* HumanHPbar.h */,
@@ -501,6 +506,7 @@
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
 				BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */,
 				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
+				ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
