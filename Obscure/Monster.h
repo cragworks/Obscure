@@ -8,6 +8,7 @@
     SKTexture* image;
     CGFloat screenWidth;
     CGFloat screenHeight;
+    float monsterHPBar;
     MonsterHPBar* monsterHpClass;
 }
 @property SKSpriteNode * sprite;

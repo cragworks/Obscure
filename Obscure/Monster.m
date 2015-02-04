@@ -7,6 +7,7 @@
         [sprite setName:@"catmain1"];
         [sprite setSize:CGSizeMake(50, 50)];
         int random = arc4random() % 500;
+        monsterHPBar = 100.0f;
         [sprite setPosition:CGPointMake(random, 250)];
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;

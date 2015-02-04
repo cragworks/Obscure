@@ -79,7 +79,24 @@
     CGPoint pointA;
     NSMutableArray *points;
     
+    int msec;
     
+    //the 4 corner points of the rectangle detected
+    CGPoint topLeft;
+    CGPoint topRight;
+    CGPoint bottomRight;
+    CGPoint bottomLeft;
+    
+    //note by michelle: what is this for? variable not used...
+    //int health; //3 2 1 0
+    
+    //the SKShapeNode which will overlay the rectangle
+    SKShapeNode *fourSidedFigure;
+    Sound* soundPlayer;
+    
+    int maxMonsterHP;
+    int currentMonsterHP;
+    float percentMonsterHP;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;
