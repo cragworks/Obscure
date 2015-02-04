@@ -1,20 +1,8 @@
-//
-//  AppDelegate.m
-//  Obscure
-//
-//  Created by Calvin Tham on 11/22/14.
-//  Copyright (c) 2014 Calvin Tham. All rights reserved.
-//
-
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "BlackViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "DrawScene.h"
-
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
@@ -26,12 +14,14 @@
     
     if(!TARGET_IPHONE_SIMULATOR)
     {
-        if([self checkAccessCameraPermission] == YES){
+        if([self checkAccessCameraPermission] == YES)
+        {
             ViewController *test = [[ViewController alloc]     initWithNibName:@"ViewController" bundle:nil];
             self.window.rootViewController = test;
         }
     }
-    else{
+    else
+    {
         //EMPTY VIEW CONTROLLER FOR WHEN NO ACCESS TO CAMERA + SKVIEW
         BlackViewController *test = [[BlackViewController alloc] init];
         self.window.rootViewController = test;
@@ -55,12 +45,13 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
--(Boolean)checkAccessCameraPermission{
+-(BOOL)checkAccessCameraPermission
+{
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     
     if(status !=  AVAuthorizationStatusNotDetermined)
         if (status == ALAuthorizationStatusDenied) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Cannot show camera's video feed until BasicCustomCamera gets access permission to Camera in your Settings." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Cannot show camera's video feed until Obscure gets access permission to Camera in your Settings." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             return NO;
         }
