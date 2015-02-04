@@ -1,22 +1,3 @@
-//
-//  DrawScene.h
-//  TicTacVideo
-//
-//  Created by Calvin Tham on 7/28/14.
-//  Copyright (c) 2014 Calvin Tham. All rights reserved.
-//
-#define btnFadeAlpha 0.3
-#define clearBtnFadeAlpha 0.3
-#define takeScreenshotBtnFadeAlpha 0.3
-#define switchCameraBtnFadeAlpha 0.3
-#define pawBtnFadeAlpha 0.3
-#define btnMaxFadeAlpha 0.05
-
-#import "Sound.h"
-#import "MonsterHPBar.h"
-#import "HumanHPbar.h"
-#import "Monster.h"
-
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -26,79 +7,27 @@
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
 
+#import "Sound.h"
+#import "Monster.h"
+
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
-    
-    NSArray *monsters;
-    Monster *monster;
-    Monster *monster2;
-    
-    SKSpriteNode *static1;
-    BOOL monsterReachedYou;
-    BOOL GAMEOVER;
-    
     CGFloat screenWidth;
     CGFloat screenHeight;
     
-    SKShapeNode *currentLine;
-    CGMutablePathRef currentPathToDraw;
+    NSArray *monsters;
+    Monster *monster;
     
-    SKSpriteNode *buttonClear;
-    SKSpriteNode *buttonClearPressed;
+    BOOL monsterReachedYou;
+    BOOL GAMEOVER;
+    SKShapeNode *fourSidedFigure;
     
-    SKSpriteNode *buttonSwitchCamera;
-    SKSpriteNode *buttonSwitchCameraPressed;
-    
-    SKSpriteNode *buttonTakeScreenshot;
-    SKSpriteNode *buttonTakeScreenshotPressed;
-    
-    SKSpriteNode *reticule;
-    
-    Boolean stillTakingScreenshot;
+    SKSpriteNode *static1;
+    int lineAngle;
     
     Sound *sound;
     Sound *soundSfx;
-    NSMutableArray *lines;
-    //test
-    
-    //coremotion stuff
-    double currentMaxAccelX;
-    double currentMaxAccelY;
-    double currentMaxAccelZ;
-    double currentMaxRotX;
-    double currentMaxRotY;
-    double currentMaxRotZ;
-    
-    HumanHPbar * player;
-    MonsterHPBar * monsterHPBar;
-    
-    SKShapeNode* radarCircle;
-    NSMutableArray *arcLines;
-    int lineAngle;
-    
-    CGPoint pointA;
-    NSMutableArray *points;
-    
-    int msec;
-    
-    //the 4 corner points of the rectangle detected
-    CGPoint topLeft;
-    CGPoint topRight;
-    CGPoint bottomRight;
-    CGPoint bottomLeft;
-    
-    //note by michelle: what is this for? variable not used...
-    //int health; //3 2 1 0
-    
-    //the SKShapeNode which will overlay the rectangle
-    SKShapeNode *fourSidedFigure;
     Sound* soundPlayer;
-    
-    int maxMonsterHP;
-    int currentMonsterHP;
-    float percentMonsterHP;
+    int msec;
 }
-
-@property (strong, nonatomic) CMMotionManager *motionManager;
-
 @end

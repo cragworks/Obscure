@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "MonsterHPBar.h"
 
 @interface Monster : NSObject
 {
@@ -9,9 +8,9 @@
     CGFloat screenWidth;
     CGFloat screenHeight;
     float monsterHPBar;
-    MonsterHPBar* monsterHpClass;
 }
-@property SKSpriteNode * sprite;
+
+@property SKSpriteNode* sprite;
 -(void)monsterMovement;
 -(void)attack;
 -(void)beingAttackedAnimation;

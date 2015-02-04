@@ -1,8 +1,10 @@
 #import "Monster.h"
 @implementation Monster
 @synthesize sprite;
-- (id)init {
-    if (self = [super init]) {
+- (id)init
+{
+    if (self = [super init])
+    {
         sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catmain1"];
         [sprite setName:@"catmain1"];
         [sprite setSize:CGSizeMake(50, 50)];
@@ -12,12 +14,9 @@
         CGRect screenRect = [[UIScreen mainScreen] bounds];
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
-        monsterHpClass = [[MonsterHPBar alloc] init];
-        [monsterHpClass setHP:100];
     }
     return self;
 }
-
 
 -(void)monsterMovement
 {
@@ -41,12 +40,6 @@
     [sprite runAction:together];
     [sprite runAction:resizeOut];
     
-    /* ------- reticule target ------- /
-     // Counterattack reticule target spawns with the sprite and moves along with it
-     [reticule runAction:together];
-     [reticule runAction:resizeOut2];
-     */
-    
     SKTexture * front1 = [SKTexture textureWithImageNamed:@"catmain1"];
     SKTexture * front2 = [SKTexture textureWithImageNamed:@"catmain2"];
     SKTexture * right1 = [SKTexture textureWithImageNamed:@"catright1"];
@@ -55,8 +48,6 @@
     SKTexture * left2 = [SKTexture textureWithImageNamed:@"catleft2"];
     NSArray * runTexture = @[right2, right1, right1, right1, right2, right1, right1, right1, left2, left1, left1, left1,  left2, left1, left1, left1, right2, right1, right1, right1, front2, front1];
     SKAction* runAnimation = [SKAction animateWithTextures:runTexture timePerFrame:0.25 resize:NO restore:NO];
-//    [sprite runAction:runAnimation completion:^{spriteReachedYou = YES;
-//    }];
 }
 
 -(void)attack
@@ -92,12 +83,6 @@
     SKAction* together = [SKAction sequence:array];
     NSArray* returnAfterAttacking = [[NSArray alloc] initWithObjects:runleap, jumpback, wait,  nil];
     SKAction* together2 = [SKAction sequence:returnAfterAttacking];
-    //[sprite runAction:together completion:^{
-      //  [player humanwound];
-       // [self flash];
-        //[sound playSound:@"OW"];
-        //[sprite runAction:together2];
-    //}];
 }
 
 
@@ -109,20 +94,6 @@
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
     
-    
-    /*
-     //needed to make the SKShapeNode
-     CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
-     size_t numPoints = 5;
-     
-     
-     //make SKShapeNode at the rectangle’s points and number of points (5)
-     fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
-     //make the rect red
-     [fourSidedFigure setFillColor:[UIColor redColor]];
-     //make rectangle transparent
-     [fourSidedFigure setAlpha:0.1];
-     */
     SKAction* flash = [SKAction fadeOutWithDuration:1];
     
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
@@ -131,13 +102,6 @@
     
     [warning runAction:[SKAction repeatActionForever:flash]];
     [redflash runAction:[SKAction repeatActionForever:flash]];
-    //[fourSidedFigure runAction:[SKAction repeatActionForever:flash]];
-    
-    //make rectangle flash
-    //[fourSidedFigure setAlpha:0.0];
-    
-    //[self addChild:warning];
-    //    [self addChild:redflash];
 }
 
 

@@ -18,20 +18,9 @@
 {
     [self removeAllChildren];
     msec = 0;
-    points = [[NSMutableArray alloc] init];
     
     soundPlayer = [[Sound alloc] init];
     [soundPlayer playSoundForever:@"introtrackloop"];
-    maxMonsterHP = 100;
-    currentMonsterHP = maxMonsterHP;
-    
-    arcLines = [[NSMutableArray alloc] init];
-    lineAngle = 125;
-    
-    topLeft = CGPointMake(300,200);
-    topRight = CGPointMake(400,200);
-    bottomRight = CGPointMake(400,100);
-    bottomLeft = CGPointMake(300,100);
     
     sound = [[Sound alloc] init];
     soundSfx = [[Sound alloc] init];
@@ -41,22 +30,6 @@
     monsters = [[NSArray alloc] init];
     monster = [[Monster alloc] init];
     [self addChild:monster.sprite];
-    [monster monsterMovement];
-    
-    //reticule symbol
-    int random = arc4random() % 500;
-    reticule = [SKSpriteNode spriteNodeWithImageNamed:@"reticule.png"];
-    [reticule setName:@"reticule"];
-    [reticule setPosition:CGPointMake(random, 250)];
-    [reticule setSize:CGSizeMake(25,25)];
-    [self addChild:reticule];
-    
-    radarCircle = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
-    [radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
-    [radarCircle setStrokeColor:[UIColor blackColor]];
-    [radarCircle setGlowWidth:2];
-    [self addChild:radarCircle];
-    
     [monster monsterMovement];
     [monster attack];
 }
@@ -71,18 +44,11 @@
     NSArray *allTouches = [[event allTouches] allObjects];
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint location = [touch locationInNode:self];
-    
+
     if ([allTouches count] > 1)
         return;
     else
     {
-        // If user taps the reticule, monster stops attacking
-        if ([[self nodeAtPoint:location].name isEqualToString:reticule.name])
-        {
-            NSLog(@"Testing....");
-            // INSERT MONSTER STOPPED ATTACKING HERE!!
-            
-        }
         if([[self nodeAtPoint:location].name isEqualToString:monster.sprite.name])
         {
             //decrease monster's hp
@@ -94,7 +60,6 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     NSArray *allTouches = [[event allTouches] allObjects];
     
     if([allTouches count] > 1)
@@ -106,9 +71,7 @@
         
         if([[self nodeAtPoint:loc].name isEqualToString:monster.sprite.name])
         {
-            //decrease monster's hp
             [sound playSound:@"ouch"];
-            //[self flash];
         }
     }
 }
@@ -119,76 +82,6 @@
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint loc = [touch locationInNode:self];
     
-    for(int i = 0; i < points.count; i++)
-    {
-        [points[i] removeFromParent];
-        [points removeObjectAtIndex:i];
-    }
-}
-
--(void)updateRadar
-{
-    float maxX = 1500;
-    //if monster is  3000px x then move to -3000 and vice versa
-    if(monster.sprite.position.x > maxX)
-    {
-        [monster.sprite setPosition:CGPointMake(-maxX, monster.sprite.position.y)];
-    }
-    else if(monster.sprite.position.x < -maxX)
-    {
-        [monster.sprite setPosition:CGPointMake(maxX, monster.sprite.position.y)];
-    }
-    
-    //show degrees from 0 to 360
-    int degrees = 360 * (monster.sprite.position.x / 3000);
-    if(degrees < 0)
-    {
-        degrees = 0;
-    }
-    
-    //the radar line
-    CGPoint centerOfRadar = CGPointMake(screenWidth/12.5,screenHeight/7.75);
-    SKShapeNode *line = [SKShapeNode node];
-    float lineRadius = screenWidth/18;
-    CGMutablePathRef pathToDraw = CGPathCreateMutable();
-    float lineEndX = centerOfRadar.x + lineRadius * cos( DEGREES_RADIANS(lineAngle) );
-    float lineEndY = centerOfRadar.y + lineRadius * sin( DEGREES_RADIANS(lineAngle) );
-    CGPathMoveToPoint(pathToDraw, NULL, centerOfRadar.x, centerOfRadar.y);
-    CGPathAddLineToPoint(pathToDraw, NULL, lineEndX, lineEndY);
-    line.path = pathToDraw;
-    [line setStrokeColor:[UIColor colorWithRed:255/255.0 green:51/255.0 blue:153/255.0 alpha:1]];
-    [line setGlowWidth:1.5];
-    [line setLineWidth:2];
-    lineAngle+=10;
-    if(lineAngle > 360)
-        lineAngle = 0;
-    [self addChild:line];
-    [arcLines addObject:line];
-    
-    //remove old lines
-    if(arcLines.count > 1)
-    {
-        for(int i = 0; i < arcLines.count - 1; i++)
-        {
-            [arcLines[i] removeFromParent];
-        }
-    }
-    
-    //move the circle to that degrees spot
-    //[radarCircle setPosition: CGPointMake(screenWidth/12.5,screenHeight/8.5)];
-    degrees *= -1;
-    float radius = 25;
-    float startAngle = 125;
-    float endX = centerOfRadar.x + radius * cos( DEGREES_RADIANS(startAngle + degrees) );
-    float endY = centerOfRadar.y + radius * sin( DEGREES_RADIANS(startAngle + degrees) );
-    [radarCircle setPosition:CGPointMake(endX, endY)];
-    //NSLog(@"DEGREES: %i \n",degrees);
-    
-    //play blip sound if radar line = monster's location's blip
-    int monsterBlipDegrees = startAngle + degrees;
-    int lineDegrees = lineAngle;
-    NSLog(@"monster degrees: %i \n",monsterBlipDegrees);
-    NSLog(@"line degrees: %i \n",lineDegrees);
 }
 
 //Determines whether game is won or lost
@@ -241,7 +134,6 @@
     [self addChild:katana];
 }
 
-//--------------------------------- Animation Functions --------------------------------- //
 //if player is being attacked by monster
 -(void)beingAttackedAnimation
 {
@@ -251,20 +143,6 @@
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
 
-    
-    /*
-    //needed to make the SKShapeNode
-    CGPoint rect[] = {CGPointMake(0, 0), CGPointMake(screenWidth,0), CGPointMake(screenWidth, screenHeight), CGPointMake(0, screenHeight), CGPointMake(0, 0)};
-    size_t numPoints = 5;
-    
-    
-    //make SKShapeNode at the rectangle’s points and number of points (5)
-    fourSidedFigure = [SKShapeNode shapeNodeWithPoints:rect count:numPoints];
-    //make the rect red
-    [fourSidedFigure setFillColor:[UIColor redColor]];
-    //make rectangle transparent
-    [fourSidedFigure setAlpha:0.1];
-    */
     SKAction* flash = [SKAction fadeOutWithDuration:1];
     
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];
@@ -376,34 +254,5 @@
         }
     
     return YES;
-}
-
--(void)beginNewLine:(CGPoint)startPt
-{
-    SKShapeNode *line = [SKShapeNode node];
-    CGMutablePathRef pathToDraw = CGPathCreateMutable();
-    CGPathMoveToPoint(pathToDraw, NULL, startPt.x, startPt.y);
-    line.path = pathToDraw;
-    
-    UIColor *orangish = [UIColor colorWithRed:255/255.0 green:222/255.0 blue:0/255.0 alpha:1];
-    
-    //random color generator
-    //UIColor *orangish = [UIColor colorWithRed:(arc4random() %256)/255.0 green:(arc4random() %256)/255.0 blue:(arc4random() %256)/255.0 alpha:1];
-    [line setStrokeColor:orangish];
-    [line setFillColor:orangish];
-    [line setGlowWidth:10.0];
-    [line setLineWidth:6.0];
-    [line setLineCap:kCGLineCapButt];
-    [line setLineJoin:kCGLineJoinRound];
-    currentLine = line;
-    currentPathToDraw = pathToDraw;
-    [self addChild:line];
-}
-
--(void)addPointToLine:(CGPoint)pt
-{
-    CGPathAddLineToPoint(currentPathToDraw, NULL, pt.x, pt.y);
-    CGPathMoveToPoint(currentPathToDraw, NULL, pt.x, pt.y);
-    currentLine.path = currentPathToDraw;
 }
 @end
