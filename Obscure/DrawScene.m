@@ -37,6 +37,7 @@
 -(void)update:(NSTimeInterval)currentTime
 {
     msec++;
+    [gyroscope update:monsters];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
