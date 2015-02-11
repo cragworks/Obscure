@@ -1,4 +1,5 @@
 #import "DrawScene.h"
+#import "Gyroscope.h"
 #define DEGREES_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 @implementation DrawScene
@@ -11,6 +12,7 @@
         screenHeight = screenRect.size.height;
         [self setVariables];
     }
+    gyroscope = [[Gyroscope alloc] init];
     return self;
 }
 
@@ -27,7 +29,7 @@
     
     [self drawCombatUI];
     
-    monsters = [[NSArray alloc] init];
+    monsters = [[NSArray alloc] initWithObjects:monster.sprite, nil];
     monster = [[Monster alloc] init];
     [self addChild:monster.sprite];
     [monster monsterMovement];
@@ -37,6 +39,7 @@
 -(void)update:(NSTimeInterval)currentTime
 {
     msec++;
+    [gyroscope moveSprite:monster.sprite];
     [gyroscope update:monsters];
 }
 
