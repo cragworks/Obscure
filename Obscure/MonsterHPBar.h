@@ -8,16 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface MonsterHPBar : SKCropNode{
-    float hp;
-    int power;
-    
-    
-}
+@interface MonsterHPBar : SKCropNode
 
 - (id) initWithCustomSize:(CGSize)cgsize;
 - (void) setHP:(CGFloat) hp;
-- (void) hurt:(CGFloat) damage, hp;
--(void) update:(CGFloat) hp;
--(float) getHP;
+
 @end

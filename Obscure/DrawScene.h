@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //
 //  DrawScene.h
 //  TicTacVideo
@@ -16,10 +15,7 @@
 #import "Sound.h"
 #import "MonsterHPBar.h"
 #import "HumanHPbar.h"
-#import "Monster.h"
 
-=======
->>>>>>> FETCH_HEAD
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -28,31 +24,63 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
-
-<<<<<<< HEAD
-=======
-#import "Sound.h"
 #import "Monster.h"
-
->>>>>>> FETCH_HEAD
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
-    CGFloat screenWidth;
-    CGFloat screenHeight;
     
     NSArray *monsters;
     Monster *monster;
-    
-    BOOL monsterReachedYou;
-    BOOL GAMEOVER;
-    SKShapeNode *fourSidedFigure;
+    Monster *monster2;
     
     SKSpriteNode *static1;
-    int lineAngle;
+    BOOL monsterReachedYou;
+    BOOL GAMEOVER;
+    
+    CGFloat screenWidth;
+    CGFloat screenHeight;
+    
+    SKShapeNode *currentLine;
+    CGMutablePathRef currentPathToDraw;
+    
+    SKSpriteNode *buttonClear;
+    SKSpriteNode *buttonClearPressed;
+    
+    SKSpriteNode *buttonSwitchCamera;
+    SKSpriteNode *buttonSwitchCameraPressed;
+    
+    SKSpriteNode *buttonTakeScreenshot;
+    SKSpriteNode *buttonTakeScreenshotPressed;
+    
+    SKSpriteNode *reticule;
+    
+    Boolean stillTakingScreenshot;
     
     Sound *sound;
     Sound *soundSfx;
-    Sound* soundPlayer;
-    int msec;
+    NSMutableArray *lines;
+    //test
+    
+    //coremotion stuff
+    double currentMaxAccelX;
+    double currentMaxAccelY;
+    double currentMaxAccelZ;
+    double currentMaxRotX;
+    double currentMaxRotY;
+    double currentMaxRotZ;
+    
+    HumanHPbar * player;
+    MonsterHPBar * monsterHPBar;
+    
+    SKShapeNode* radarCircle;
+    NSMutableArray *arcLines;
+    int lineAngle;
+    
+    CGPoint pointA;
+    NSMutableArray *points;
+    
+    
 }
+
+@property (strong, nonatomic) CMMotionManager *motionManager;
+
 @end
