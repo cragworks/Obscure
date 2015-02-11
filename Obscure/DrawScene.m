@@ -261,11 +261,13 @@ int seconds = 0;
     [radarCircle setGlowWidth:2];
     [self addChild:radarCircle];
     
+    /*
     //static animation for losegameAnimation
     static1 = [SKSpriteNode spriteNodeWithImageNamed:@"15perc1.png"];
     [static1 setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [static1 setSize:CGSizeMake(screenWidth, screenHeight)];
-    
+    */
+     
     [monster monsterMovement];
     [monster attack];
     [monster2 monsterMovement];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904A4E41A787FD200AC0B6D /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A4E31A787FD200AC0B6D /* Animation.m */; };
+		0904A4E71A787FEF00AC0B6D /* UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A4E61A787FEF00AC0B6D /* UI.m */; };
 		311687921A33D962006E078E /* catleft1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878C1A33D961006E078E /* catleft1.png */; };
 		311687931A33D962006E078E /* catleft2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878D1A33D961006E078E /* catleft2.png */; };
 		311687941A33D962006E078E /* catmain1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878E1A33D961006E078E /* catmain1.png */; };
@@ -60,6 +62,7 @@
 		BC1F817A1A327FD600D088CF /* health3.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1F81771A327FD600D088CF /* health3.png */; };
 		BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1F817C1A32800C00D088CF /* HumanHPbar.m */; };
 		BCDBA9131A32A199003F58AC /* health1.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDBA9121A32A199003F58AC /* health1.png */; };
+		ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */ = {isa = PBXBuildFile; fileRef = ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */; };
 		ED320C791A32A916000A39F2 /* reticule.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED320C781A32A916000A39F2 /* reticule.jpg */; };
 		ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */ = {isa = PBXBuildFile; fileRef = ED320C7C1A33F89D000A39F2 /* reticule.png */; };
 		ED8D25701A3173BA008212F4 /* Flash@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */; };
@@ -80,6 +83,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0904A4E21A787FBD00AC0B6D /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../../../Desktop/Animation.h; sourceTree = "<group>"; };
+		0904A4E31A787FD200AC0B6D /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = ../../../Desktop/Animation.m; sourceTree = "<group>"; };
+		0904A4E51A787FEF00AC0B6D /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UI.h; path = ../../../Desktop/UI.h; sourceTree = "<group>"; };
+		0904A4E61A787FEF00AC0B6D /* UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UI.m; path = ../../../Desktop/UI.m; sourceTree = "<group>"; };
 		3116878C1A33D961006E078E /* catleft1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft1.png; sourceTree = "<group>"; };
 		3116878D1A33D961006E078E /* catleft2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft2.png; sourceTree = "<group>"; };
 		3116878E1A33D961006E078E /* catmain1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catmain1.png; sourceTree = "<group>"; };
@@ -146,6 +153,8 @@
 		BC1F817B1A32800C00D088CF /* HumanHPbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanHPbar.h; sourceTree = "<group>"; };
 		BC1F817C1A32800C00D088CF /* HumanHPbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanHPbar.m; sourceTree = "<group>"; };
 		BCDBA9121A32A199003F58AC /* health1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health1.png; sourceTree = "<group>"; };
+		ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHologram.m; sourceTree = "<group>"; };
+		ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterHologram.h; sourceTree = "<group>"; };
 		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED320C7C1A33F89D000A39F2 /* reticule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reticule.png; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
@@ -238,18 +247,24 @@
 				43B7E8B11A3538D300048298 /* particles */,
 				43B7E8AA1A35203500048298 /* sound */,
 				4345571E1A2E805F0064FDD9 /* images */,
+				0904A4E21A787FBD00AC0B6D /* Animation.h */,
+				0904A4E31A787FD200AC0B6D /* Animation.m */,
 				438951A41A21C1D7006A86BE /* AppDelegate.h */,
 				438951A51A21C1D7006A86BE /* AppDelegate.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
 				318BBD001A661D2D00D3E7C3 /* Monster.h */,
 				318BBD011A661D3A00D3E7C3 /* Monster.m */,
+				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
+				ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */,
 				499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */,
 				499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */,
 				BC1F817B1A32800C00D088CF /* HumanHPbar.h */,
 				BC1F817C1A32800C00D088CF /* HumanHPbar.m */,
 				434556EA1A2E750D0064FDD9 /* Sound.h */,
 				434556EB1A2E750D0064FDD9 /* Sound.m */,
+				0904A4E51A787FEF00AC0B6D /* UI.h */,
+				0904A4E61A787FEF00AC0B6D /* UI.m */,
 				438951AD1A21C1D7006A86BE /* Images.xcassets */,
 				438951AF1A21C1D7006A86BE /* LaunchScreen.xib */,
 				438951A01A21C1D7006A86BE /* Supporting Files */,
@@ -480,6 +495,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0904A4E71A787FEF00AC0B6D /* UI.m in Sources */,
+				0904A4E41A787FD200AC0B6D /* Animation.m in Sources */,
 				318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */,
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
 				499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */,
@@ -489,6 +506,7 @@
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
 				BC1F817D1A32800C00D088CF /* HumanHPbar.m in Sources */,
 				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
+				ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

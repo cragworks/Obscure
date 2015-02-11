@@ -15,6 +15,7 @@
 #import "Sound.h"
 #import "MonsterHPBar.h"
 #import "HumanHPbar.h"
+#import "Monster.h"
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
@@ -24,7 +25,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "Monster.h"
+
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
     

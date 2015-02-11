@@ -28,7 +28,26 @@
     }
     return self;
 }
+
+//Sets the HP based on the type of monster
 - (void) setHP:(CGFloat) hp {
     self.maskNode.xScale = hp;
 }
+
+//Whent he monster gets hurt the damage is taken and used to change the monster's hp
+-(void) hurt:(CGFloat) damage, hp{
+    hp -=damage;
+    [self update: hp];
+}
+
+//updates the HP and the image of the HP
+-(void) update:(CGFloat) hp{
+    [self setHP:hp];
+}
+
+//returns the HP
+-(float) getHP{
+    return hp;
+}
+
 @end
