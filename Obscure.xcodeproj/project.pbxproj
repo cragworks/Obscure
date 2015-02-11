@@ -538,9 +538,12 @@
 				ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				3137262C1A8714C0005D2C77 /* Gyroscope.m in Sources */,
 >>>>>>> FETCH_HEAD
+=======
+>>>>>>> parent of 53c2131... added gyroscope classes, but gyroscope still isn't working
 =======
 >>>>>>> parent of 53c2131... added gyroscope classes, but gyroscope still isn't working
 			);
