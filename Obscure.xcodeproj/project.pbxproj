@@ -15,7 +15,6 @@
 		311687951A33D962006E078E /* catmain2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878F1A33D961006E078E /* catmain2.png */; };
 		311687961A33D962006E078E /* catright1.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687901A33D962006E078E /* catright1.png */; };
 		311687971A33D962006E078E /* catright2.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687911A33D962006E078E /* catright2.png */; };
-		3137262C1A8714C0005D2C77 /* Gyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 3137262B1A8714C0005D2C77 /* Gyroscope.m */; };
 		318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 318BBD011A661D3A00D3E7C3 /* Monster.m */; };
 		434556EC1A2E750D0064FDD9 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EB1A2E750D0064FDD9 /* Sound.m */; };
 		434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EE1A2E754C0064FDD9 /* DrawScene.m */; };
@@ -92,8 +91,6 @@
 		3116878F1A33D961006E078E /* catmain2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catmain2.png; sourceTree = "<group>"; };
 		311687901A33D962006E078E /* catright1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright1.png; sourceTree = "<group>"; };
 		311687911A33D962006E078E /* catright2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright2.png; sourceTree = "<group>"; };
-		3137262A1A8714A8005D2C77 /* Gyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gyroscope.h; sourceTree = "<group>"; };
-		3137262B1A8714C0005D2C77 /* Gyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gyroscope.m; sourceTree = "<group>"; };
 		318BBD001A661D2D00D3E7C3 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		318BBD011A661D3A00D3E7C3 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
 		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
@@ -295,8 +292,6 @@
 				431A7D331A81ECC50004C8ED /* delegate + controller */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
-				3137262A1A8714A8005D2C77 /* Gyroscope.h */,
-				3137262B1A8714C0005D2C77 /* Gyroscope.m */,
 				ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */,
 				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
 				431A7D341A81ECFC0004C8ED /* Sound */,
@@ -542,9 +537,12 @@
 				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
 				ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				3137262C1A8714C0005D2C77 /* Gyroscope.m in Sources */,
 >>>>>>> FETCH_HEAD
+=======
+>>>>>>> parent of 53c2131... added gyroscope classes, but gyroscope still isn't working
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

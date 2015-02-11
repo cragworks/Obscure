@@ -33,7 +33,6 @@
 =======
 #import "Sound.h"
 #import "Monster.h"
-#import "Gyroscope.h"
 
 >>>>>>> FETCH_HEAD
 @interface DrawScene : SKScene <UIAlertViewDelegate>
@@ -55,7 +54,5 @@
     Sound *soundSfx;
     Sound* soundPlayer;
     int msec;
-    
-    Gyroscope *gyroscope;
 }
 @end
