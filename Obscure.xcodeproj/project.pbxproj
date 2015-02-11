@@ -67,6 +67,10 @@
 		EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9231A34069E00A17E9C /* 15perc1.png */; };
 		EDA6D9291A35550900A17E9C /* slash.sks in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9271A35550900A17E9C /* slash.sks */; };
 		EDA6D92A1A35550900A17E9C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9281A35550900A17E9C /* spark.png */; };
+		EDB7AE3F1A8B014A000E315C /* UIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB7AE3E1A8B014A000E315C /* UIPopUp.m */; };
+		EDB7AE441A8B081B000E315C /* loser.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7AE411A8B081B000E315C /* loser.png */; };
+		EDB7AE451A8B081B000E315C /* move.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7AE421A8B081B000E315C /* move.png */; };
+		EDB7AE461A8B081B000E315C /* win.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EDB7AE431A8B081B000E315C /* win.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +157,11 @@
 		EDA6D9231A34069E00A17E9C /* 15perc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15perc1.png; sourceTree = "<group>"; };
 		EDA6D9271A35550900A17E9C /* slash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = slash.sks; path = ../slash.sks; sourceTree = "<group>"; };
 		EDA6D9281A35550900A17E9C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
+		EDB7AE3E1A8B014A000E315C /* UIPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopUp.m; sourceTree = "<group>"; };
+		EDB7AE401A8B0163000E315C /* UIPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPopUp.h; sourceTree = "<group>"; };
+		EDB7AE411A8B081B000E315C /* loser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loser.png; path = ../../../Downloads/loser.png; sourceTree = "<group>"; };
+		EDB7AE421A8B081B000E315C /* move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = move.png; path = ../../../Downloads/move.png; sourceTree = "<group>"; };
+		EDB7AE431A8B081B000E315C /* win.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = win.jpeg; path = ../../../Downloads/win.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +217,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7AE471A8B0825000E315C /* temporary banners (delete) */,
 				43B7E8BA1A3553B300048298 /* OBSCURE-TITLE2.png */,
 				43BF362D1A340C1A00101414 /* CAT.atlas */,
 				EDA6D9231A34069E00A17E9C /* 15perc1.png */,
@@ -273,6 +283,8 @@
 				3137262B1A8714C0005D2C77 /* Gyroscope.m */,
 				ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */,
 				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
+				EDB7AE401A8B0163000E315C /* UIPopUp.h */,
+				EDB7AE3E1A8B014A000E315C /* UIPopUp.m */,
 				431A7D341A81ECFC0004C8ED /* Sound */,
 				438951AD1A21C1D7006A86BE /* Images.xcassets */,
 				438951AF1A21C1D7006A86BE /* LaunchScreen.xib */,
@@ -355,6 +367,16 @@
 				49B4BD421A31621800C59D9B /* monsterHP.png */,
 			);
 			path = healthbars;
+			sourceTree = "<group>";
+		};
+		EDB7AE471A8B0825000E315C /* temporary banners (delete) */ = {
+			isa = PBXGroup;
+			children = (
+				EDB7AE411A8B081B000E315C /* loser.png */,
+				EDB7AE421A8B081B000E315C /* move.png */,
+				EDB7AE431A8B081B000E315C /* win.jpeg */,
+			);
+			name = "temporary banners (delete)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +473,7 @@
 				4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */,
 				43B7E8AE1A352BE900048298 /* gameover.aiff in Resources */,
 				49B4BD401A31614900C59D9B /* Warning-Symbol.png in Resources */,
+				EDB7AE441A8B081B000E315C /* loser.png in Resources */,
 				4345571C1A2E805C0064FDD9 /* duck2.png in Resources */,
 				BCDBA9131A32A199003F58AC /* health1.png in Resources */,
 				311687971A33D962006E078E /* catright2.png in Resources */,
@@ -466,6 +489,7 @@
 				43BF362E1A340C1A00101414 /* CAT.atlas in Resources */,
 				311687961A33D962006E078E /* catright1.png in Resources */,
 				49B4BD431A31621800C59D9B /* monsterHP.png in Resources */,
+				EDB7AE451A8B081B000E315C /* move.png in Resources */,
 				EDA6D92A1A35550900A17E9C /* spark.png in Resources */,
 				49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */,
 				43B7E8BF1A3554B400048298 /* owMusic.aiff in Resources */,
@@ -482,6 +506,7 @@
 				434557181A2E805C0064FDD9 /* button_take_screenshot_pressed_blue@2x.png in Resources */,
 				ED320C7D1A33F89D000A39F2 /* reticule.png in Resources */,
 				311687921A33D962006E078E /* catleft1.png in Resources */,
+				EDB7AE461A8B081B000E315C /* win.jpeg in Resources */,
 				EDA6D9221A34067B00A17E9C /* staticdamage.atlas in Resources */,
 				49B4BD411A31614900C59D9B /* weapon-katana.png in Resources */,
 				BC1F817A1A327FD600D088CF /* health3.png in Resources */,
@@ -506,6 +531,7 @@
 			files = (
 				318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */,
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
+				EDB7AE3F1A8B014A000E315C /* UIPopUp.m in Sources */,
 				437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */,
 				437752D41A33EB2F00FC04A7 /* BlackViewController.m in Sources */,
 				438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */,
