@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //
 //  DrawScene.h
 //  TicTacVideo
@@ -17,6 +18,8 @@
 #import "HumanHPbar.h"
 #import "Monster.h"
 
+=======
+>>>>>>> FETCH_HEAD
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -26,62 +29,33 @@
 #import <SceneKit/SceneKit.h>
 #import <CoreMotion/CoreMotion.h>
 
+<<<<<<< HEAD
+=======
+#import "Sound.h"
+#import "Monster.h"
+#import "Gyroscope.h"
+
+>>>>>>> FETCH_HEAD
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
-    
-    NSArray *monsters;
-    Monster *monster;
-    Monster *monster2;
-    
-    SKSpriteNode *static1;
-    BOOL monsterReachedYou;
-    BOOL GAMEOVER;
-    
     CGFloat screenWidth;
     CGFloat screenHeight;
     
-    SKShapeNode *currentLine;
-    CGMutablePathRef currentPathToDraw;
+    NSArray *monsters;
+    Monster *monster;
     
-    SKSpriteNode *buttonClear;
-    SKSpriteNode *buttonClearPressed;
+    BOOL monsterReachedYou;
+    BOOL GAMEOVER;
+    SKShapeNode *fourSidedFigure;
     
-    SKSpriteNode *buttonSwitchCamera;
-    SKSpriteNode *buttonSwitchCameraPressed;
-    
-    SKSpriteNode *buttonTakeScreenshot;
-    SKSpriteNode *buttonTakeScreenshotPressed;
-    
-    SKSpriteNode *reticule;
-    
-    Boolean stillTakingScreenshot;
+    SKSpriteNode *static1;
+    int lineAngle;
     
     Sound *sound;
     Sound *soundSfx;
-    NSMutableArray *lines;
-    //test
+    Sound* soundPlayer;
+    int msec;
     
-    //coremotion stuff
-    double currentMaxAccelX;
-    double currentMaxAccelY;
-    double currentMaxAccelZ;
-    double currentMaxRotX;
-    double currentMaxRotY;
-    double currentMaxRotZ;
-    
-    HumanHPbar * player;
-    MonsterHPBar * monsterHPBar;
-    
-    SKShapeNode* radarCircle;
-    NSMutableArray *arcLines;
-    int lineAngle;
-    
-    CGPoint pointA;
-    NSMutableArray *points;
-    
-    
+    Gyroscope *gyroscope;
 }
-
-@property (strong, nonatomic) CMMotionManager *motionManager;
-
 @end

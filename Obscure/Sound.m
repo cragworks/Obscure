@@ -1,14 +1,7 @@
-//
-//  Sound.m
-//  AutismMinigames
-//
-//  Created by Calvin Tham on 4/19/14.
-//  Copyright (c) 2014 Calvin Tham. All rights reserved.
-//
-
 #import "Sound.h"
 
 @implementation Sound
+
 -(void) playSound:(NSString*)fileName
 {
     NSString *formattedString = [NSString stringWithFormat:@"%@/%@.aiff", [[NSBundle mainBundle] resourcePath], fileName];
@@ -19,6 +12,7 @@
     [bg setVolume:0.85];
     [bg play];
 }
+
 -(void) playSound:(NSString*)fileName :(float)volume
 {
     NSString *formattedString = [NSString stringWithFormat:@"%@/%@.aiff", [[NSBundle mainBundle] resourcePath], fileName];
@@ -29,6 +23,7 @@
     [bg setVolume:volume];
     [bg play];
 }
+
 -(void) playSoundForever:(NSString*)fileName
 {
     NSString *formattedString = [NSString stringWithFormat:@"%@/%@.aiff", [[NSBundle mainBundle] resourcePath], fileName];
