@@ -1,3 +1,22 @@
+//
+//  DrawScene.h
+//  TicTacVideo
+//
+//  Created by Calvin Tham on 7/28/14.
+//  Copyright (c) 2014 Calvin Tham. All rights reserved.
+//
+#define btnFadeAlpha 0.3
+#define clearBtnFadeAlpha 0.3
+#define takeScreenshotBtnFadeAlpha 0.3
+#define switchCameraBtnFadeAlpha 0.3
+#define pawBtnFadeAlpha 0.3
+#define btnMaxFadeAlpha 0.05
+
+#import "Sound.h"
+#import "MonsterHPBar.h"
+#import "HumanHPbar.h"
+#import "Monster.h"
+
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -14,24 +33,60 @@
 
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {
-    CGFloat screenWidth;
-    CGFloat screenHeight;
     
     NSArray *monsters;
     Monster *monster;
-    
-    BOOL monsterReachedYou;
-    BOOL GAMEOVER;
-    SKShapeNode *fourSidedFigure;
+    Monster *monster2;
     
     SKSpriteNode *static1;
-    int lineAngle;
+    BOOL monsterReachedYou;
+    BOOL GAMEOVER;
+    
+    CGFloat screenWidth;
+    CGFloat screenHeight;
+    
+    SKShapeNode *currentLine;
+    CGMutablePathRef currentPathToDraw;
+    
+    SKSpriteNode *buttonClear;
+    SKSpriteNode *buttonClearPressed;
+    
+    SKSpriteNode *buttonSwitchCamera;
+    SKSpriteNode *buttonSwitchCameraPressed;
+    
+    SKSpriteNode *buttonTakeScreenshot;
+    SKSpriteNode *buttonTakeScreenshotPressed;
+    
+    SKSpriteNode *reticule;
+    
+    Boolean stillTakingScreenshot;
     
     Sound *sound;
     Sound *soundSfx;
-    Sound* soundPlayer;
-    int msec;
+    NSMutableArray *lines;
+    //test
     
-    Gyroscope *gyroscope;
+    //coremotion stuff
+    double currentMaxAccelX;
+    double currentMaxAccelY;
+    double currentMaxAccelZ;
+    double currentMaxRotX;
+    double currentMaxRotY;
+    double currentMaxRotZ;
+    
+    HumanHPbar * player;
+    MonsterHPBar * monsterHPBar;
+    
+    SKShapeNode* radarCircle;
+    NSMutableArray *arcLines;
+    int lineAngle;
+    
+    CGPoint pointA;
+    NSMutableArray *points;
+    
+    
 }
+
+@property (strong, nonatomic) CMMotionManager *motionManager;
+
 @end
