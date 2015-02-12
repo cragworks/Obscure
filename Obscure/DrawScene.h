@@ -10,6 +10,7 @@
 #import "Sound.h"
 #import "Monster.h"
 #import "Gyroscope.h"
+#import "UIPopUp.h"
 
 @interface DrawScene : SKScene <UIAlertViewDelegate>
 {

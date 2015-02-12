@@ -32,12 +32,15 @@
     [self addChild:monster.sprite];
     [monster monsterMovement];
     [monster attack];
+    
+    
 }
 
 -(void)update:(NSTimeInterval)currentTime
 {
     msec++;
     [gyroscope update:monsters];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -95,6 +98,10 @@
 //displays UI
 -(void)drawCombatUI
 {
+    
+    //UIPopUp *banner = [[UIPopUp alloc]init];
+    //[banner displayPopUp:@"win"];
+    
     //grid overlay
     SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
     [overlay setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
@@ -133,6 +140,8 @@
     [self addChild:decal];
     [self addChild:pause];
     [self addChild:katana];
+    //[self addChild:banner];
+    
 }
 
 //if player is being attacked by monster
