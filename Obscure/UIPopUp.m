@@ -1,6 +1,6 @@
 #import "UIPopUp.h"
 @implementation UIPopUp
-//@synthesize banner;
+@synthesize banner;
 
 - (id)init
 {

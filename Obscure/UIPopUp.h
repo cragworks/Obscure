@@ -20,8 +20,9 @@
     CGFloat screenHeight;
 }
 
--(void)displayPopUp:(NSString*)Name
-;
+@property SKSpriteNode * banner;
+
+-(void)displayPopUp:(NSString*)Name;
 
 @end
 

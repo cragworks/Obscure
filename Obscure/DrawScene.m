@@ -270,8 +270,8 @@ int seconds = 0;
      
     [monster monsterMovement];
     [monster attack];
-    
-    
+    [monster2 monsterMovement];
+    [monster2 attack];
 }
 
 -(void)didMoveToView:(SKView *)view {

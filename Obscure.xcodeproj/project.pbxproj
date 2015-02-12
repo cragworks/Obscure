@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0904A4E41A787FD200AC0B6D /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A4E31A787FD200AC0B6D /* Animation.m */; };
 		0904A4E71A787FEF00AC0B6D /* UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0904A4E61A787FEF00AC0B6D /* UI.m */; };
 		311687921A33D962006E078E /* catleft1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878C1A33D961006E078E /* catleft1.png */; };
 		311687931A33D962006E078E /* catleft2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878D1A33D961006E078E /* catleft2.png */; };
@@ -50,7 +49,6 @@
 		43B7E8C31A35589000048298 /* okaykid.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8C21A35589000048298 /* okaykid.aiff */; };
 		43B7E8C51A35596300048298 /* win.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 43B7E8C41A35596300048298 /* win.aiff */; };
 		43BF362E1A340C1A00101414 /* CAT.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 43BF362D1A340C1A00101414 /* CAT.atlas */; };
-		499D059B1A2E8FFC0071D5E4 /* MonsterHPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */; };
 		49B4BD3D1A31614900C59D9B /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD371A31614900C59D9B /* pause-button.png */; };
 		49B4BD3E1A31614900C59D9B /* targetcrosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD381A31614900C59D9B /* targetcrosshair.png */; };
 		49B4BD3F1A31614900C59D9B /* ui-Decal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B4BD391A31614900C59D9B /* ui-Decal.png */; };
@@ -87,9 +85,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0904A4E21A787FBD00AC0B6D /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animation.h; path = ../../../Desktop/Animation.h; sourceTree = "<group>"; };
-		0904A4E31A787FD200AC0B6D /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Animation.m; path = ../../../Desktop/Animation.m; sourceTree = "<group>"; };
-		0904A4E51A787FEF00AC0B6D /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UI.h; path = ../../../Desktop/UI.h; sourceTree = "<group>"; };
 		0904A4E61A787FEF00AC0B6D /* UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UI.m; path = ../../../Desktop/UI.m; sourceTree = "<group>"; };
 		3116878C1A33D961006E078E /* catleft1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft1.png; sourceTree = "<group>"; };
 		3116878D1A33D961006E078E /* catleft2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft2.png; sourceTree = "<group>"; };
@@ -99,7 +94,6 @@
 		311687911A33D962006E078E /* catright2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright2.png; sourceTree = "<group>"; };
 		318BBD001A661D2D00D3E7C3 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		318BBD011A661D3A00D3E7C3 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
-		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		434556EB1A2E750D0064FDD9 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		434556ED1A2E754C0064FDD9 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
 		434556EE1A2E754C0064FDD9 /* DrawScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawScene.m; sourceTree = "<group>"; };
@@ -143,8 +137,6 @@
 		43B7E8C21A35589000048298 /* okaykid.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = okaykid.aiff; sourceTree = "<group>"; };
 		43B7E8C41A35596300048298 /* win.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = win.aiff; sourceTree = "<group>"; };
 		43BF362D1A340C1A00101414 /* CAT.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = CAT.atlas; sourceTree = "<group>"; };
-		499D05991A2E8FFC0071D5E4 /* MonsterHPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHPBar.h; sourceTree = "<group>"; };
-		499D059A1A2E8FFC0071D5E4 /* MonsterHPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHPBar.m; sourceTree = "<group>"; };
 		49B4BD371A31614900C59D9B /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
 		49B4BD381A31614900C59D9B /* targetcrosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = targetcrosshair.png; sourceTree = "<group>"; };
 		49B4BD391A31614900C59D9B /* ui-Decal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-Decal.png"; sourceTree = "<group>"; };
@@ -154,11 +146,9 @@
 		BC1F81751A327FD600D088CF /* health0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health0.png; sourceTree = "<group>"; };
 		BC1F81761A327FD600D088CF /* health2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health2.png; sourceTree = "<group>"; };
 		BC1F81771A327FD600D088CF /* health3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health3.png; sourceTree = "<group>"; };
-		BC1F817B1A32800C00D088CF /* HumanHPbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanHPbar.h; sourceTree = "<group>"; };
 		BC1F817C1A32800C00D088CF /* HumanHPbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanHPbar.m; sourceTree = "<group>"; };
 		BCDBA9121A32A199003F58AC /* health1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health1.png; sourceTree = "<group>"; };
 		ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHologram.m; sourceTree = "<group>"; };
-		ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterHologram.h; sourceTree = "<group>"; };
 		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED320C7C1A33F89D000A39F2 /* reticule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reticule.png; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
@@ -257,8 +247,6 @@
 				43B7E8B11A3538D300048298 /* particles */,
 				43B7E8AA1A35203500048298 /* sound */,
 				4345571E1A2E805F0064FDD9 /* images */,
-				0904A4E21A787FBD00AC0B6D /* Animation.h */,
-				0904A4E31A787FD200AC0B6D /* Animation.m */,
 				438951A41A21C1D7006A86BE /* AppDelegate.h */,
 				438951A51A21C1D7006A86BE /* AppDelegate.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
@@ -268,7 +256,6 @@
 				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
 				EDB7AE401A8B0163000E315C /* UIPopUp.h */,
 				EDB7AE3E1A8B014A000E315C /* UIPopUp.m */,
-				431A7D341A81ECFC0004C8ED /* Sound */,
 				438951AD1A21C1D7006A86BE /* Images.xcassets */,
 				438951AF1A21C1D7006A86BE /* LaunchScreen.xib */,
 				438951A01A21C1D7006A86BE /* Supporting Files */,
@@ -513,7 +500,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0904A4E71A787FEF00AC0B6D /* UI.m in Sources */,
-				0904A4E41A787FD200AC0B6D /* Animation.m in Sources */,
 				318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */,
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
 				EDB7AE3F1A8B014A000E315C /* UIPopUp.m in Sources */,
