@@ -13,11 +13,11 @@
 
 -(void)displayPopUp:(NSString*)Name
 {
-    if(Name==@"win")
+    if([Name isEqual:@"win"])
         banner = [SKSpriteNode spriteNodeWithImageNamed:@"win.jpeg"];
-    else if(Name==@"lose")
+    else if([Name isEqual:@"lose"])
         banner = [SKSpriteNode spriteNodeWithImageNamed:@"loser.png"];
-    else if(Name==@"gyro")
+    else if([Name isEqual:@"gyro" ])
         banner = [SKSpriteNode spriteNodeWithImageNamed:@"move.png"];
 
     [banner setSize:CGSizeMake(50, 50)];
