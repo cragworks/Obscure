@@ -1,4 +1,5 @@
 #import "DrawScene.h"
+#import "Gyroscope.h"
 #define DEGREES_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
 @implementation DrawScene
@@ -11,6 +12,7 @@
         screenHeight = screenRect.size.height;
         [self setVariables];
     }
+    gyroscope = [[Gyroscope alloc] init];
     return self;
 }
 
@@ -27,7 +29,7 @@
     
     [self drawCombatUI];
     
-    monsters = [[NSArray alloc] init];
+    monsters = [[NSArray alloc] initWithObjects:monster.sprite, nil];
     monster = [[Monster alloc] init];
     [self addChild:monster.sprite];
     [monster monsterMovement];
@@ -37,6 +39,7 @@
 -(void)update:(NSTimeInterval)currentTime
 {
     msec++;
+    [gyroscope moveSprite:monster.sprite];
     [gyroscope update:monsters];
 }
 
@@ -45,7 +48,7 @@
     NSArray *allTouches = [[event allTouches] allObjects];
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint location = [touch locationInNode:self];
-
+    
     if ([allTouches count] > 1)
         return;
     else
@@ -117,7 +120,7 @@
     
     //target cross hair
     SKSpriteNode *crosshair = [SKSpriteNode spriteNodeWithImageNamed:@"targetcrosshair.png"];
-        // to be changed to position of monster. this is just to test
+    // to be changed to position of monster. this is just to test
     [crosshair setPosition:CGPointMake(screenWidth/3, screenHeight/3)];
     [crosshair setSize:CGSizeMake(crosshair.size.width*0.5, crosshair.size.height*0.5)];
     [crosshair setZPosition:-1];
@@ -127,7 +130,7 @@
     [katana setPosition:CGPointMake(screenWidth*0.875 - katana.size.width, screenHeight*0.3 - katana.size.height)];
     [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
     [katana setZPosition:-1];
-
+    
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
     [self addChild:decal];
@@ -143,7 +146,7 @@
     [warning setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [warning setSize:CGSizeMake(warning.size.width*0.5, warning.size.height*0.5)];
     [warning setZPosition:-1];
-
+    
     SKAction* flash = [SKAction fadeOutWithDuration:1];
     
     SKSpriteNode *redflash = [SKSpriteNode spriteNodeWithImageNamed:@"Flash@2x.jpg"];

@@ -8,6 +8,7 @@
         xDelta = 0;
         yDelta = 0;
         
+        [self coreMotionSetVariables];
     }
     return self;
 }
@@ -31,30 +32,13 @@
                                     }];
 }
 
--(void)outputAccelertionData:(CMAcceleration)acceleration
-{
-    
-    if(fabs(acceleration.x) > fabs(currentMaxAccelX))
-    {
-        currentMaxAccelX = acceleration.x;
-    }
-    if(fabs(acceleration.y) > fabs(currentMaxAccelY))
-    {
-        currentMaxAccelY = acceleration.y;
-    }
-    if(fabs(acceleration.z) > fabs(currentMaxAccelZ))
-    {
-        currentMaxAccelZ = acceleration.z;
-    }
-    
-    
-    
-}
 -(void)outputRotationData:(CMRotationRate)rotation
 {
-    float rotationScale = 50;
+    float rotationScale = 10;
     xDelta = rotation.y*rotationScale;
     yDelta = rotation.x*rotationScale;
+    
+    
     
 }
 
@@ -68,7 +52,7 @@
 {
     for (int i = 0; i < monsterarray.count; i++)
     {
-        [self moveSprite: monsterarray[i]];
+        [self moveSprite: (SKSpriteNode*)monsterarray[i]];
         
     }
     
