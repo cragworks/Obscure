@@ -62,6 +62,7 @@
     Boolean stillTakingScreenshot;
     
     Sound *sound;
+    Sound *soundPlayer;
     Sound *soundSfx;
     NSMutableArray *lines;
     //test
@@ -83,7 +84,8 @@
     
     CGPoint pointA;
     NSMutableArray *points;
-    
+    int msec;
+    Gyroscope *gyroscope;
     
 }
 

@@ -12,9 +12,6 @@
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
         
-        //links and creates the Monster HP class, so this monster will have a HP class
-        monsterHpClass = [[MonsterHPBar alloc] init];
-        [monsterHpClass setHP:100];
     }
     return self;
 }

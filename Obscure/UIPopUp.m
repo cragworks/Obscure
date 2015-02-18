@@ -4,14 +4,12 @@
 
 - (id)init
 {
-    
     if (self = [super init])
     {
         banner = [SKSpriteNode spriteNodeWithImageNamed:@"win.jpeg"];
     }
     return self;
 }
-
 
 -(void)displayPopUp:(NSString*)Name
 {
