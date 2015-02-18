@@ -13,9 +13,7 @@
 		311687951A33D962006E078E /* catmain2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878F1A33D961006E078E /* catmain2.png */; };
 		311687961A33D962006E078E /* catright1.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687901A33D962006E078E /* catright1.png */; };
 		311687971A33D962006E078E /* catright2.png in Resources */ = {isa = PBXBuildFile; fileRef = 311687911A33D962006E078E /* catright2.png */; };
-		3137262C1A8714C0005D2C77 /* Gyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 3137262B1A8714C0005D2C77 /* Gyroscope.m */; };
 		318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 318BBD011A661D3A00D3E7C3 /* Monster.m */; };
-		434556EC1A2E750D0064FDD9 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EB1A2E750D0064FDD9 /* Sound.m */; };
 		434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 434556EE1A2E754C0064FDD9 /* DrawScene.m */; };
 		434556F11A2E75C40064FDD9 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434556F01A2E75C40064FDD9 /* SpriteKit.framework */; };
 		434557131A2E805C0064FDD9 /* button_clear_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 434557081A2E805C0064FDD9 /* button_clear_2@2x.png */; };
@@ -29,6 +27,8 @@
 		4345571B1A2E805C0064FDD9 /* duck.png in Resources */ = {isa = PBXBuildFile; fileRef = 434557101A2E805C0064FDD9 /* duck.png */; };
 		4345571C1A2E805C0064FDD9 /* duck2.png in Resources */ = {isa = PBXBuildFile; fileRef = 434557111A2E805C0064FDD9 /* duck2.png */; };
 		4345571D1A2E805C0064FDD9 /* ghosty.dae in Resources */ = {isa = PBXBuildFile; fileRef = 434557121A2E805C0064FDD9 /* ghosty.dae */; };
+		43457E3B1A942B5400B2BC12 /* Gyroscope.m in Sources */ = {isa = PBXBuildFile; fileRef = 43457E381A942B5400B2BC12 /* Gyroscope.m */; };
+		43457E3C1A942B5400B2BC12 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 43457E3A1A942B5400B2BC12 /* Sound.m */; };
 		437752D41A33EB2F00FC04A7 /* BlackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437752D11A33EB2F00FC04A7 /* BlackViewController.m */; };
 		437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 437752D31A33EB2F00FC04A7 /* ViewController.m */; };
 		437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter.png in Resources */ = {isa = PBXBuildFile; fileRef = 437752EE1A33FDE800FC04A7 /* combatUI-overlayfilter.png */; };
@@ -67,6 +67,7 @@
 		EDA6D9241A34069E00A17E9C /* 15perc1.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9231A34069E00A17E9C /* 15perc1.png */; };
 		EDA6D9291A35550900A17E9C /* slash.sks in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9271A35550900A17E9C /* slash.sks */; };
 		EDA6D92A1A35550900A17E9C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6D9281A35550900A17E9C /* spark.png */; };
+		EDB7AE3F1A8B014A000E315C /* UIPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB7AE3E1A8B014A000E315C /* UIPopUp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,12 +87,8 @@
 		3116878F1A33D961006E078E /* catmain2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catmain2.png; sourceTree = "<group>"; };
 		311687901A33D962006E078E /* catright1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright1.png; sourceTree = "<group>"; };
 		311687911A33D962006E078E /* catright2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catright2.png; sourceTree = "<group>"; };
-		3137262A1A8714A8005D2C77 /* Gyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gyroscope.h; sourceTree = "<group>"; };
-		3137262B1A8714C0005D2C77 /* Gyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gyroscope.m; sourceTree = "<group>"; };
 		318BBD001A661D2D00D3E7C3 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
 		318BBD011A661D3A00D3E7C3 /* Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster.m; sourceTree = "<group>"; };
-		434556EA1A2E750D0064FDD9 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
-		434556EB1A2E750D0064FDD9 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		434556ED1A2E754C0064FDD9 /* DrawScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawScene.h; sourceTree = "<group>"; };
 		434556EE1A2E754C0064FDD9 /* DrawScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawScene.m; sourceTree = "<group>"; };
 		434556F01A2E75C40064FDD9 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -106,6 +103,11 @@
 		434557101A2E805C0064FDD9 /* duck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duck.png; sourceTree = "<group>"; };
 		434557111A2E805C0064FDD9 /* duck2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duck2.png; sourceTree = "<group>"; };
 		434557121A2E805C0064FDD9 /* ghosty.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = ghosty.dae; sourceTree = "<group>"; };
+		43457E371A942B5400B2BC12 /* Gyroscope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gyroscope.h; sourceTree = "<group>"; };
+		43457E381A942B5400B2BC12 /* Gyroscope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gyroscope.m; sourceTree = "<group>"; };
+		43457E391A942B5400B2BC12 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		43457E3A1A942B5400B2BC12 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		43457E3D1A942DB300B2BC12 /* MonsterHologram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterHologram.h; sourceTree = "<group>"; };
 		437752D01A33EB2F00FC04A7 /* BlackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackViewController.h; sourceTree = "<group>"; };
 		437752D11A33EB2F00FC04A7 /* BlackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackViewController.m; sourceTree = "<group>"; };
 		437752D21A33EB2F00FC04A7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -145,7 +147,6 @@
 		BC1F81771A327FD600D088CF /* health3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health3.png; sourceTree = "<group>"; };
 		BCDBA9121A32A199003F58AC /* health1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = health1.png; sourceTree = "<group>"; };
 		ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonsterHologram.m; sourceTree = "<group>"; };
-		ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterHologram.h; sourceTree = "<group>"; };
 		ED320C781A32A916000A39F2 /* reticule.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reticule.jpg; sourceTree = "<group>"; };
 		ED320C7C1A33F89D000A39F2 /* reticule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reticule.png; sourceTree = "<group>"; };
 		ED8D256F1A3173BA008212F4 /* Flash@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Flash@2x.jpg"; sourceTree = "<group>"; };
@@ -153,6 +154,11 @@
 		EDA6D9231A34069E00A17E9C /* 15perc1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15perc1.png; sourceTree = "<group>"; };
 		EDA6D9271A35550900A17E9C /* slash.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = slash.sks; path = ../slash.sks; sourceTree = "<group>"; };
 		EDA6D9281A35550900A17E9C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
+		EDB7AE3E1A8B014A000E315C /* UIPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPopUp.m; sourceTree = "<group>"; };
+		EDB7AE401A8B0163000E315C /* UIPopUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPopUp.h; sourceTree = "<group>"; };
+		EDB7AE411A8B081B000E315C /* loser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loser.png; path = ../../../Downloads/loser.png; sourceTree = "<group>"; };
+		EDB7AE421A8B081B000E315C /* move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = move.png; path = ../../../Downloads/move.png; sourceTree = "<group>"; };
+		EDB7AE431A8B081B000E315C /* win.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = win.jpeg; path = ../../../Downloads/win.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,40 +180,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		431A7D321A81ECA60004C8ED /* old monster */ = {
-			isa = PBXGroup;
-			children = (
-				318BBD001A661D2D00D3E7C3 /* Monster.h */,
-				318BBD011A661D3A00D3E7C3 /* Monster.m */,
-			);
-			name = "old monster";
-			sourceTree = "<group>";
-		};
-		431A7D331A81ECC50004C8ED /* delegate + controller */ = {
-			isa = PBXGroup;
-			children = (
-				437752D01A33EB2F00FC04A7 /* BlackViewController.h */,
-				437752D11A33EB2F00FC04A7 /* BlackViewController.m */,
-				437752D21A33EB2F00FC04A7 /* ViewController.h */,
-				437752D31A33EB2F00FC04A7 /* ViewController.m */,
-				438951A41A21C1D7006A86BE /* AppDelegate.h */,
-				438951A51A21C1D7006A86BE /* AppDelegate.m */,
-			);
-			name = "delegate + controller";
-			sourceTree = "<group>";
-		};
-		431A7D341A81ECFC0004C8ED /* Sound */ = {
-			isa = PBXGroup;
-			children = (
-				434556EA1A2E750D0064FDD9 /* Sound.h */,
-				434556EB1A2E750D0064FDD9 /* Sound.m */,
-			);
-			name = Sound;
-			sourceTree = "<group>";
-		};
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7AE471A8B0825000E315C /* temporary banners (delete) */,
 				43B7E8BA1A3553B300048298 /* OBSCURE-TITLE2.png */,
 				43BF362D1A340C1A00101414 /* CAT.atlas */,
 				EDA6D9231A34069E00A17E9C /* 15perc1.png */,
@@ -240,6 +216,28 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		43457E3E1A942DC100B2BC12 /* monsters */ = {
+			isa = PBXGroup;
+			children = (
+				318BBD001A661D2D00D3E7C3 /* Monster.h */,
+				318BBD011A661D3A00D3E7C3 /* Monster.m */,
+				43457E3D1A942DB300B2BC12 /* MonsterHologram.h */,
+				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
+			);
+			name = monsters;
+			sourceTree = "<group>";
+		};
+		43457E3F1A942EE500B2BC12 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				43457E371A942B5400B2BC12 /* Gyroscope.h */,
+				43457E381A942B5400B2BC12 /* Gyroscope.m */,
+				43457E391A942B5400B2BC12 /* Sound.h */,
+				43457E3A1A942B5400B2BC12 /* Sound.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		438951941A21C1D7006A86BE = {
 			isa = PBXGroup;
 			children = (
@@ -262,18 +260,21 @@
 		4389519F1A21C1D7006A86BE /* Obscure */ = {
 			isa = PBXGroup;
 			children = (
-				431A7D321A81ECA60004C8ED /* old monster */,
+				43457E3E1A942DC100B2BC12 /* monsters */,
+				437752D01A33EB2F00FC04A7 /* BlackViewController.h */,
+				437752D11A33EB2F00FC04A7 /* BlackViewController.m */,
+				437752D21A33EB2F00FC04A7 /* ViewController.h */,
+				437752D31A33EB2F00FC04A7 /* ViewController.m */,
 				43B7E8B11A3538D300048298 /* particles */,
 				43B7E8AA1A35203500048298 /* sound */,
 				4345571E1A2E805F0064FDD9 /* images */,
-				431A7D331A81ECC50004C8ED /* delegate + controller */,
+				438951A41A21C1D7006A86BE /* AppDelegate.h */,
+				438951A51A21C1D7006A86BE /* AppDelegate.m */,
 				434556ED1A2E754C0064FDD9 /* DrawScene.h */,
 				434556EE1A2E754C0064FDD9 /* DrawScene.m */,
-				3137262A1A8714A8005D2C77 /* Gyroscope.h */,
-				3137262B1A8714C0005D2C77 /* Gyroscope.m */,
-				ED2427571A788E3D00BEB7F0 /* MonsterHologram.h */,
-				ED2427551A788E0C00BEB7F0 /* MonsterHologram.m */,
-				431A7D341A81ECFC0004C8ED /* Sound */,
+				EDB7AE401A8B0163000E315C /* UIPopUp.h */,
+				EDB7AE3E1A8B014A000E315C /* UIPopUp.m */,
+				43457E3F1A942EE500B2BC12 /* Modules */,
 				438951AD1A21C1D7006A86BE /* Images.xcassets */,
 				438951AF1A21C1D7006A86BE /* LaunchScreen.xib */,
 				438951A01A21C1D7006A86BE /* Supporting Files */,
@@ -355,6 +356,16 @@
 				49B4BD421A31621800C59D9B /* monsterHP.png */,
 			);
 			path = healthbars;
+			sourceTree = "<group>";
+		};
+		EDB7AE471A8B0825000E315C /* temporary banners (delete) */ = {
+			isa = PBXGroup;
+			children = (
+				EDB7AE411A8B081B000E315C /* loser.png */,
+				EDB7AE421A8B081B000E315C /* move.png */,
+				EDB7AE431A8B081B000E315C /* win.jpeg */,
+			);
+			name = "temporary banners (delete)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,13 +517,14 @@
 			files = (
 				318BBD021A661D3A00D3E7C3 /* Monster.m in Sources */,
 				434556EF1A2E754C0064FDD9 /* DrawScene.m in Sources */,
+				EDB7AE3F1A8B014A000E315C /* UIPopUp.m in Sources */,
 				437752D51A33EB2F00FC04A7 /* ViewController.m in Sources */,
+				43457E3B1A942B5400B2BC12 /* Gyroscope.m in Sources */,
 				437752D41A33EB2F00FC04A7 /* BlackViewController.m in Sources */,
 				438951A61A21C1D7006A86BE /* AppDelegate.m in Sources */,
 				438951A31A21C1D7006A86BE /* main.m in Sources */,
-				434556EC1A2E750D0064FDD9 /* Sound.m in Sources */,
+				43457E3C1A942B5400B2BC12 /* Sound.m in Sources */,
 				ED2427561A788E0C00BEB7F0 /* MonsterHologram.m in Sources */,
-				3137262C1A8714C0005D2C77 /* Gyroscope.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
