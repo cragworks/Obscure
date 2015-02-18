@@ -1,3 +1,11 @@
+//
+//  Sound.h
+//  AutismMinigames
+//
+//  Created by Calvin Tham on 4/19/14.
+//  Copyright (c) 2014 Calvin Tham. All rights reserved.
+//
+
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVAudioPlayer.h>
 
