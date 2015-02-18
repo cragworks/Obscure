@@ -34,6 +34,10 @@
     [self addChild:monster.sprite];
     [monster monsterMovement];
     [monster attack];
+    
+    banner = [[UIPopUp alloc]init];
+    [banner displayPopUp:@"win"];
+    [self addChild:banner.sprite];
 }
 
 -(void)update:(NSTimeInterval)currentTime
@@ -58,6 +62,10 @@
             //decrease monster's hp
             [sound playSound:@"ouch"];
             //[self flash];
+        }
+        else if([[self nodeAtPoint:location].name isEqualToString:banner.sprite.name])
+        {
+            [banner.sprite removeFromParent];
         }
     }
 }

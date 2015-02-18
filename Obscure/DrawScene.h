@@ -86,7 +86,7 @@
     NSMutableArray *points;
     int msec;
     Gyroscope *gyroscope;
-    
+    UIPopUp *banner;
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;

@@ -12,16 +12,12 @@
 //#define Obscure_UIPopUp_h
 @interface UIPopUp: NSObject
 {
-    SKSpriteNode* banner;
-    
-    
-    //SKTexture* image;
+    SKSpriteNode* sprite;
     CGFloat screenWidth;
     CGFloat screenHeight;
 }
 
-@property SKSpriteNode * banner;
-
+@property SKSpriteNode * sprite;
 -(void)displayPopUp:(NSString*)Name;
 
 @end
