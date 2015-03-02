@@ -16,11 +16,11 @@
 -(void)displayPopUp:(NSString*)Name
 {
     if([Name isEqual:@"win"])
-        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"win.jpeg"];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
     else if([Name isEqual:@"lose"])
-        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"loser.png"];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
     else if([Name isEqual:@"gyro" ])
-        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"move.png"];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
     [sprite setName:@"popup"];
     [sprite setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [sprite setSize:CGSizeMake(sprite.size.width, sprite.size.height)];

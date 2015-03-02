@@ -19,6 +19,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#include <SceneKit/SceneKit.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreImage/CoreImage.h>
@@ -28,6 +29,7 @@
 
 #import "Sound.h"
 #import "Monster.h"
+#import "MonsterHologram.h"
 #import "Gyroscope.h"
 #import "UIPopUp.h"
 
@@ -37,6 +39,8 @@
     NSArray *monsters;
     Monster *monster;
     Monster *monster2;
+    
+    MonsterHologram *monsterH;
     
     SKSpriteNode *static1;
     BOOL monsterReachedYou;

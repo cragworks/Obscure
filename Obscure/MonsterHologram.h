@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#include <SceneKit/SceneKit.h>
 
 #define DMG 10
 
