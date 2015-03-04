@@ -11,6 +11,11 @@
         screenWidth = screenRect.size.width;
         screenHeight = screenRect.size.height;
         [self setVariables];
+        
+//        SK3DNode *alien3D = [[SK3DNode alloc] initWithViewportSize:CGSizeMake(200, 200)];
+//        SCNScene *alienSCN = [SCNScene sceneNamed:@"cat.dae"];
+//        alien3D.scnScene = alienSCN;
+//        [self addChild:alien3D];
     }
     gyroscope = [[Gyroscope alloc] init];
     return self;
@@ -23,7 +28,7 @@
     msec = 0;
     
     soundPlayer = [[Sound alloc] init];
-    [soundPlayer playSoundForever:@"introtrackloop"];
+    [soundPlayer playSoundForever:@"splat_city"];
     
     sound = [[Sound alloc] init];
     soundSfx = [[Sound alloc] init];
@@ -35,13 +40,76 @@
     [self addChild:monster.sprite];
     [monster monsterMovement];
     [monster attack];
+    
+    MonsterHologram* mH1 = [[MonsterHologram alloc] init:screenWidth/2 :screenHeight/2 :300 :300];
+    [self addChild:mH1.sprite];
+    
+    MonsterHologram* mH2 = [[MonsterHologram alloc] init:0 :screenHeight*2 :100 :300];
+    [self addChild:mH2.sprite];
+    
+    MonsterHologram* mH3 = [[MonsterHologram alloc] init:screenWidth*2 :0 :300 :50];
+    [self addChild:mH3.sprite];
+    
+    MonsterHologram* mH4 = [[MonsterHologram alloc] init:0 :0 :300 :1000];
+    [self addChild:mH4.sprite];
+    
+    banner = [[UIPopUp alloc]init];
+    [banner displayPopUp:@"win"];
+    [self addChild:banner.sprite];
+}
+
+-(NSMutableArray*)getAllNonUISprites
+{
+    NSMutableArray* allSprites = [NSMutableArray arrayWithObjects:nil];
+    for(int i = 0; i < [self children].count; i++)
+    {
+        SKSpriteNode* tempSprite = self.children[i];
+        if([tempSprite.name isEqualToString: @"UI"] == NO)
+            [allSprites addObject:self.children[i]];
+    }
+    
+    return allSprites;
 }
 
 -(void)update:(NSTimeInterval)currentTime
 {
     msec++;
-    [gyroscope moveSprite:monster.sprite];
-    [gyroscope update:monsters];
+    
+    NSMutableArray* allSprites = [self getAllNonUISprites];
+    [gyroscope update:allSprites];
+}
+
+-(int)genRandNum :(int)min :(int)max
+{
+    int randNum = min + arc4random_uniform(max - min + 1);
+    return randNum;
+}
+
+-(void)addSplat
+{
+    int randNum = [self genRandNum :0 :1];
+    SKSpriteNode* splat;
+    if(randNum == 0)
+        splat = [SKSpriteNode spriteNodeWithImageNamed:@"splat_green"];
+    else if(randNum == 1)
+        splat = [SKSpriteNode spriteNodeWithImageNamed:@"splat_yellow"];
+    [self addChild:splat];
+    [splat setPosition:CGPointMake(screenWidth/2, screenHeight/4)];
+    [splat setScale:4];
+    
+    int randOffset = [self genRandNum:-50 :50];
+    CGPoint centerPt = CGPointMake(screenWidth/2 + randOffset, screenHeight/2 + randOffset);
+    SKAction* moveToCenter = [SKAction moveTo:centerPt duration:0.1];
+    SKAction* getSmaller = [SKAction resizeToWidth:50 height:50 duration:0.05];
+    [splat runAction:moveToCenter];
+    int randSqueezeOffset = [self genRandNum:0 :100];
+    SKAction* squeezeInOrOut = [SKAction resizeByWidth:randSqueezeOffset height:randSqueezeOffset duration:0.3];
+    [splat runAction: squeezeInOrOut];
+    SKAction* fadeOut = [SKAction fadeAlphaTo:0 duration:1 ];
+    NSArray* array = [NSArray arrayWithObjects:getSmaller, fadeOut, nil];
+    [splat runAction: [SKAction sequence:array] completion:^(void){
+        [splat removeFromParent];
+    }];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -49,6 +117,9 @@
     NSArray *allTouches = [[event allTouches] allObjects];
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint location = [touch locationInNode:self];
+    
+    [soundSfx playSound:@"splat"];
+    [self addSplat];
     
     if ([allTouches count] > 1)
         return;
@@ -59,6 +130,14 @@
             //decrease monster's hp
             [sound playSound:@"ouch"];
             //[self flash];
+        }
+        else if([[self nodeAtPoint:location].name isEqualToString:banner.sprite.name])
+        {
+            [banner.sprite removeFromParent];
+        }
+        else if([[self nodeAtPoint:location].name isEqualToString:@"RESET"])
+        {
+            [banner.sprite removeFromParent];
         }
     }
 }
@@ -101,18 +180,23 @@
 {
     //grid overlay
     SKSpriteNode *overlay = [SKSpriteNode spriteNodeWithImageNamed:@"combatUI-overlayfilter.png"];
+    [overlay setName:@"UI"];
     [overlay setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [overlay setSize:CGSizeMake(screenWidth, screenHeight)];
     [overlay setZPosition:-2];
     
     //ui decal
     SKSpriteNode *decal = [SKSpriteNode spriteNodeWithImageNamed:@"ui-Decal.png"];
+    [decal setName:@"UI"];
+    [decal setAlpha:0.5];
     [decal setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
     [decal setSize:CGSizeMake(screenWidth, screenHeight)];
     [decal setZPosition:-1];
     
     //pause button
     SKSpriteNode *pause = [SKSpriteNode spriteNodeWithImageNamed:@"pause-button.png"];
+    [pause setName:@"UI"];
+    [pause setAlpha:0.5];
     float pause_height = pause.size.height*0.6;
     float pause_width = pause.size.width*0.6;
     [pause setPosition:CGPointMake(screenWidth-pause_width, screenHeight-pause_height)];
@@ -121,22 +205,45 @@
     
     //target cross hair
     SKSpriteNode *crosshair = [SKSpriteNode spriteNodeWithImageNamed:@"targetcrosshair.png"];
+    [crosshair setName:@"UI"];
     // to be changed to position of monster. this is just to test
-    [crosshair setPosition:CGPointMake(screenWidth/3, screenHeight/3)];
-    [crosshair setSize:CGSizeMake(crosshair.size.width*0.5, crosshair.size.height*0.5)];
-    [crosshair setZPosition:-1];
+    [crosshair setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [crosshair setSize:CGSizeMake(100,100)];
+    [crosshair setZPosition:5];
+    [crosshair setAlpha:0.5];
+    SKAction* rotateRight = [SKAction rotateToAngle:0.5 duration:0.5];
+    SKAction* rotateLeft = [SKAction rotateToAngle:-0.5 duration:0.5];
+    SKAction* rotateRightLeft = [SKAction sequence: [NSArray arrayWithObjects:rotateRight, rotateLeft, nil]];
+    [crosshair runAction: [SKAction repeatActionForever: rotateRightLeft]];
     
     //katana
     SKSpriteNode *katana = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana.png"];
+    [katana setName:@"UI"];
     [katana setPosition:CGPointMake(screenWidth*0.875 - katana.size.width, screenHeight*0.3 - katana.size.height)];
     [katana setSize:CGSizeMake(katana.size.width*0.6, katana.size.height*0.6)];
     [katana setZPosition:-1];
+    
+    //splat
+    SKSpriteNode *splatUI = [SKSpriteNode spriteNodeWithImageNamed:@"splat_ui.png"];
+    [splatUI setName:@"UI"];
+    [splatUI setPosition: CGPointMake(screenWidth*0.725, screenHeight*0.1)];
+    [splatUI setSize:CGSizeMake(splatUI.size.width*0.4, splatUI.size.height*0.4)];
+    [splatUI setZPosition:-5];
+    [splatUI setAlpha:0.5];
+    SKAction* squeezeDown = [SKAction resizeToWidth:splatUI.size.width/1.25 height:splatUI.size.height/1.25 duration:1];
+    SKAction* squeezeUp = [SKAction resizeToWidth:splatUI.size.width*1.25 height:splatUI.size.height*1.25 duration:1];
+    SKAction* squeezeDownUp = [SKAction sequence: [NSArray arrayWithObjects:squeezeDown, squeezeUp, nil]];
+    [splatUI runAction: [SKAction repeatActionForever: squeezeDownUp]];
     
     //[overlay setSize: CGPointMake(100, 100)];
     [self addChild:overlay];
     [self addChild:decal];
     [self addChild:pause];
-    [self addChild:katana];
+    [self addChild:crosshair];
+    
+    //weapons
+    //[self addChild:katana];
+    [self addChild:splatUI];
 }
 
 //if player is being attacked by monster

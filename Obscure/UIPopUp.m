@@ -1,12 +1,14 @@
 #import "UIPopUp.h"
 @implementation UIPopUp
-@synthesize banner;
+@synthesize sprite;
 
 - (id)init
 {
-    if (self = [super init])
+    if(self = [super init])
     {
-        banner = [SKSpriteNode spriteNodeWithImageNamed:@"win.jpeg"];
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        screenWidth = screenRect.size.width;
+        screenHeight = screenRect.size.height;
     }
     return self;
 }
@@ -14,16 +16,15 @@
 -(void)displayPopUp:(NSString*)Name
 {
     if([Name isEqual:@"win"])
-        banner = [SKSpriteNode spriteNodeWithImageNamed:@"win.jpeg"];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
     else if([Name isEqual:@"lose"])
-        banner = [SKSpriteNode spriteNodeWithImageNamed:@"loser.png"];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
     else if([Name isEqual:@"gyro" ])
-        banner = [SKSpriteNode spriteNodeWithImageNamed:@"move.png"];
-
-    [banner setSize:CGSizeMake(50, 50)];
-    [banner setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
-    [banner setSize:CGSizeMake(banner.size.width, banner.size.height)];
-    [banner setZPosition:-1];
+        sprite = [SKSpriteNode spriteNodeWithImageNamed:@"catleft1"];
+    [sprite setName:@"popup"];
+    [sprite setPosition:CGPointMake(screenWidth/2, screenHeight/2)];
+    [sprite setSize:CGSizeMake(sprite.size.width, sprite.size.height)];
+    [sprite setZPosition:-1];
 }
 
 
