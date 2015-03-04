@@ -84,6 +84,30 @@
     return randNum;
 }
 
+-(void)addSword
+{
+    int randNum = [self genRandNum :0 :1];
+    SKSpriteNode* sword;
+    sword = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana.png"];
+    [self addChild:sword];
+    [sword setScale:3];
+    SKAction* moveAction;
+    
+    if(randNum==0)
+    {
+        [sword setPosition:CGPointMake(screenWidth/3, screenHeight/1.1)];
+        moveAction = [SKAction moveByX:screenWidth/2 y:-screenHeight/1.5 duration:0.25];
+    }
+    else if(randNum==1)
+    {
+        [sword setPosition:CGPointMake(screenWidth/1.5, screenHeight/1.1)];
+        moveAction = [SKAction moveByX:-screenWidth/3 y:-screenHeight/1.5 duration:0.25];
+    }
+    [sword runAction:moveAction completion:^(void){
+                                        [sword removeFromParent];
+                                            }];
+}
+
 -(void)addSplat
 {
     int randNum = [self genRandNum :0 :1];
@@ -119,6 +143,7 @@
     
     [soundSfx playSound:@"splat"];
     [self addSplat];
+    [self addSword];
     
     if ([allTouches count] > 1)
         return;
