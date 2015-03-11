@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310D7B881AA6BE280095C73A /* temp_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 310D7B871AA6BE280095C73A /* temp_bg.jpg */; };
 		311687921A33D962006E078E /* catleft1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878C1A33D961006E078E /* catleft1.png */; };
 		311687931A33D962006E078E /* catleft2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878D1A33D961006E078E /* catleft2.png */; };
 		311687941A33D962006E078E /* catmain1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3116878E1A33D961006E078E /* catmain1.png */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310D7B871AA6BE280095C73A /* temp_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temp_bg.jpg; sourceTree = "<group>"; };
 		3116878C1A33D961006E078E /* catleft1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft1.png; sourceTree = "<group>"; };
 		3116878D1A33D961006E078E /* catleft2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catleft2.png; sourceTree = "<group>"; };
 		3116878E1A33D961006E078E /* catmain1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catmain1.png; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		4345571E1A2E805F0064FDD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				310D7B871AA6BE280095C73A /* temp_bg.jpg */,
 				439F0B8D1AA3E49C00D7435E /* splat */,
 				439F0B831AA3D64100D7435E /* CAT3D.atlas */,
 				43D781451AA3113700C195A4 /* cat.scnassets */,
@@ -538,6 +541,7 @@
 				43B7E8BB1A3553B300048298 /* OBSCURE-TITLE2.png in Resources */,
 				49B4BD3D1A31614900C59D9B /* pause-button@2x.png in Resources */,
 				43B7E8B41A3538F100048298 /* firework.sks in Resources */,
+				310D7B881AA6BE280095C73A /* temp_bg.jpg in Resources */,
 				439F0B8A1AA3E1BC00D7435E /* splat_city.aiff in Resources */,
 				437752EF1A33FDE800FC04A7 /* combatUI-overlayfilter@2x.png in Resources */,
 				43B7E8BE1A3554B400048298 /* introtrackloop.aiff in Resources */,

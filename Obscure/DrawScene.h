@@ -63,6 +63,8 @@
     
     SKSpriteNode *reticule;
     
+    SKSpriteNode *bg;
+    
     Boolean stillTakingScreenshot;
     
     Sound *sound;

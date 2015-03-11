@@ -18,7 +18,16 @@
 //        [self addChild:alien3D];
     }
     gyroscope = [[Gyroscope alloc] init];
+    
+    bg = [SKSpriteNode spriteNodeWithImageNamed:@"temp_bg.jpg"];
+    [bg setPosition:CGPointMake(screenWidth / 2, screenHeight / 2)];
+    [bg setZPosition:-1.0];
+    [self addChild:bg];
+    
+    NSLog(@"screenwidth%f%f", screenWidth, screenHeight);
+    
     return self;
+    
 }
 
 -(void)setVariables
@@ -77,6 +86,48 @@
     
     NSMutableArray* allSprites = [self getAllNonUISprites];
     [gyroscope update:allSprites];
+    
+    NSLog(@"bg%f%f", bg.position.x, bg.position.y);
+    
+    if (bg.position.x <= bg.size.width/2)
+    {
+        [bg setPosition:CGPointMake(bg.position.x + bg.size.width, bg.position.y)];
+        for (int i = 0; i < monsters.count; i++)
+        {
+            [self setPosition:CGPointMake(bg.position.x + bg.size.width, bg.position.y)];
+            
+        }
+    }
+    
+    if (bg.position.x >= bg.size.width/2)
+    {
+        [bg setPosition:CGPointMake(bg.position.x - bg.size.width, bg.position.y)];
+        for (int i = 0; i < monsters.count; i++)
+        {
+            [self setPosition:CGPointMake(bg.position.x - bg.size.width, bg.position.y)];
+            
+        }
+    }
+    
+    if ((bg.position.y - 300)<= bg.size.height/2)
+    {
+        [bg setPosition:CGPointMake(bg.position.x, bg.position.y + bg.size.height)];
+        for (int i = 0; i < monsters.count; i++)
+        {
+            [self setPosition:CGPointMake(bg.position.x, bg.position.y + bg.size.height+screenHeight)];
+            
+        }
+    }
+    
+    if (bg.position.y -300>= bg.size.height/2)
+    {
+        [bg setPosition:CGPointMake(bg.position.x, bg.position.y - bg.size.height)];
+        for (int i = 0; i < monsters.count; i++)
+        {
+            [self setPosition:CGPointMake(bg.position.x, bg.position.y - bg.size.height)];
+            
+        }
+    }
 }
 
 -(int)genRandNum :(int)min :(int)max
