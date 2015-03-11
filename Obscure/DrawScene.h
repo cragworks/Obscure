@@ -93,6 +93,8 @@
     int msec;
     Gyroscope *gyroscope;
     UIPopUp *banner;
+    
+    int pWeapon; //0 = splat; 1 = sword
 }
 
 @property (strong, nonatomic) CMMotionManager *motionManager;

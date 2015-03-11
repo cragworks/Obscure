@@ -65,6 +65,8 @@
     banner = [[UIPopUp alloc]init];
     [banner displayPopUp:@"win"];
     [self addChild:banner.sprite];
+    
+    pWeapon = 0;
 }
 
 -(NSMutableArray*)getAllNonUISprites
@@ -136,8 +138,33 @@
     return randNum;
 }
 
+-(void)addSword
+{
+    int randNum = [self genRandNum :0 :1];
+    SKSpriteNode* sword;
+    sword = [SKSpriteNode spriteNodeWithImageNamed:@"weapon-katana.png"];
+    [self addChild:sword];
+    [sword setScale:3];
+    SKAction* moveAction;
+    
+    if(randNum==0)
+    {
+        [sword setPosition:CGPointMake(screenWidth/3, screenHeight/1.1)];
+        moveAction = [SKAction moveByX:screenWidth/2 y:-screenHeight/1.5 duration:0.25];
+    }
+    else if(randNum==1)
+    {
+        [sword setPosition:CGPointMake(screenWidth/1.5, screenHeight/1.1)];
+        moveAction = [SKAction moveByX:-screenWidth/3 y:-screenHeight/1.5 duration:0.25];
+    }
+    [sword runAction:moveAction completion:^(void){
+                                        [sword removeFromParent];
+                                            }];
+}
+
 -(void)addSplat
 {
+    [soundSfx playSound:@"splat"];
     int randNum = [self genRandNum :0 :1];
     SKSpriteNode* splat;
     if(randNum == 0)
@@ -163,14 +190,26 @@
     }];
 }
 
+-(void)useWeapon
+{
+    switch (pWeapon)
+    {
+        case 0:
+            [self addSplat];
+            break;
+        case 1:
+            [self addSword];
+            break;
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSArray *allTouches = [[event allTouches] allObjects];
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint location = [touch locationInNode:self];
     
-    [soundSfx playSound:@"splat"];
-    [self addSplat];
+    [self useWeapon];
     
     if ([allTouches count] > 1)
         return;
