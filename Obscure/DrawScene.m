@@ -55,6 +55,8 @@
     banner = [[UIPopUp alloc]init];
     [banner displayPopUp:@"win"];
     [self addChild:banner.sprite];
+    
+    pWeapon = 0;
 }
 
 -(NSMutableArray*)getAllNonUISprites
@@ -110,6 +112,7 @@
 
 -(void)addSplat
 {
+    [soundSfx playSound:@"splat"];
     int randNum = [self genRandNum :0 :1];
     SKSpriteNode* splat;
     if(randNum == 0)
@@ -135,15 +138,26 @@
     }];
 }
 
+-(void)useWeapon
+{
+    switch (pWeapon)
+    {
+        case 0:
+            [self addSplat];
+            break;
+        case 1:
+            [self addSword];
+            break;
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSArray *allTouches = [[event allTouches] allObjects];
     UITouch *touch = [allTouches objectAtIndex:0];
     CGPoint location = [touch locationInNode:self];
     
-    [soundSfx playSound:@"splat"];
-    [self addSplat];
-    [self addSword];
+    [self useWeapon];
     
     if ([allTouches count] > 1)
         return;
